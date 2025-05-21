@@ -1,0 +1,84 @@
+{
+  "Akkustand": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Goodwe"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Point"
+      ],
+      "label": "Akkustand",
+      "category": ""
+    }
+  },
+  "Goodwe": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Group",
+      "tags": [
+        "Equipment"
+      ],
+      "label": "Goodwe",
+      "category": "solarplant"
+    }
+  },
+  "Goodwe_Live_Data_Value_as_Number": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Goodwe"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Point"
+      ],
+      "label": "Aktueller PV Ertrag / Watt",
+      "category": "energy"
+    }
+  },
+  "HauptstromzaehlerEinspeisung": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [
+        "Energy",
+        "Location",
+        "Measurement"
+      ],
+      "label": "Hauptstromzähler Einspeisung",
+      "category": "cellar"
+    }
+  },
+  "HauptstromzaehlerPower": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [
+        "Energy",
+        "Location",
+        "Measurement"
+      ],
+      "label": "Aktueller Verbrauch",
+      "category": "cellar"
+    }
+  },
+  "HauptstromzaehlerVerbrauch": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [
+        "Energy",
+        "Location",
+        "Measurement"
+      ],
+      "label": "Hauptstromzähler Verbrauch",
+      "category": "cellar"
+    }
+  }
+}

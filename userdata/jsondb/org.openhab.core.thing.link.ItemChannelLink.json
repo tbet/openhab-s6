@@ -1,0 +1,103 @@
+{
+  "Akkustand -\u003e modbus:data:GoodwePollLivedata:GoodweLiveData:number": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "modbus",
+          "data",
+          "GoodwePollLivedata",
+          "GoodweLiveData",
+          "number"
+        ],
+        "uid": "modbus:data:GoodwePollLivedata:GoodweLiveData:number"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Akkustand"
+    }
+  },
+  "Goodwe_Live_Data_Value_as_Number -\u003e modbus:data:GoodwePollLivedata:GoodweLiveData:number": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "modbus",
+          "data",
+          "GoodwePollLivedata",
+          "GoodweLiveData",
+          "number"
+        ],
+        "uid": "modbus:data:GoodwePollLivedata:GoodweLiveData:number"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Goodwe_Live_Data_Value_as_Number"
+    }
+  },
+  "HauptstromzaehlerEinspeisung -\u003e http:url:69363a4913:HauptstromzaehlerEinspeisung": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "http",
+          "url",
+          "69363a4913",
+          "HauptstromzaehlerEinspeisung"
+        ],
+        "uid": "http:url:69363a4913:HauptstromzaehlerEinspeisung"
+      },
+      "configuration": {
+        "properties": {
+          "function": "JSONPATH:$.v_2_8_0",
+          "profile": "transform:JSONPATH"
+        }
+      },
+      "itemName": "HauptstromzaehlerEinspeisung"
+    }
+  },
+  "HauptstromzaehlerPower -\u003e http:url:69363a4913:HauptstromzaehlerPower": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "http",
+          "url",
+          "69363a4913",
+          "HauptstromzaehlerPower"
+        ],
+        "uid": "http:url:69363a4913:HauptstromzaehlerPower"
+      },
+      "configuration": {
+        "properties": {
+          "function": "JSONPATH:$.power",
+          "profile": "transform:JSONPATH"
+        }
+      },
+      "itemName": "HauptstromzaehlerPower"
+    }
+  },
+  "HauptstromzaehlerVerbrauch -\u003e http:url:69363a4913:HauptstromzaehlerVerbrauch": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "http",
+          "url",
+          "69363a4913",
+          "HauptstromzaehlerVerbrauch"
+        ],
+        "uid": "http:url:69363a4913:HauptstromzaehlerVerbrauch"
+      },
+      "configuration": {
+        "properties": {
+          "function": "JSONPATH:$.v_1_8_0",
+          "profile": "transform:JSONPATH"
+        }
+      },
+      "itemName": "HauptstromzaehlerVerbrauch"
+    }
+  }
+}

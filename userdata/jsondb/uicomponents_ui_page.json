@@ -1,0 +1,94 @@
+{
+  "overview": {
+    "class": "org.openhab.core.ui.components.RootUIComponent",
+    "value": {
+      "uid": "overview",
+      "tags": [],
+      "props": {
+        "parameters": [],
+        "parameterGroups": []
+      },
+      "timestamp": "Oct 2, 2024, 7:04:20 AM",
+      "component": "oh-layout-page",
+      "config": {
+        "label": "Overview"
+      },
+      "slots": {
+        "default": [
+          {
+            "component": "oh-block",
+            "config": {},
+            "slots": {
+              "default": [
+                {
+                  "component": "oh-grid-cells",
+                  "config": {},
+                  "slots": {
+                    "default": [
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "HauptstromzaehlerPower"
+                          ],
+                          "expandable": false,
+                          "item": "HauptstromzaehlerPower",
+                          "stateAsHeader": true,
+                          "title": "Netzbezug",
+                          "trendItem": "HauptstromzaehlerPower"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "HauptstromzaehlerEinspeisung"
+                          ],
+                          "expandable": false,
+                          "item": "HauptstromzaehlerEinspeisung",
+                          "stateAsHeader": true,
+                          "title": "Hauptstromzähler Einspeisung",
+                          "trendItem": "HauptstromzaehlerEinspeisung"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "HauptstromzaehlerVerbrauch"
+                          ],
+                          "expandable": false,
+                          "item": "HauptstromzaehlerVerbrauch",
+                          "stateAsHeader": true,
+                          "title": "Hauptstromzähler Verbrauch",
+                          "trendItem": "HauptstromzaehlerVerbrauch"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "Goodwe_Live_Data_Value_as_Number"
+                          ],
+                          "expandable": false,
+                          "item": "Goodwe_Live_Data_Value_as_Number",
+                          "stateAsHeader": true,
+                          "title": "PV\u0026Stromspeicher",
+                          "trendItem": "Goodwe_Live_Data_Value_as_Number"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}
