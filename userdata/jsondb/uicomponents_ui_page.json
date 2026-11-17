@@ -96,6 +96,22 @@
                           "title": "Akkustand",
                           "trendItem": "Akkustand"
                         }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "Akku_SOH"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:batterylevel",
+                          "item": "Akku_SOH",
+                          "label": "\u003dMath.round(Number.parseFloat(items.Akku_SOH.state)) + \u0027 %\u0027",
+                          "stateAsHeader": true,
+                          "title": "Akku Gesundheit (SOH)",
+                          "trendItem": "Akku_SOH"
+                        }
                       }
                     ]
                   }

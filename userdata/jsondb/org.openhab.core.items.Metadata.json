@@ -1,4 +1,20 @@
 {
+  "stateDescription:Akku_SOH": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "Akku_SOH"
+        ],
+        "uid": "stateDescription:Akku_SOH"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.0f %%"
+      }
+    }
+  },
   "stateDescription:Akkustand": {
     "class": "org.openhab.core.items.Metadata",
     "value": {

@@ -1,4 +1,23 @@
 {
+  "Akku_SOH -\u003e modbus:data:GoodwePollLivedata:GoodweSoh:number": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "modbus",
+          "data",
+          "GoodwePollLivedata",
+          "GoodweSoh",
+          "number"
+        ],
+        "uid": "modbus:data:GoodwePollLivedata:GoodweSoh:number"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Akku_SOH"
+    }
+  },
   "Akkustand -\u003e modbus:data:GoodwePollLivedata:12a12beb84:number": {
     "class": "org.openhab.core.thing.link.ItemChannelLink",
     "value": {

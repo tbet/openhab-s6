@@ -1,4 +1,18 @@
 {
+  "Akku_SOH": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Goodwe"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Point"
+      ],
+      "label": "Akku Gesundheit (SOH)",
+      "category": ""
+    }
+  },
   "Akkustand": {
     "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
     "value": {
