@@ -51,22 +51,46 @@
             "stateTransformation": "JSONPATH:$.power",
             "unit": "W"
           }
+        },
+        {
+          "uid": "http:url:69363a4913:last-success",
+          "id": "last-success",
+          "channelTypeUID": "http:request-date-time",
+          "itemType": "DateTime",
+          "kind": "STATE",
+          "label": "Last Success",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "http:url:69363a4913:last-failure",
+          "id": "last-failure",
+          "channelTypeUID": "http:request-date-time",
+          "itemType": "DateTime",
+          "kind": "STATE",
+          "label": "Last Failure",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
         }
       ],
       "label": "HTTP URL Thing",
       "configuration": {
         "authMode": "BASIC",
         "baseURL": "http://pi-8g:8080/energy",
-        "bufferSize": 2048,
+        "bufferSize": 2048.0,
         "commandMethod": "GET",
         "contentType": "application/json",
-        "delay": 0,
+        "delay": 0.0,
         "ignoreSSLErrors": false,
-        "refresh": 5,
+        "refresh": 5.0,
         "stateMethod": "GET",
-        "timeout": 3000
+        "timeout": 3000.0
       },
-      "properties": {},
+      "properties": {
+        "thingTypeVersion": "2"
+      },
       "UID": "http:url:69363a4913",
       "thingTypeUID": "http:url"
     }
@@ -212,13 +236,17 @@
       "label": "Goodwe Live Data Akku",
       "bridgeUID": "modbus:poller:1ef6d84179",
       "configuration": {
-        "readStart": "37008",
-        "readTransform": "default",
-        "readValueType": "int16",
+        "readStart": "37007",
+        "readTransform": [
+          "default"
+        ],
+        "readValueType": "uint16",
         "updateUnchangedValuesEveryMillis": 1000,
         "writeMaxTries": 3,
         "writeMultipleEvenWithSingleRegisterOrCoil": false,
-        "writeTransform": "default"
+        "writeTransform": [
+          "default"
+        ]
       },
       "properties": {},
       "UID": "modbus:data:GoodwePollLivedata:12a12beb84",
