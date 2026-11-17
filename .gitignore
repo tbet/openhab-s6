@@ -44,3 +44,7 @@ addons/*.jar
 addons/lib/
 addons/tmp/
 
+# Zugangsdaten und automatische Backups
+userdata/jsondb/users.json
+userdata/jsondb/backup/
+
