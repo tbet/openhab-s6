@@ -30,5 +30,53 @@
         "pattern": "%.0f %%"
       }
     }
+  },
+  "stateDescription:Goodwe_PV1_Power": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "Goodwe_PV1_Power"
+        ],
+        "uid": "stateDescription:Goodwe_PV1_Power"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.0f W"
+      }
+    }
+  },
+  "stateDescription:Goodwe_PV2_Power": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "Goodwe_PV2_Power"
+        ],
+        "uid": "stateDescription:Goodwe_PV2_Power"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.0f W"
+      }
+    }
+  },
+  "stateDescription:Goodwe_PV_Total_Power": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "Goodwe_PV_Total_Power"
+        ],
+        "uid": "stateDescription:Goodwe_PV_Total_Power"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.0f W"
+      }
+    }
   }
 }

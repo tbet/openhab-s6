@@ -407,6 +407,314 @@
       "thingTypeUID": "modbus:data"
     }
   },
+  "modbus:data:GoodwePollLivedata:GoodwePv1": {
+    "class": "org.openhab.core.thing.internal.ThingStorageEntity",
+    "value": {
+      "isBridge": false,
+      "channels": [
+        {
+          "uid": "modbus:data:GoodwePollLivedata:GoodwePv1:number",
+          "id": "number",
+          "channelTypeUID": "modbus:number-type",
+          "itemType": "Number",
+          "kind": "STATE",
+          "label": "Value as Number",
+          "description": "Number item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollLivedata:GoodwePv1:switch",
+          "id": "switch",
+          "channelTypeUID": "modbus:switch-type",
+          "itemType": "Switch",
+          "kind": "STATE",
+          "label": "Value as Switch",
+          "description": "Switch item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollLivedata:GoodwePv1:contact",
+          "id": "contact",
+          "channelTypeUID": "modbus:contact-type",
+          "itemType": "Contact",
+          "kind": "STATE",
+          "label": "Value as Contact",
+          "description": "Contact item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollLivedata:GoodwePv1:dimmer",
+          "id": "dimmer",
+          "channelTypeUID": "modbus:dimmer-type",
+          "itemType": "Dimmer",
+          "kind": "STATE",
+          "label": "Value as Dimmer",
+          "description": "Dimmer item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollLivedata:GoodwePv1:datetime",
+          "id": "datetime",
+          "channelTypeUID": "modbus:datetime-type",
+          "itemType": "DateTime",
+          "kind": "STATE",
+          "label": "Value as DateTime",
+          "description": "DateTime item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollLivedata:GoodwePv1:string",
+          "id": "string",
+          "channelTypeUID": "modbus:string-type",
+          "itemType": "String",
+          "kind": "STATE",
+          "label": "Value as String",
+          "description": "String item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollLivedata:GoodwePv1:rollershutter",
+          "id": "rollershutter",
+          "channelTypeUID": "modbus:rollershutter-type",
+          "itemType": "Rollershutter",
+          "kind": "STATE",
+          "label": "Value as Rollershutter",
+          "description": "Rollershutter item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollLivedata:GoodwePv1:lastReadSuccess",
+          "id": "lastReadSuccess",
+          "channelTypeUID": "modbus:last-successful-read-type",
+          "itemType": "DateTime",
+          "kind": "STATE",
+          "label": "Last Successful Read",
+          "description": "Date of last read",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollLivedata:GoodwePv1:lastReadError",
+          "id": "lastReadError",
+          "channelTypeUID": "modbus:last-erroring-read-type",
+          "itemType": "DateTime",
+          "kind": "STATE",
+          "label": "Last Erroring Read",
+          "description": "Date of last read error",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollLivedata:GoodwePv1:lastWriteSuccess",
+          "id": "lastWriteSuccess",
+          "channelTypeUID": "modbus:last-successful-write-type",
+          "itemType": "DateTime",
+          "kind": "STATE",
+          "label": "Last Successful Write",
+          "description": "Date of last write",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollLivedata:GoodwePv1:lastWriteError",
+          "id": "lastWriteError",
+          "channelTypeUID": "modbus:last-erroring-write-type",
+          "itemType": "DateTime",
+          "kind": "STATE",
+          "label": "Last Erroring Write",
+          "description": "Date of last write error",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        }
+      ],
+      "label": "Goodwe Live Data PV1 Leistung",
+      "bridgeUID": "modbus:poller:Goodwe:GoodwePollLivedata",
+      "configuration": {
+        "readStart": "35105",
+        "readTransform": "default",
+        "readValueType": "uint32",
+        "updateUnchangedValuesEveryMillis": 1000,
+        "writeMaxTries": 3,
+        "writeMultipleEvenWithSingleRegisterOrCoil": false,
+        "writeTransform": "default"
+      },
+      "properties": {},
+      "UID": "modbus:data:GoodwePollLivedata:GoodwePv1",
+      "thingTypeUID": "modbus:data"
+    }
+  },
+  "modbus:data:GoodwePollLivedata:GoodwePv2": {
+    "class": "org.openhab.core.thing.internal.ThingStorageEntity",
+    "value": {
+      "isBridge": false,
+      "channels": [
+        {
+          "uid": "modbus:data:GoodwePollLivedata:GoodwePv2:number",
+          "id": "number",
+          "channelTypeUID": "modbus:number-type",
+          "itemType": "Number",
+          "kind": "STATE",
+          "label": "Value as Number",
+          "description": "Number item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollLivedata:GoodwePv2:switch",
+          "id": "switch",
+          "channelTypeUID": "modbus:switch-type",
+          "itemType": "Switch",
+          "kind": "STATE",
+          "label": "Value as Switch",
+          "description": "Switch item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollLivedata:GoodwePv2:contact",
+          "id": "contact",
+          "channelTypeUID": "modbus:contact-type",
+          "itemType": "Contact",
+          "kind": "STATE",
+          "label": "Value as Contact",
+          "description": "Contact item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollLivedata:GoodwePv2:dimmer",
+          "id": "dimmer",
+          "channelTypeUID": "modbus:dimmer-type",
+          "itemType": "Dimmer",
+          "kind": "STATE",
+          "label": "Value as Dimmer",
+          "description": "Dimmer item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollLivedata:GoodwePv2:datetime",
+          "id": "datetime",
+          "channelTypeUID": "modbus:datetime-type",
+          "itemType": "DateTime",
+          "kind": "STATE",
+          "label": "Value as DateTime",
+          "description": "DateTime item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollLivedata:GoodwePv2:string",
+          "id": "string",
+          "channelTypeUID": "modbus:string-type",
+          "itemType": "String",
+          "kind": "STATE",
+          "label": "Value as String",
+          "description": "String item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollLivedata:GoodwePv2:rollershutter",
+          "id": "rollershutter",
+          "channelTypeUID": "modbus:rollershutter-type",
+          "itemType": "Rollershutter",
+          "kind": "STATE",
+          "label": "Value as Rollershutter",
+          "description": "Rollershutter item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollLivedata:GoodwePv2:lastReadSuccess",
+          "id": "lastReadSuccess",
+          "channelTypeUID": "modbus:last-successful-read-type",
+          "itemType": "DateTime",
+          "kind": "STATE",
+          "label": "Last Successful Read",
+          "description": "Date of last read",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollLivedata:GoodwePv2:lastReadError",
+          "id": "lastReadError",
+          "channelTypeUID": "modbus:last-erroring-read-type",
+          "itemType": "DateTime",
+          "kind": "STATE",
+          "label": "Last Erroring Read",
+          "description": "Date of last read error",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollLivedata:GoodwePv2:lastWriteSuccess",
+          "id": "lastWriteSuccess",
+          "channelTypeUID": "modbus:last-successful-write-type",
+          "itemType": "DateTime",
+          "kind": "STATE",
+          "label": "Last Successful Write",
+          "description": "Date of last write",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollLivedata:GoodwePv2:lastWriteError",
+          "id": "lastWriteError",
+          "channelTypeUID": "modbus:last-erroring-write-type",
+          "itemType": "DateTime",
+          "kind": "STATE",
+          "label": "Last Erroring Write",
+          "description": "Date of last write error",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        }
+      ],
+      "label": "Goodwe Live Data PV2 Leistung",
+      "bridgeUID": "modbus:poller:Goodwe:GoodwePollLivedata",
+      "configuration": {
+        "readStart": "35109",
+        "readTransform": "default",
+        "readValueType": "uint32",
+        "updateUnchangedValuesEveryMillis": 1000,
+        "writeMaxTries": 3,
+        "writeMultipleEvenWithSingleRegisterOrCoil": false,
+        "writeTransform": "default"
+      },
+      "properties": {},
+      "UID": "modbus:data:GoodwePollLivedata:GoodwePv2",
+      "thingTypeUID": "modbus:data"
+    }
+  },
   "modbus:data:GoodwePollLivedata:GoodweSoh": {
     "class": "org.openhab.core.thing.internal.ThingStorageEntity",
     "value": {

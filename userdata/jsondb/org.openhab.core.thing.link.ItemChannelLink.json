@@ -56,6 +56,44 @@
       "itemName": "Goodwe_Live_Data_Value_as_Number"
     }
   },
+  "Goodwe_PV1_Power -\u003e modbus:data:GoodwePollLivedata:GoodwePv1:number": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "modbus",
+          "data",
+          "GoodwePollLivedata",
+          "GoodwePv1",
+          "number"
+        ],
+        "uid": "modbus:data:GoodwePollLivedata:GoodwePv1:number"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Goodwe_PV1_Power"
+    }
+  },
+  "Goodwe_PV2_Power -\u003e modbus:data:GoodwePollLivedata:GoodwePv2:number": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "modbus",
+          "data",
+          "GoodwePollLivedata",
+          "GoodwePv2",
+          "number"
+        ],
+        "uid": "modbus:data:GoodwePollLivedata:GoodwePv2:number"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Goodwe_PV2_Power"
+    }
+  },
   "HauptstromzaehlerEinspeisung -\u003e http:url:69363a4913:HauptstromzaehlerEinspeisung": {
     "class": "org.openhab.core.thing.link.ItemChannelLink",
     "value": {

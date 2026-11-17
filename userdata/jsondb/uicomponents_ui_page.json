@@ -112,6 +112,51 @@
                           "title": "Akku Gesundheit (SOH)",
                           "trendItem": "Akku_SOH"
                         }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "Goodwe_PV1_Power"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:solarplant",
+                          "item": "Goodwe_PV1_Power",
+                          "stateAsHeader": true,
+                          "title": "PV Strang 1",
+                          "trendItem": "Goodwe_PV1_Power"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "Goodwe_PV2_Power"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:solarplant",
+                          "item": "Goodwe_PV2_Power",
+                          "stateAsHeader": true,
+                          "title": "PV Strang 2",
+                          "trendItem": "Goodwe_PV2_Power"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "Goodwe_PV_Total_Power"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:solarplant",
+                          "item": "Goodwe_PV_Total_Power",
+                          "stateAsHeader": true,
+                          "title": "PV Gesamtleistung",
+                          "trendItem": "Goodwe_PV_Total_Power"
+                        }
                       }
                     ]
                   }

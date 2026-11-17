@@ -53,6 +53,51 @@
       "category": "energy"
     }
   },
+  "Goodwe_PV1_Power": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Goodwe",
+        "Goodwe_PV_Total_Power"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Point"
+      ],
+      "label": "PV1 Leistung (Strang 1)",
+      "category": "solarplant"
+    }
+  },
+  "Goodwe_PV2_Power": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Goodwe",
+        "Goodwe_PV_Total_Power"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Point"
+      ],
+      "label": "PV2 Leistung (Strang 2)",
+      "category": "solarplant"
+    }
+  },
+  "Goodwe_PV_Total_Power": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Goodwe"
+      ],
+      "itemType": "Group",
+      "tags": [],
+      "label": "PV Gesamtleistung",
+      "category": "solarplant",
+      "baseItemType": "Number",
+      "functionName": "SUM",
+      "functionParams": []
+    }
+  },
   "HauptstromzaehlerEinspeisung": {
     "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
     "value": {
