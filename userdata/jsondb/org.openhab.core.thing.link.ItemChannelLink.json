@@ -37,6 +37,44 @@
       "itemName": "Akkustand"
     }
   },
+  "Goodwe_EMS_Mode -\u003e modbus:data:GoodwePollEms:EmsMode:number": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "modbus",
+          "data",
+          "GoodwePollEms",
+          "EmsMode",
+          "number"
+        ],
+        "uid": "modbus:data:GoodwePollEms:EmsMode:number"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Goodwe_EMS_Mode"
+    }
+  },
+  "Goodwe_EMS_Power -\u003e modbus:data:GoodwePollEms:EmsPower:number": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "modbus",
+          "data",
+          "GoodwePollEms",
+          "EmsPower",
+          "number"
+        ],
+        "uid": "modbus:data:GoodwePollEms:EmsPower:number"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Goodwe_EMS_Power"
+    }
+  },
   "Goodwe_Live_Data_Value_as_Number -\u003e modbus:data:GoodwePollLivedata:GoodweLiveData:number": {
     "class": "org.openhab.core.thing.link.ItemChannelLink",
     "value": {

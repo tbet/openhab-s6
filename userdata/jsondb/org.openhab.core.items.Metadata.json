@@ -1,4 +1,46 @@
 {
+  "autoupdate:Goodwe_EMS_Mode": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "autoupdate",
+          "Goodwe_EMS_Mode"
+        ],
+        "uid": "autoupdate:Goodwe_EMS_Mode"
+      },
+      "value": "false",
+      "configuration": {}
+    }
+  },
+  "autoupdate:Goodwe_EMS_Power": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "autoupdate",
+          "Goodwe_EMS_Power"
+        ],
+        "uid": "autoupdate:Goodwe_EMS_Power"
+      },
+      "value": "false",
+      "configuration": {}
+    }
+  },
+  "autoupdate:Goodwe_Netzladen": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "autoupdate",
+          "Goodwe_Netzladen"
+        ],
+        "uid": "autoupdate:Goodwe_Netzladen"
+      },
+      "value": "false",
+      "configuration": {}
+    }
+  },
   "stateDescription:Akku_SOH": {
     "class": "org.openhab.core.items.Metadata",
     "value": {
@@ -28,6 +70,22 @@
       "value": "",
       "configuration": {
         "pattern": "%.0f %%"
+      }
+    }
+  },
+  "stateDescription:Goodwe_EMS_Power": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "Goodwe_EMS_Power"
+        ],
+        "uid": "stateDescription:Goodwe_EMS_Power"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.0f W"
       }
     }
   },

@@ -95,6 +95,320 @@
       "thingTypeUID": "http:url"
     }
   },
+  "modbus:data:GoodwePollEms:EmsMode": {
+    "class": "org.openhab.core.thing.internal.ThingStorageEntity",
+    "value": {
+      "isBridge": false,
+      "channels": [
+        {
+          "uid": "modbus:data:GoodwePollEms:EmsMode:number",
+          "id": "number",
+          "channelTypeUID": "modbus:number-type",
+          "itemType": "Number",
+          "kind": "STATE",
+          "label": "Value as Number",
+          "description": "Number item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollEms:EmsMode:switch",
+          "id": "switch",
+          "channelTypeUID": "modbus:switch-type",
+          "itemType": "Switch",
+          "kind": "STATE",
+          "label": "Value as Switch",
+          "description": "Switch item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollEms:EmsMode:contact",
+          "id": "contact",
+          "channelTypeUID": "modbus:contact-type",
+          "itemType": "Contact",
+          "kind": "STATE",
+          "label": "Value as Contact",
+          "description": "Contact item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollEms:EmsMode:dimmer",
+          "id": "dimmer",
+          "channelTypeUID": "modbus:dimmer-type",
+          "itemType": "Dimmer",
+          "kind": "STATE",
+          "label": "Value as Dimmer",
+          "description": "Dimmer item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollEms:EmsMode:datetime",
+          "id": "datetime",
+          "channelTypeUID": "modbus:datetime-type",
+          "itemType": "DateTime",
+          "kind": "STATE",
+          "label": "Value as DateTime",
+          "description": "DateTime item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollEms:EmsMode:string",
+          "id": "string",
+          "channelTypeUID": "modbus:string-type",
+          "itemType": "String",
+          "kind": "STATE",
+          "label": "Value as String",
+          "description": "String item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollEms:EmsMode:rollershutter",
+          "id": "rollershutter",
+          "channelTypeUID": "modbus:rollershutter-type",
+          "itemType": "Rollershutter",
+          "kind": "STATE",
+          "label": "Value as Rollershutter",
+          "description": "Rollershutter item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollEms:EmsMode:lastReadSuccess",
+          "id": "lastReadSuccess",
+          "channelTypeUID": "modbus:last-successful-read-type",
+          "itemType": "DateTime",
+          "kind": "STATE",
+          "label": "Last Successful Read",
+          "description": "Date of last read",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollEms:EmsMode:lastReadError",
+          "id": "lastReadError",
+          "channelTypeUID": "modbus:last-erroring-read-type",
+          "itemType": "DateTime",
+          "kind": "STATE",
+          "label": "Last Erroring Read",
+          "description": "Date of last read error",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollEms:EmsMode:lastWriteSuccess",
+          "id": "lastWriteSuccess",
+          "channelTypeUID": "modbus:last-successful-write-type",
+          "itemType": "DateTime",
+          "kind": "STATE",
+          "label": "Last Successful Write",
+          "description": "Date of last write",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollEms:EmsMode:lastWriteError",
+          "id": "lastWriteError",
+          "channelTypeUID": "modbus:last-erroring-write-type",
+          "itemType": "DateTime",
+          "kind": "STATE",
+          "label": "Last Erroring Write",
+          "description": "Date of last write error",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        }
+      ],
+      "label": "Goodwe EMS Modus",
+      "bridgeUID": "modbus:poller:Goodwe:GoodwePollEms",
+      "configuration": {
+        "readStart": "47511",
+        "readTransform": "default",
+        "readValueType": "uint16",
+        "updateUnchangedValuesEveryMillis": 1000,
+        "writeMaxTries": 3,
+        "writeMultipleEvenWithSingleRegisterOrCoil": false,
+        "writeStart": "47511",
+        "writeTransform": "default",
+        "writeType": "holding",
+        "writeValueType": "int16"
+      },
+      "properties": {},
+      "UID": "modbus:data:GoodwePollEms:EmsMode",
+      "thingTypeUID": "modbus:data"
+    }
+  },
+  "modbus:data:GoodwePollEms:EmsPower": {
+    "class": "org.openhab.core.thing.internal.ThingStorageEntity",
+    "value": {
+      "isBridge": false,
+      "channels": [
+        {
+          "uid": "modbus:data:GoodwePollEms:EmsPower:number",
+          "id": "number",
+          "channelTypeUID": "modbus:number-type",
+          "itemType": "Number",
+          "kind": "STATE",
+          "label": "Value as Number",
+          "description": "Number item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollEms:EmsPower:switch",
+          "id": "switch",
+          "channelTypeUID": "modbus:switch-type",
+          "itemType": "Switch",
+          "kind": "STATE",
+          "label": "Value as Switch",
+          "description": "Switch item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollEms:EmsPower:contact",
+          "id": "contact",
+          "channelTypeUID": "modbus:contact-type",
+          "itemType": "Contact",
+          "kind": "STATE",
+          "label": "Value as Contact",
+          "description": "Contact item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollEms:EmsPower:dimmer",
+          "id": "dimmer",
+          "channelTypeUID": "modbus:dimmer-type",
+          "itemType": "Dimmer",
+          "kind": "STATE",
+          "label": "Value as Dimmer",
+          "description": "Dimmer item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollEms:EmsPower:datetime",
+          "id": "datetime",
+          "channelTypeUID": "modbus:datetime-type",
+          "itemType": "DateTime",
+          "kind": "STATE",
+          "label": "Value as DateTime",
+          "description": "DateTime item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollEms:EmsPower:string",
+          "id": "string",
+          "channelTypeUID": "modbus:string-type",
+          "itemType": "String",
+          "kind": "STATE",
+          "label": "Value as String",
+          "description": "String item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollEms:EmsPower:rollershutter",
+          "id": "rollershutter",
+          "channelTypeUID": "modbus:rollershutter-type",
+          "itemType": "Rollershutter",
+          "kind": "STATE",
+          "label": "Value as Rollershutter",
+          "description": "Rollershutter item channel",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollEms:EmsPower:lastReadSuccess",
+          "id": "lastReadSuccess",
+          "channelTypeUID": "modbus:last-successful-read-type",
+          "itemType": "DateTime",
+          "kind": "STATE",
+          "label": "Last Successful Read",
+          "description": "Date of last read",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollEms:EmsPower:lastReadError",
+          "id": "lastReadError",
+          "channelTypeUID": "modbus:last-erroring-read-type",
+          "itemType": "DateTime",
+          "kind": "STATE",
+          "label": "Last Erroring Read",
+          "description": "Date of last read error",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollEms:EmsPower:lastWriteSuccess",
+          "id": "lastWriteSuccess",
+          "channelTypeUID": "modbus:last-successful-write-type",
+          "itemType": "DateTime",
+          "kind": "STATE",
+          "label": "Last Successful Write",
+          "description": "Date of last write",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "modbus:data:GoodwePollEms:EmsPower:lastWriteError",
+          "id": "lastWriteError",
+          "channelTypeUID": "modbus:last-erroring-write-type",
+          "itemType": "DateTime",
+          "kind": "STATE",
+          "label": "Last Erroring Write",
+          "description": "Date of last write error",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        }
+      ],
+      "label": "Goodwe EMS Leistung",
+      "bridgeUID": "modbus:poller:Goodwe:GoodwePollEms",
+      "configuration": {
+        "readStart": "47512",
+        "readTransform": "default",
+        "readValueType": "uint16",
+        "updateUnchangedValuesEveryMillis": 1000,
+        "writeMaxTries": 3,
+        "writeMultipleEvenWithSingleRegisterOrCoil": false,
+        "writeStart": "47512",
+        "writeTransform": "default",
+        "writeType": "holding",
+        "writeValueType": "int16"
+      },
+      "properties": {},
+      "UID": "modbus:data:GoodwePollEms:EmsPower",
+      "thingTypeUID": "modbus:data"
+    }
+  },
   "modbus:data:GoodwePollLivedata:12a12beb84": {
     "class": "org.openhab.core.thing.internal.ThingStorageEntity",
     "value": {
@@ -890,6 +1204,26 @@
       },
       "properties": {},
       "UID": "modbus:poller:1ef6d84179",
+      "thingTypeUID": "modbus:poller"
+    }
+  },
+  "modbus:poller:Goodwe:GoodwePollEms": {
+    "class": "org.openhab.core.thing.internal.ThingStorageEntity",
+    "value": {
+      "isBridge": true,
+      "channels": [],
+      "label": "Goodwe Poll EMS 47511",
+      "bridgeUID": "modbus:tcp:Goodwe",
+      "configuration": {
+        "cacheMillis": 50,
+        "length": 2,
+        "maxTries": 3,
+        "refresh": 2000,
+        "start": 47511,
+        "type": "holding"
+      },
+      "properties": {},
+      "UID": "modbus:poller:Goodwe:GoodwePollEms",
       "thingTypeUID": "modbus:poller"
     }
   },

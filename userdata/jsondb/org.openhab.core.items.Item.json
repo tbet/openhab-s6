@@ -39,6 +39,34 @@
       "category": "solarplant"
     }
   },
+  "Goodwe_EMS_Mode": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Goodwe"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Point"
+      ],
+      "label": "EMS Modus (1\u003dAuto, 2\u003dLaden)",
+      "category": ""
+    }
+  },
+  "Goodwe_EMS_Power": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Goodwe"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Point"
+      ],
+      "label": "EMS Leistung",
+      "category": "energy"
+    }
+  },
   "Goodwe_Live_Data_Value_as_Number": {
     "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
     "value": {
@@ -51,6 +79,20 @@
       ],
       "label": "Aktueller PV Ertrag / Watt",
       "category": "energy"
+    }
+  },
+  "Goodwe_Netzladen": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Goodwe"
+      ],
+      "itemType": "Switch",
+      "tags": [
+        "Switch"
+      ],
+      "label": "Akku aus Netz laden",
+      "category": "battery"
     }
   },
   "Goodwe_PV1_Power": {

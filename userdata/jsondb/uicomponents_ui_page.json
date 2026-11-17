@@ -157,6 +157,14 @@
                           "title": "PV Gesamtleistung",
                           "trendItem": "Goodwe_PV_Total_Power"
                         }
+                      },
+                      {
+                        "component": "oh-toggle-cell",
+                        "config": {
+                          "icon": "oh:battery",
+                          "item": "Goodwe_Netzladen",
+                          "title": "Akku aus Netz laden"
+                        }
                       }
                     ]
                   }

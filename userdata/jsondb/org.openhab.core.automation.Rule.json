@@ -1,0 +1,68 @@
+{
+  "netzladen_schalten": {
+    "class": "org.openhab.core.automation.dto.RuleDTO",
+    "value": {
+      "triggers": [
+        {
+          "id": "1",
+          "configuration": {
+            "itemName": "Goodwe_Netzladen"
+          },
+          "type": "core.ItemCommandTrigger"
+        }
+      ],
+      "conditions": [],
+      "actions": [
+        {
+          "inputs": {},
+          "id": "2",
+          "configuration": {
+            "type": "application/vnd.openhab.dsl.rule",
+            "script": "// Schaltet den GoodWe-Wechselrichter zwischen Netzladen und Automatik um.\n// Entspricht:\n//   EIN: 47512 \u003d 3000 W, danach 47511 \u003d 2 (Laden)\n//   AUS: 47511 \u003d 1 (Automatik), danach 47512 \u003d 0\n// Der Schalter selbst wird NICHT hier gesetzt, sondern nur durch die Regel\n// \"Netzladen Status\", die den tatsaechlich gelesenen Modus anzeigt.\nval ladeleistung \u003d 3000\n\nif (receivedCommand \u003d\u003d ON) {\n    Goodwe_EMS_Power.sendCommand(ladeleistung)\n    Thread::sleep(300)\n    Goodwe_EMS_Mode.sendCommand(2)\n    logInfo(\"Netzladen\", \"Netzladen EIN angefordert: Mode 2, \" + ladeleistung + \" W\")\n} else {\n    Goodwe_EMS_Mode.sendCommand(1)\n    Thread::sleep(300)\n    Goodwe_EMS_Power.sendCommand(0)\n    logInfo(\"Netzladen\", \"Netzladen AUS angefordert: Mode 1 (Automatik), 0 W\")\n}\n"
+          },
+          "type": "script.ScriptAction"
+        }
+      ],
+      "configuration": {},
+      "configDescriptions": [],
+      "uid": "netzladen_schalten",
+      "name": "Netzladen schalten",
+      "tags": [],
+      "visibility": "VISIBLE",
+      "description": "Schreibt EMS Mode/Leistung (47511/47512) bei Klick auf den Schalter"
+    }
+  },
+  "netzladen_status": {
+    "class": "org.openhab.core.automation.dto.RuleDTO",
+    "value": {
+      "triggers": [
+        {
+          "id": "1",
+          "configuration": {
+            "itemName": "Goodwe_EMS_Mode"
+          },
+          "type": "core.ItemStateUpdateTrigger"
+        }
+      ],
+      "conditions": [],
+      "actions": [
+        {
+          "inputs": {},
+          "id": "2",
+          "configuration": {
+            "type": "application/vnd.openhab.dsl.rule",
+            "script": "// Zeigt im Schalter immer den tatsaechlichen Zustand des Wechselrichters an.\n// Register 47511 wird alle 2 Sekunden gelesen. Steht es auf 2 (Laden),\n// ist der Schalter AN, sonst AUS - unabhaengig davon, was zuletzt geklickt wurde.\nif (Goodwe_EMS_Mode.state instanceof Number) {\n    val soll \u003d if ((Goodwe_EMS_Mode.state as Number).intValue \u003d\u003d 2) ON else OFF\n    if (Goodwe_Netzladen.state !\u003d soll) {\n        Goodwe_Netzladen.postUpdate(soll)\n        logInfo(\"Netzladen\", \"Status vom Wechselrichter: EMS Mode \" + Goodwe_EMS_Mode.state + \" -\u003e Schalter \" + soll)\n    }\n}\n"
+          },
+          "type": "script.ScriptAction"
+        }
+      ],
+      "configuration": {},
+      "configDescriptions": [],
+      "uid": "netzladen_status",
+      "name": "Netzladen Status",
+      "tags": [],
+      "visibility": "VISIBLE",
+      "description": "Synchronisiert den Schalter mit dem gelesenen EMS Mode (47511)"
+    }
+  }
+}
