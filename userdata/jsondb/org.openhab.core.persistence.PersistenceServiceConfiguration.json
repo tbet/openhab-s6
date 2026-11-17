@@ -1,0 +1,33 @@
+{
+  "rrd4j": {
+    "class": "org.openhab.core.persistence.dto.PersistenceServiceConfigurationDTO",
+    "value": {
+      "serviceId": "rrd4j",
+      "configs": [
+        {
+          "items": [
+            "*"
+          ],
+          "strategies": [
+            "restoreOnStartup",
+            "everyChange",
+            "everyMinute"
+          ],
+          "filters": []
+        }
+      ],
+      "aliases": {},
+      "cronStrategies": [
+        {
+          "name": "everyMinute",
+          "cronExpression": "0 * * * * ?"
+        }
+      ],
+      "thresholdFilters": [],
+      "timeFilters": [],
+      "equalsFilters": [],
+      "includeFilters": [],
+      "editable": false
+    }
+  }
+}
