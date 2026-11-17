@@ -1,5 +1,5 @@
 {
-  "Akkustand -\u003e modbus:data:GoodwePollLivedata:GoodweLiveData:number": {
+  "Akkustand -\u003e modbus:data:GoodwePollLivedata:12a12beb84:number": {
     "class": "org.openhab.core.thing.link.ItemChannelLink",
     "value": {
       "channelUID": {
@@ -7,10 +7,10 @@
           "modbus",
           "data",
           "GoodwePollLivedata",
-          "GoodweLiveData",
+          "12a12beb84",
           "number"
         ],
-        "uid": "modbus:data:GoodwePollLivedata:GoodweLiveData:number"
+        "uid": "modbus:data:GoodwePollLivedata:12a12beb84:number"
       },
       "configuration": {
         "properties": {}
