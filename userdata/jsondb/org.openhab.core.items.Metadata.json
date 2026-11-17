@@ -1,0 +1,18 @@
+{
+  "stateDescription:Akkustand": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "Akkustand"
+        ],
+        "uid": "stateDescription:Akkustand"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.0f %%"
+      }
+    }
+  }
+}
