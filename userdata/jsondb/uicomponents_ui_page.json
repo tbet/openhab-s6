@@ -270,8 +270,24 @@
                           "item": "WP_Vorlauftemperatur",
                           "stateAsHeader": true,
                           "subtitle": "\u003d\u0027Soll \u0027 + items.WP_Vorlauf_Soll.displayState",
-                          "title": "Vorlauf",
+                          "title": "Vorlauf Heizkreis 1",
                           "trendItem": "WP_Vorlauftemperatur"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "WP_HK2_Vorlauftemperatur"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:temperature",
+                          "item": "WP_HK2_Vorlauftemperatur",
+                          "stateAsHeader": true,
+                          "subtitle": "\u003d\u0027Soll \u0027 + items.WP_HK2_Vorlauf_Soll.displayState",
+                          "title": "Vorlauf Heizkreis 2",
+                          "trendItem": "WP_HK2_Vorlauftemperatur"
                         }
                       },
                       {
@@ -333,7 +349,20 @@
                           "icon": "oh:heating",
                           "item": "WP_Betriebsart",
                           "stateAsHeader": true,
-                          "title": "Betriebsart Heizkreis"
+                          "title": "Betriebsart Heizkreis 1"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "options",
+                          "actionItem": "WP_HK2_Betriebsart",
+                          "actionOptions": "heating\u003dHeizen,standby\u003dStandby",
+                          "expandable": false,
+                          "icon": "oh:heating",
+                          "item": "WP_HK2_Betriebsart",
+                          "stateAsHeader": true,
+                          "title": "Betriebsart Heizkreis 2"
                         }
                       },
                       {
@@ -359,7 +388,7 @@
                           "color": "blue",
                           "icon": "oh:water",
                           "on": "\u003ditems.WP_Warmwasser_Einmalladung.state \u003d\u003d\u003d \u0027ON\u0027",
-                          "header": "\u003ditems.WP_Warmwasser_Einmalladung.state \u003d\u003d\u003d \u0027ON\u0027 ? \u0027läuft\u0027 : \u0027aus\u0027",
+                          "subtitle": "\u003ditems.WP_Warmwasser_Einmalladung.state \u003d\u003d\u003d \u0027ON\u0027 ? \u0027Lädt jetzt\u0027 : \u0027Aus\u0027",
                           "title": "Warmwasser Einmalladung"
                         }
                       },
@@ -610,7 +639,7 @@
                               "component": "oh-stepper-card",
                               "config": {
                                 "item": "WP_Raum_Soll_Normal",
-                                "title": "Raumtemperatur Soll (Normal)",
+                                "title": "Raumtemperatur Soll (Normal) Heizkreis 1",
                                 "min": 3,
                                 "max": 37,
                                 "step": 1,

@@ -313,6 +313,38 @@
       }
     }
   },
+  "stateDescription:WP_HK2_Vorlauf_Soll": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_HK2_Vorlauf_Soll"
+        ],
+        "uid": "stateDescription:WP_HK2_Vorlauf_Soll"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.1f °C"
+      }
+    }
+  },
+  "stateDescription:WP_HK2_Vorlauftemperatur": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_HK2_Vorlauftemperatur"
+        ],
+        "uid": "stateDescription:WP_HK2_Vorlauftemperatur"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.1f °C"
+      }
+    }
+  },
   "stateDescription:WP_JAZ": {
     "class": "org.openhab.core.items.Metadata",
     "value": {
@@ -720,6 +752,34 @@
           "WP_Aussentemperatur"
         ],
         "uid": "unit:WP_Aussentemperatur"
+      },
+      "value": "°C",
+      "configuration": {}
+    }
+  },
+  "unit:WP_HK2_Vorlauf_Soll": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_HK2_Vorlauf_Soll"
+        ],
+        "uid": "unit:WP_HK2_Vorlauf_Soll"
+      },
+      "value": "°C",
+      "configuration": {}
+    }
+  },
+  "unit:WP_HK2_Vorlauftemperatur": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_HK2_Vorlauftemperatur"
+        ],
+        "uid": "unit:WP_HK2_Vorlauftemperatur"
       },
       "value": "°C",
       "configuration": {}

@@ -76,19 +76,24 @@ Die UIDs sind fest vergeben, damit die Links im Repo passen. Die Inbox schlägt 
 unter anderen UIDs vor (mit der Seriennummer im Namen). Diese Vorschläge ignorieren, nicht hinzufügen.
 
 Die Kanal-ID entsteht aus dem Feature-Namen der API: Punkte werden zu Bindestrichen, aus camelCase wird
-kebab-case, nach `#` folgt die Eigenschaft. Beispiel: `heating.dhw.sensors.temperature.hotWaterStorage` / `value`
-→ `heating-dhw-sensors-temperature-hot-water-storage#value`.
+kebab-case, nach `#` folgt die Eigenschaft. Die Eigenschaften `value`, `name`, `entries` und `overlapAllowed`
+lässt das Binding weg. Beispiele: `heating.dhw.sensors.temperature.hotWaterStorage` / `value`
+→ `heating-dhw-sensors-temperature-hot-water-storage`, `heating.compressors.0.statistics` / `starts`
+→ `heating-compressors-0-statistics#starts`.
 
 | Item | Feature (Eigenschaft) | Einheit | schreibbar |
 |---|---|---|---|
 | `WP_Aussentemperatur` | `heating.sensors.temperature.outside` | °C | |
-| `WP_Vorlauftemperatur` | `heating.circuits.0.sensors.temperature.supply` | °C | |
-| `WP_Vorlauf_Soll` | `heating.circuits.0.temperature` | °C | |
+| `WP_Vorlauftemperatur` | `heating.circuits.0.sensors.temperature.supply` (Heizkreis 1) | °C | |
+| `WP_Vorlauf_Soll` | `heating.circuits.0.temperature` (Heizkreis 1) | °C | |
+| `WP_HK2_Vorlauftemperatur` | `heating.circuits.1.sensors.temperature.supply` (Heizkreis 2) | °C | |
+| `WP_HK2_Vorlauf_Soll` | `heating.circuits.1.temperature` (Heizkreis 2) | °C | |
 | `WP_Ruecklauftemperatur` | `heating.sensors.temperature.return` | °C | |
 | `WP_Warmwasser_Ist` | `heating.dhw.sensors.temperature.hotWaterStorage` | °C | |
 | `WP_Warmwasser_Soll` | `heating.dhw.temperature.main` | °C | ja, 10–60 °C |
-| `WP_Raum_Soll_Normal` | `heating.circuits.0.operating.programs.normalHeating` (`temperature`) | °C | ja, 3–37 °C |
-| `WP_Betriebsart` | `heating.circuits.0.operating.modes.active` | `heating` / `standby` | ja |
+| `WP_Raum_Soll_Normal` | `heating.circuits.0.operating.programs.normalHeating` (`temperature`, Heizkreis 1) | °C | ja, 3–37 °C |
+| `WP_Betriebsart` | `heating.circuits.0.operating.modes.active` (Heizkreis 1) | `heating` / `standby` | ja |
+| `WP_HK2_Betriebsart` | `heating.circuits.1.operating.modes.active` (Heizkreis 2) | `heating` / `standby` | ja |
 | `WP_Programm` | `heating.circuits.0.operating.programs.active` | Text | |
 | `WP_Warmwasser_Modus` | `heating.dhw.operating.modes.active` | `efficient` / `efficientWithMinComfort` / `off` | ja |
 | `WP_Warmwasser_Einmalladung` | `heating.dhw.oneTimeCharge` (`active`) | Schalter | ja |
@@ -192,10 +197,10 @@ Eigene Seite in der Seitenleiste mit vier Blöcken:
 
 | Block | Kacheln |
 |---|---|
-| Temperaturen | Außentemperatur, Vorlauf (Untertitel: Soll), Rücklauf, Warmwasser (Untertitel: Soll) |
-| Betrieb | Betriebsart Heizkreis und Warmwasser-Betriebsart (Klick öffnet Auswahl), Warmwasser-Einmalladung (Schalter), elektrische Leistung (Untertitel: Verdichter an/aus, Drehzahl), Verdichter-Starts (Untertitel: Laufzeit), Anlagendruck, Störung (Untertitel: letzte Meldung), API-Aufrufe heute |
+| Temperaturen | Außentemperatur, Vorlauf Heizkreis 1 und 2 (Untertitel: Soll), Rücklauf, Warmwasser (Untertitel: Soll) |
+| Betrieb | Betriebsart Heizkreis 1 und 2 sowie Warmwasser-Betriebsart (Klick öffnet Auswahl), Warmwasser-Einmalladung (Schalter), elektrische Leistung (Untertitel: Verdichter an/aus, Drehzahl), Verdichter-Starts (Untertitel: Laufzeit), Anlagendruck, Störung (Untertitel: letzte Meldung), API-Aufrufe heute |
 | Energie | Strom heute, Wärme heute (jeweils Heizen/WW im Untertitel), Arbeitszahl heute, Jahresarbeitszahl, Strom und Wärme Heizen dieses Jahr (Untertitel: Warmwasser) |
-| Sollwerte | Stepper für Warmwasser Soll und Raumtemperatur Soll (Normal) |
+| Sollwerte | Stepper für Warmwasser Soll und Raumtemperatur Soll (Normal) Heizkreis 1 |
 
 ---
 

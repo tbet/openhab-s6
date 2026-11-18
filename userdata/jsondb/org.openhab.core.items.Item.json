@@ -301,7 +301,7 @@
       "tags": [
         "Point"
       ],
-      "label": "Betriebsart Heizkreis",
+      "label": "Betriebsart Heizkreis 1",
       "category": "heating"
     }
   },
@@ -331,6 +331,48 @@
       ],
       "label": "Störung aktiv",
       "category": "error"
+    }
+  },
+  "WP_HK2_Betriebsart": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "String",
+      "tags": [
+        "Point"
+      ],
+      "label": "Betriebsart Heizkreis 2",
+      "category": "heating"
+    }
+  },
+  "WP_HK2_Vorlauf_Soll": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Number:Temperature",
+      "tags": [
+        "Point"
+      ],
+      "label": "Vorlauf Soll Heizkreis 2",
+      "category": "temperature"
+    }
+  },
+  "WP_HK2_Vorlauftemperatur": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Number:Temperature",
+      "tags": [
+        "Point"
+      ],
+      "label": "Vorlauftemperatur Heizkreis 2",
+      "category": "temperature"
     }
   },
   "WP_JAZ": {
@@ -399,7 +441,7 @@
       "tags": [
         "Point"
       ],
-      "label": "Raumtemperatur Soll (Normal)",
+      "label": "Raumtemperatur Soll (Normal) Heizkreis 1",
       "category": "temperature"
     }
   },
@@ -570,7 +612,7 @@
       "tags": [
         "Point"
       ],
-      "label": "Vorlauf Soll",
+      "label": "Vorlauf Soll Heizkreis 1",
       "category": "temperature"
     }
   },
@@ -584,7 +626,7 @@
       "tags": [
         "Point"
       ],
-      "label": "Vorlauftemperatur",
+      "label": "Vorlauftemperatur Heizkreis 1",
       "category": "temperature"
     }
   },
