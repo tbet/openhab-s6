@@ -86,7 +86,8 @@ lässt das Binding weg. Beispiele: `heating.dhw.sensors.temperature.hotWaterStor
 | `WP_Aussentemperatur` | `heating.sensors.temperature.outside` | °C | |
 | `WP_Vorlauftemperatur` | `heating.circuits.0.sensors.temperature.supply` (Heizkreis 1, Heizkörper) | °C | |
 | `WP_HK2_Vorlauftemperatur` | `heating.circuits.1.sensors.temperature.supply` (Heizkreis 2, Fußboden) | °C | |
-| `WP_Ruecklauftemperatur` | `heating.sensors.temperature.return` | °C | |
+| `WP_WP_Vorlauftemperatur` | `heating.secondaryCircuit.sensors.temperature.supply` (Vorlauf der Wärmepumpe) | °C | |
+| `WP_Ruecklauftemperatur` | `heating.sensors.temperature.return` (Rücklauf der Wärmepumpe) | °C | |
 | `WP_Warmwasser_Ist` | `heating.dhw.sensors.temperature.hotWaterStorage` | °C | |
 | `WP_Warmwasser_Soll` | `heating.dhw.temperature.main` | °C | ja, 10–60 °C |
 | `WP_Raum_Soll_Normal` | `heating.circuits.0.operating.programs.normalHeating` (`temperature`, Heizkörper) | °C | ja, 3–37 °C |
@@ -202,9 +203,9 @@ Eigene Seite in der Seitenleiste mit vier Blöcken:
 
 | Block | Kacheln |
 |---|---|
-| Temperaturen | Außentemperatur, Vorlauf Heizkörper, Vorlauf Fußboden, Rücklauf, Warmwasser (Untertitel: Soll) |
-| Betrieb | Betriebsart Heizkörper und Fußboden sowie Warmwasser-Betriebsart (Klick öffnet Auswahl), Warmwasser-Einmalladung (Schalter), elektrische Leistung (Untertitel: Verdichter an/aus, Drehzahl), Verdichter-Starts (Untertitel: Laufzeit), Anlagendruck, Störung (Untertitel: letzte Meldung), API-Aufrufe heute |
-| Energie | Strom heute, Wärme heute (jeweils Heizen/WW im Untertitel), Arbeitszahl heute, Jahresarbeitszahl, Strom und Wärme Heizen dieses Jahr (Untertitel: Warmwasser) |
+| Temperaturen | Außentemperatur, Vorlauf Heizkörper, Vorlauf Fußboden, Wärmepumpe Vorlauf, Wärmepumpe Rücklauf, Warmwasser (Untertitel: Soll) |
+| Betrieb | Warmwasser-Betriebsart (Klick öffnet Auswahl), Warmwasser-Einmalladung (Schalter), Verdichter-Starts (Untertitel: Laufzeit und Status mit Drehzahl), Anlagendruck, Störung (Untertitel: letzte Meldung), API-Aufrufe heute |
+| Energie | Elektrische Leistung, Strom heute, Wärme heute (jeweils Heizen/WW im Untertitel), Arbeitszahl heute, Jahresarbeitszahl, Strom und Wärme Heizen dieses Jahr (Untertitel: Warmwasser) |
 | Sollwerte | Stepper für Warmwasser Soll, Raumtemperatur Soll Heizkörper und Raumtemperatur Soll Fußboden (Fußzeile: Status der Heizkreispumpe) |
 
 ---

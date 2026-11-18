@@ -293,13 +293,28 @@
                         "config": {
                           "action": "analyzer",
                           "actionAnalyzerItems": [
+                            "WP_WP_Vorlauftemperatur"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:temperature",
+                          "item": "WP_WP_Vorlauftemperatur",
+                          "stateAsHeader": true,
+                          "title": "Wärmepumpe Vorlauf",
+                          "trendItem": "WP_WP_Vorlauftemperatur"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
                             "WP_Ruecklauftemperatur"
                           ],
                           "expandable": false,
                           "icon": "oh:temperature",
                           "item": "WP_Ruecklauftemperatur",
                           "stateAsHeader": true,
-                          "title": "Rücklauf",
+                          "title": "Wärmepumpe Rücklauf",
                           "trendItem": "WP_Ruecklauftemperatur"
                         }
                       },
@@ -341,32 +356,6 @@
                         "component": "oh-label-cell",
                         "config": {
                           "action": "options",
-                          "actionItem": "WP_Betriebsart",
-                          "actionOptions": "heating\u003dHeizen,standby\u003dStandby",
-                          "expandable": false,
-                          "icon": "oh:heating",
-                          "item": "WP_Betriebsart",
-                          "stateAsHeader": true,
-                          "title": "Betriebsart Heizkörper"
-                        }
-                      },
-                      {
-                        "component": "oh-label-cell",
-                        "config": {
-                          "action": "options",
-                          "actionItem": "WP_HK2_Betriebsart",
-                          "actionOptions": "heating\u003dHeizen,standby\u003dStandby",
-                          "expandable": false,
-                          "icon": "oh:heating",
-                          "item": "WP_HK2_Betriebsart",
-                          "stateAsHeader": true,
-                          "title": "Betriebsart Fußboden"
-                        }
-                      },
-                      {
-                        "component": "oh-label-cell",
-                        "config": {
-                          "action": "options",
                           "actionItem": "WP_Warmwasser_Modus",
                           "actionOptions": "efficient\u003dEffizient,efficientWithMinComfort\u003dEffizient mit Mindestkomfort,off\u003dAus",
                           "expandable": false,
@@ -395,29 +384,13 @@
                         "config": {
                           "action": "analyzer",
                           "actionAnalyzerItems": [
-                            "WP_Leistung_Elektrisch"
-                          ],
-                          "expandable": false,
-                          "icon": "oh:energy",
-                          "item": "WP_Leistung_Elektrisch",
-                          "stateAsHeader": true,
-                          "subtitle": "\u003ditems.WP_Verdichter_Aktiv.state \u003d\u003d\u003d \u0027ON\u0027 ? \u0027Verdichter läuft, \u0027 + (items.WP_Verdichter_Drehzahl.displayState || items.WP_Verdichter_Drehzahl.state) : \u0027Verdichter aus\u0027",
-                          "title": "Elektrische Leistung",
-                          "trendItem": "WP_Leistung_Elektrisch"
-                        }
-                      },
-                      {
-                        "component": "oh-label-cell",
-                        "config": {
-                          "action": "analyzer",
-                          "actionAnalyzerItems": [
                             "WP_Verdichter_Starts"
                           ],
                           "expandable": false,
                           "icon": "oh:fan",
                           "item": "WP_Verdichter_Starts",
                           "stateAsHeader": true,
-                          "subtitle": "\u003d(items.WP_Verdichter_Stunden.displayState || items.WP_Verdichter_Stunden.state) + \u0027 Laufzeit\u0027",
+                          "subtitle": "\u003d(items.WP_Verdichter_Stunden.displayState || items.WP_Verdichter_Stunden.state) + \u0027 Laufzeit, \u0027 + (items.WP_Verdichter_Aktiv.state \u003d\u003d\u003d \u0027ON\u0027 ? \u0027läuft (\u0027 + (items.WP_Verdichter_Drehzahl.displayState || items.WP_Verdichter_Drehzahl.state) + \u0027)\u0027 : \u0027aus\u0027)",
                           "title": "Verdichter Starts",
                           "trendItem": "WP_Verdichter_Starts"
                         }
@@ -487,6 +460,21 @@
                   "config": {},
                   "slots": {
                     "default": [
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "WP_Leistung_Elektrisch"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:energy",
+                          "item": "WP_Leistung_Elektrisch",
+                          "stateAsHeader": true,
+                          "title": "Elektrische Leistung",
+                          "trendItem": "WP_Leistung_Elektrisch"
+                        }
+                      },
                       {
                         "component": "oh-label-cell",
                         "config": {

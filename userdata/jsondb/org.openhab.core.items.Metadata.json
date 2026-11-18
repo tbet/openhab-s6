@@ -553,6 +553,22 @@
       }
     }
   },
+  "stateDescription:WP_WP_Vorlauftemperatur": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_WP_Vorlauftemperatur"
+        ],
+        "uid": "stateDescription:WP_WP_Vorlauftemperatur"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.1f °C"
+      }
+    }
+  },
   "stateDescription:WP_Waerme_Heizen_Heute": {
     "class": "org.openhab.core.items.Metadata",
     "value": {
@@ -918,6 +934,20 @@
           "WP_Vorlauftemperatur"
         ],
         "uid": "unit:WP_Vorlauftemperatur"
+      },
+      "value": "°C",
+      "configuration": {}
+    }
+  },
+  "unit:WP_WP_Vorlauftemperatur": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_WP_Vorlauftemperatur"
+        ],
+        "uid": "unit:WP_WP_Vorlauftemperatur"
       },
       "value": "°C",
       "configuration": {}

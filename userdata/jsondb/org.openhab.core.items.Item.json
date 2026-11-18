@@ -483,7 +483,7 @@
       "tags": [
         "Point"
       ],
-      "label": "Rücklauftemperatur",
+      "label": "Wärmepumpe Rücklauf",
       "category": "temperature"
     }
   },
@@ -641,6 +641,20 @@
         "Point"
       ],
       "label": "Vorlauftemperatur Heizkörper",
+      "category": "temperature"
+    }
+  },
+  "WP_WP_Vorlauftemperatur": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Number:Temperature",
+      "tags": [
+        "Point"
+      ],
+      "label": "Wärmepumpe Vorlauf",
       "category": "temperature"
     }
   },

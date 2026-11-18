@@ -769,6 +769,26 @@
       "itemName": "WP_Vorlauftemperatur"
     }
   },
+  "WP_WP_Vorlauftemperatur -\u003e viessmann:device:vicare:gateway:vitocal:heating-secondary-circuit-sensors-temperature-supply": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-secondary-circuit-sensors-temperature-supply"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-secondary-circuit-sensors-temperature-supply"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_WP_Vorlauftemperatur"
+    }
+  },
   "WP_Waerme_Heizen_Heute -\u003e viessmann:device:vicare:gateway:vitocal:heating-heat-production-summary-heating#current-day": {
     "class": "org.openhab.core.thing.link.ItemChannelLink",
     "value": {
