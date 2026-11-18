@@ -232,5 +232,62 @@
       },
       "itemName": "Hausverbrauch"
     }
+  },
+  "Waerme_EG_DG_Fussbodenheizung -\u003e modbus:data:MulticalEgDgFbhPoll:Energie:number": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "modbus",
+          "data",
+          "MulticalEgDgFbhPoll",
+          "Energie",
+          "number"
+        ],
+        "uid": "modbus:data:MulticalEgDgFbhPoll:Energie:number"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Waerme_EG_DG_Fussbodenheizung"
+    }
+  },
+  "Waerme_Haus_Heizkoerper -\u003e modbus:data:MulticalHausHKPoll:Energie:number": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "modbus",
+          "data",
+          "MulticalHausHKPoll",
+          "Energie",
+          "number"
+        ],
+        "uid": "modbus:data:MulticalHausHKPoll:Energie:number"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Waerme_Haus_Heizkoerper"
+    }
+  },
+  "Waerme_Keller_Fussbodenheizung -\u003e modbus:data:MulticalKellerFbhPoll:Energie:number": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "modbus",
+          "data",
+          "MulticalKellerFbhPoll",
+          "Energie",
+          "number"
+        ],
+        "uid": "modbus:data:MulticalKellerFbhPoll:Energie:number"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Waerme_Keller_Fussbodenheizung"
+    }
   }
 }

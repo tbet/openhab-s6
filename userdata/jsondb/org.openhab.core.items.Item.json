@@ -234,5 +234,59 @@
       "label": "Hausverbrauch",
       "category": "energy"
     }
+  },
+  "Waerme_EG_DG_Fussbodenheizung": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermezaehler"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Point"
+      ],
+      "label": "EG_DG_Fußbodenheizung",
+      "category": "heating"
+    }
+  },
+  "Waerme_Haus_Heizkoerper": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermezaehler"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Point"
+      ],
+      "label": "Haus_Heizkörper",
+      "category": "heating"
+    }
+  },
+  "Waerme_Keller_Fussbodenheizung": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermezaehler"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Point"
+      ],
+      "label": "Keller_Fussbodenheizung",
+      "category": "heating"
+    }
+  },
+  "Waermezaehler": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Group",
+      "tags": [
+        "Equipment"
+      ],
+      "label": "Wärmemengenzähler",
+      "category": "heating"
+    }
   }
 }

@@ -212,5 +212,88 @@
         ]
       }
     }
+  },
+  "waermezaehler": {
+    "class": "org.openhab.core.ui.components.RootUIComponent",
+    "value": {
+      "uid": "waermezaehler",
+      "tags": [],
+      "props": {
+        "parameters": [],
+        "parameterGroups": []
+      },
+      "timestamp": "Nov 18, 2026, 11:30:00 AM",
+      "component": "oh-layout-page",
+      "config": {
+        "label": "Wärmezähler",
+        "sidebar": true,
+        "order": "10"
+      },
+      "slots": {
+        "default": [
+          {
+            "component": "oh-block",
+            "config": {},
+            "slots": {
+              "default": [
+                {
+                  "component": "oh-grid-cells",
+                  "config": {},
+                  "slots": {
+                    "default": [
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "Waerme_Haus_Heizkoerper"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:heating",
+                          "item": "Waerme_Haus_Heizkoerper",
+                          "stateAsHeader": true,
+                          "title": "Haus_Heizkörper",
+                          "trendItem": "Waerme_Haus_Heizkoerper"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "Waerme_EG_DG_Fussbodenheizung"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:heating",
+                          "item": "Waerme_EG_DG_Fussbodenheizung",
+                          "stateAsHeader": true,
+                          "title": "EG_DG_Fußbodenheizung",
+                          "trendItem": "Waerme_EG_DG_Fussbodenheizung"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "Waerme_Keller_Fussbodenheizung"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:heating",
+                          "item": "Waerme_Keller_Fussbodenheizung",
+                          "stateAsHeader": true,
+                          "title": "Keller_Fussbodenheizung",
+                          "trendItem": "Waerme_Keller_Fussbodenheizung"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
   }
 }

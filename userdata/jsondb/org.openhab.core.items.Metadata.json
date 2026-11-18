@@ -248,5 +248,53 @@
         "pattern": "%.0f W"
       }
     }
+  },
+  "stateDescription:Waerme_EG_DG_Fussbodenheizung": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "Waerme_EG_DG_Fussbodenheizung"
+        ],
+        "uid": "stateDescription:Waerme_EG_DG_Fussbodenheizung"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.3f MWh"
+      }
+    }
+  },
+  "stateDescription:Waerme_Haus_Heizkoerper": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "Waerme_Haus_Heizkoerper"
+        ],
+        "uid": "stateDescription:Waerme_Haus_Heizkoerper"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.3f MWh"
+      }
+    }
+  },
+  "stateDescription:Waerme_Keller_Fussbodenheizung": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "Waerme_Keller_Fussbodenheizung"
+        ],
+        "uid": "stateDescription:Waerme_Keller_Fussbodenheizung"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.3f MWh"
+      }
+    }
   }
 }
