@@ -355,33 +355,6 @@
                       {
                         "component": "oh-label-cell",
                         "config": {
-                          "action": "options",
-                          "actionItem": "WP_Warmwasser_Modus",
-                          "actionOptions": "efficient\u003dEffizient,efficientWithMinComfort\u003dEffizient mit Mindestkomfort,off\u003dAus",
-                          "expandable": false,
-                          "icon": "oh:water",
-                          "item": "WP_Warmwasser_Modus",
-                          "stateAsHeader": true,
-                          "title": "Warmwasser Betriebsart"
-                        }
-                      },
-                      {
-                        "component": "oh-cell",
-                        "config": {
-                          "action": "toggle",
-                          "actionCommand": "ON",
-                          "actionCommandAlt": "OFF",
-                          "actionItem": "WP_Warmwasser_Einmalladung",
-                          "color": "blue",
-                          "icon": "oh:water",
-                          "on": "\u003ditems.WP_Warmwasser_Einmalladung.state \u003d\u003d\u003d \u0027ON\u0027",
-                          "subtitle": "\u003ditems.WP_Warmwasser_Einmalladung.state \u003d\u003d\u003d \u0027ON\u0027 ? \u0027Lädt jetzt\u0027 : \u0027Aus\u0027",
-                          "title": "Warmwasser Einmalladung"
-                        }
-                      },
-                      {
-                        "component": "oh-label-cell",
-                        "config": {
                           "action": "analyzer",
                           "actionAnalyzerItems": [
                             "WP_Verdichter_Starts"

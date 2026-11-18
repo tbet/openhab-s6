@@ -121,6 +121,8 @@ Hinweise:
 
 - Die API liefert nur, was die Anlage meldet. Fehlt bei deiner Anlage ein Feature (z. B. ohne Warmwasserspeicher),
   bleibt das Item `NULL`. Alle tatsächlich vorhandenen Kanäle zeigt das Gerät-Thing im Tab „Channels“.
+- Vorlauf (`secondaryCircuit`) und Rücklauf der Wärmepumpe liegen auf der Heizwasserseite. `primaryCircuit` ist bei
+  der Luft/Wasser-Wärmepumpe die Quellenseite (Luft am Verdampfer, nahe der Außentemperatur) und nicht eingebunden.
 - Die Anlage hat zwei Heizkreise: Heizkreis 1 (`circuits.0`) = Heizkörper, Heizkreis 2 (`circuits.1`) = Fußboden.
   Ob ein Heizkreis gerade heizt, zeigt der Status seiner Heizkreispumpe (wie in der ViCare-App).
 - Den Vorlauf-Sollwert `heating.circuits.N.temperature` meldet die Anlage mit 0 °C. Er ist deshalb nicht eingebunden.
@@ -204,7 +206,7 @@ Eigene Seite in der Seitenleiste mit vier Blöcken:
 | Block | Kacheln |
 |---|---|
 | Temperaturen | Außentemperatur, Vorlauf Heizkörper, Vorlauf Fußboden, Wärmepumpe Vorlauf, Wärmepumpe Rücklauf, Warmwasser (Untertitel: Soll) |
-| Betrieb | Warmwasser-Betriebsart (Klick öffnet Auswahl), Warmwasser-Einmalladung (Schalter), Verdichter-Starts (Untertitel: Laufzeit und Status mit Drehzahl), Anlagendruck, Störung (Untertitel: letzte Meldung), API-Aufrufe heute |
+| Betrieb | Verdichter-Starts (Untertitel: Laufzeit und Status mit Drehzahl), Anlagendruck, Störung (Untertitel: letzte Meldung), API-Aufrufe heute |
 | Energie | Elektrische Leistung, Strom heute, Wärme heute (jeweils Heizen/WW im Untertitel), Arbeitszahl heute, Jahresarbeitszahl, Strom und Wärme Heizen dieses Jahr (Untertitel: Warmwasser) |
 | Sollwerte | Stepper für Warmwasser Soll, Raumtemperatur Soll Heizkörper und Raumtemperatur Soll Fußboden (Fußzeile: Status der Heizkreispumpe) |
 
