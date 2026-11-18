@@ -8,7 +8,7 @@
         "parameters": [],
         "parameterGroups": []
       },
-      "timestamp": "Nov 17, 2026, 7:34:28 PM",
+      "timestamp": "Nov 18, 2026, 10:23:37 AM",
       "component": "oh-layout-page",
       "config": {
         "label": "Overview"
@@ -159,10 +159,16 @@
                         }
                       },
                       {
-                        "component": "oh-toggle-cell",
+                        "component": "oh-cell",
                         "config": {
+                          "action": "toggle",
+                          "actionCommand": "ON",
+                          "actionCommandAlt": "OFF",
+                          "actionItem": "Goodwe_Netzladen",
+                          "color": "orange",
                           "icon": "oh:battery",
-                          "item": "Goodwe_Netzladen",
+                          "on": "\u003ditems.Goodwe_Netzladen.state \u003d\u003d\u003d \u0027ON\u0027",
+                          "subtitle": "\u003ditems.Goodwe_Netzladen.state \u003d\u003d\u003d \u0027ON\u0027 ? \u0027Lädt aus dem Netz\u0027 : \u0027Automatik\u0027",
                           "title": "Akku aus Netz laden"
                         }
                       }
