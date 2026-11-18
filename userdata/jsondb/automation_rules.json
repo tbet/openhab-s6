@@ -97,5 +97,59 @@
       "visibility": "VISIBLE",
       "description": "Synchronisiert den Schalter mit dem gelesenen EMS Mode (47511)"
     }
+  },
+  "wp_cop_heute": {
+    "class": "org.openhab.core.automation.dto.RuleDTO",
+    "value": {
+      "triggers": [
+        {
+          "id": "1",
+          "configuration": {
+            "itemName": "WP_Strom_Heizen_Heute"
+          },
+          "type": "core.ItemStateChangeTrigger"
+        },
+        {
+          "id": "2",
+          "configuration": {
+            "itemName": "WP_Strom_Warmwasser_Heute"
+          },
+          "type": "core.ItemStateChangeTrigger"
+        },
+        {
+          "id": "3",
+          "configuration": {
+            "itemName": "WP_Waerme_Heizen_Heute"
+          },
+          "type": "core.ItemStateChangeTrigger"
+        },
+        {
+          "id": "4",
+          "configuration": {
+            "itemName": "WP_Waerme_Warmwasser_Heute"
+          },
+          "type": "core.ItemStateChangeTrigger"
+        }
+      ],
+      "conditions": [],
+      "actions": [
+        {
+          "inputs": {},
+          "id": "5",
+          "configuration": {
+            "type": "application/vnd.openhab.dsl.rule",
+            "script": "// Arbeitszahl heute (Tages-COP) der Vitocal 250-A:\n// erzeugte Waerme heute / aufgenommener Strom heute, jeweils Heizen + Warmwasser.\n// Grundlage sind die Tageszaehler der Viessmann-API (heat.production.summary und\n// power.consumption.summary). Sie beginnen um Mitternacht wieder bei 0. Solange\n// weniger als 0,1 kWh Strom gezaehlt sind, bleibt der Wert leer (sonst springt er wild).\nvar double strom \u003d 0.0\nvar double waerme \u003d 0.0\nif (WP_Strom_Heizen_Heute.state instanceof Number) strom \u003d strom + (WP_Strom_Heizen_Heute.state as Number).doubleValue\nif (WP_Strom_Warmwasser_Heute.state instanceof Number) strom \u003d strom + (WP_Strom_Warmwasser_Heute.state as Number).doubleValue\nif (WP_Waerme_Heizen_Heute.state instanceof Number) waerme \u003d waerme + (WP_Waerme_Heizen_Heute.state as Number).doubleValue\nif (WP_Waerme_Warmwasser_Heute.state instanceof Number) waerme \u003d waerme + (WP_Waerme_Warmwasser_Heute.state as Number).doubleValue\n\nif (strom \u003e\u003d 0.1) {\n    WP_COP_Heute.postUpdate(waerme / strom)\n} else {\n    WP_COP_Heute.postUpdate(NULL)\n}\n"
+          },
+          "type": "script.ScriptAction"
+        }
+      ],
+      "configuration": {},
+      "configDescriptions": [],
+      "uid": "wp_cop_heute",
+      "name": "Wärmepumpe Arbeitszahl heute berechnen",
+      "tags": [],
+      "visibility": "VISIBLE",
+      "description": "Tages-COP \u003d Wärme heute / Strom heute (Heizen + Warmwasser) aus den Viessmann-Tageszählern"
+    }
   }
 }

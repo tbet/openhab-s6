@@ -233,6 +233,622 @@
       "itemName": "Hausverbrauch"
     }
   },
+  "WP_API_Aufrufe_Heute -\u003e viessmann:account:vicare:count-api-calls": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "account",
+          "vicare",
+          "count-api-calls"
+        ],
+        "uid": "viessmann:account:vicare:count-api-calls"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_API_Aufrufe_Heute"
+    }
+  },
+  "WP_Abtauung -\u003e viessmann:device:vicare:gateway:vitocal:heating-outdoor-defrosting#active": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-outdoor-defrosting#active"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-outdoor-defrosting#active"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Abtauung"
+    }
+  },
+  "WP_Anlagendruck -\u003e viessmann:device:vicare:gateway:vitocal:heating-sensors-pressure-supply#value": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-sensors-pressure-supply#value"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-sensors-pressure-supply#value"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Anlagendruck"
+    }
+  },
+  "WP_Aussentemperatur -\u003e viessmann:device:vicare:gateway:vitocal:heating-sensors-temperature-outside#value": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-sensors-temperature-outside#value"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-sensors-temperature-outside#value"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Aussentemperatur"
+    }
+  },
+  "WP_Betriebsart -\u003e viessmann:device:vicare:gateway:vitocal:heating-circuits-0-operating-modes-active#value": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-circuits-0-operating-modes-active#value"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-circuits-0-operating-modes-active#value"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Betriebsart"
+    }
+  },
+  "WP_Fehler_Aktiv -\u003e viessmann:gateway:vicare:gateway:error-is-active": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "gateway",
+          "vicare",
+          "gateway",
+          "error-is-active"
+        ],
+        "uid": "viessmann:gateway:vicare:gateway:error-is-active"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Fehler_Aktiv"
+    }
+  },
+  "WP_JAZ -\u003e viessmann:device:vicare:gateway:vitocal:heating-scop-total#value": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-scop-total#value"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-scop-total#value"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_JAZ"
+    }
+  },
+  "WP_Leistung_Elektrisch -\u003e viessmann:device:vicare:gateway:vitocal:heating-inverters-0-sensors-power-output#value": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-inverters-0-sensors-power-output#value"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-inverters-0-sensors-power-output#value"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Leistung_Elektrisch"
+    }
+  },
+  "WP_Letzte_Fehlermeldung -\u003e viessmann:gateway:vicare:gateway:last-error-message": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "gateway",
+          "vicare",
+          "gateway",
+          "last-error-message"
+        ],
+        "uid": "viessmann:gateway:vicare:gateway:last-error-message"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Letzte_Fehlermeldung"
+    }
+  },
+  "WP_Programm -\u003e viessmann:device:vicare:gateway:vitocal:heating-circuits-0-operating-programs-active#value": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-circuits-0-operating-programs-active#value"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-circuits-0-operating-programs-active#value"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Programm"
+    }
+  },
+  "WP_Raum_Soll_Normal -\u003e viessmann:device:vicare:gateway:vitocal:heating-circuits-0-operating-programs-normal-heating#temperature": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-circuits-0-operating-programs-normal-heating#temperature"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-circuits-0-operating-programs-normal-heating#temperature"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Raum_Soll_Normal"
+    }
+  },
+  "WP_Ruecklauftemperatur -\u003e viessmann:device:vicare:gateway:vitocal:heating-sensors-temperature-return#value": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-sensors-temperature-return#value"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-sensors-temperature-return#value"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Ruecklauftemperatur"
+    }
+  },
+  "WP_Strom_Heizen_Heute -\u003e viessmann:device:vicare:gateway:vitocal:heating-power-consumption-summary-heating#current-day": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-power-consumption-summary-heating#current-day"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-power-consumption-summary-heating#current-day"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Strom_Heizen_Heute"
+    }
+  },
+  "WP_Strom_Heizen_Jahr -\u003e viessmann:device:vicare:gateway:vitocal:heating-power-consumption-summary-heating#current-year": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-power-consumption-summary-heating#current-year"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-power-consumption-summary-heating#current-year"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Strom_Heizen_Jahr"
+    }
+  },
+  "WP_Strom_Warmwasser_Heute -\u003e viessmann:device:vicare:gateway:vitocal:heating-power-consumption-summary-dhw#current-day": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-power-consumption-summary-dhw#current-day"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-power-consumption-summary-dhw#current-day"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Strom_Warmwasser_Heute"
+    }
+  },
+  "WP_Strom_Warmwasser_Jahr -\u003e viessmann:device:vicare:gateway:vitocal:heating-power-consumption-summary-dhw#current-year": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-power-consumption-summary-dhw#current-year"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-power-consumption-summary-dhw#current-year"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Strom_Warmwasser_Jahr"
+    }
+  },
+  "WP_Verdichter_Aktiv -\u003e viessmann:device:vicare:gateway:vitocal:heating-compressors-0#active": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-compressors-0#active"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-compressors-0#active"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Verdichter_Aktiv"
+    }
+  },
+  "WP_Verdichter_Drehzahl -\u003e viessmann:device:vicare:gateway:vitocal:heating-compressors-0-speed-current#value": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-compressors-0-speed-current#value"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-compressors-0-speed-current#value"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Verdichter_Drehzahl"
+    }
+  },
+  "WP_Verdichter_Phase -\u003e viessmann:device:vicare:gateway:vitocal:heating-compressors-0#phase": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-compressors-0#phase"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-compressors-0#phase"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Verdichter_Phase"
+    }
+  },
+  "WP_Verdichter_Starts -\u003e viessmann:device:vicare:gateway:vitocal:heating-compressors-0-statistics#starts": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-compressors-0-statistics#starts"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-compressors-0-statistics#starts"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Verdichter_Starts"
+    }
+  },
+  "WP_Verdichter_Stunden -\u003e viessmann:device:vicare:gateway:vitocal:heating-compressors-0-statistics#hours": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-compressors-0-statistics#hours"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-compressors-0-statistics#hours"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Verdichter_Stunden"
+    }
+  },
+  "WP_Vorlauf_Soll -\u003e viessmann:device:vicare:gateway:vitocal:heating-circuits-0-temperature#value": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-circuits-0-temperature#value"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-circuits-0-temperature#value"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Vorlauf_Soll"
+    }
+  },
+  "WP_Vorlauftemperatur -\u003e viessmann:device:vicare:gateway:vitocal:heating-circuits-0-sensors-temperature-supply#value": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-circuits-0-sensors-temperature-supply#value"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-circuits-0-sensors-temperature-supply#value"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Vorlauftemperatur"
+    }
+  },
+  "WP_Waerme_Heizen_Heute -\u003e viessmann:device:vicare:gateway:vitocal:heating-heat-production-summary-heating#current-day": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-heat-production-summary-heating#current-day"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-heat-production-summary-heating#current-day"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Waerme_Heizen_Heute"
+    }
+  },
+  "WP_Waerme_Heizen_Jahr -\u003e viessmann:device:vicare:gateway:vitocal:heating-heat-production-summary-heating#current-year": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-heat-production-summary-heating#current-year"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-heat-production-summary-heating#current-year"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Waerme_Heizen_Jahr"
+    }
+  },
+  "WP_Waerme_Warmwasser_Heute -\u003e viessmann:device:vicare:gateway:vitocal:heating-heat-production-summary-dhw#current-day": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-heat-production-summary-dhw#current-day"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-heat-production-summary-dhw#current-day"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Waerme_Warmwasser_Heute"
+    }
+  },
+  "WP_Waerme_Warmwasser_Jahr -\u003e viessmann:device:vicare:gateway:vitocal:heating-heat-production-summary-dhw#current-year": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-heat-production-summary-dhw#current-year"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-heat-production-summary-dhw#current-year"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Waerme_Warmwasser_Jahr"
+    }
+  },
+  "WP_Warmwasser_Einmalladung -\u003e viessmann:device:vicare:gateway:vitocal:heating-dhw-one-time-charge#active": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-dhw-one-time-charge#active"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-dhw-one-time-charge#active"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Warmwasser_Einmalladung"
+    }
+  },
+  "WP_Warmwasser_Ist -\u003e viessmann:device:vicare:gateway:vitocal:heating-dhw-sensors-temperature-hot-water-storage#value": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-dhw-sensors-temperature-hot-water-storage#value"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-dhw-sensors-temperature-hot-water-storage#value"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Warmwasser_Ist"
+    }
+  },
+  "WP_Warmwasser_Modus -\u003e viessmann:device:vicare:gateway:vitocal:heating-dhw-operating-modes-active#value": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-dhw-operating-modes-active#value"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-dhw-operating-modes-active#value"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Warmwasser_Modus"
+    }
+  },
+  "WP_Warmwasser_Soll -\u003e viessmann:device:vicare:gateway:vitocal:heating-dhw-temperature-main#value": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-dhw-temperature-main#value"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-dhw-temperature-main#value"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Warmwasser_Soll"
+    }
+  },
   "Waerme_EG_DG_Fussbodenheizung -\u003e modbus:data:MulticalEgDgFbhPoll:Energie:number": {
     "class": "org.openhab.core.thing.link.ItemChannelLink",
     "value": {

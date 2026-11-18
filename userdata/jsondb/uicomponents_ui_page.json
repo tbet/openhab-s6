@@ -213,6 +213,423 @@
       }
     }
   },
+  "waermepumpe": {
+    "class": "org.openhab.core.ui.components.RootUIComponent",
+    "value": {
+      "uid": "waermepumpe",
+      "tags": [],
+      "props": {
+        "parameters": [],
+        "parameterGroups": []
+      },
+      "timestamp": "Nov 18, 2026, 6:15:00 PM",
+      "component": "oh-layout-page",
+      "config": {
+        "label": "Wärmepumpe",
+        "sidebar": true,
+        "order": "20"
+      },
+      "slots": {
+        "default": [
+          {
+            "component": "oh-block",
+            "config": {
+              "title": "Temperaturen"
+            },
+            "slots": {
+              "default": [
+                {
+                  "component": "oh-grid-cells",
+                  "config": {},
+                  "slots": {
+                    "default": [
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "WP_Aussentemperatur"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:temperature",
+                          "item": "WP_Aussentemperatur",
+                          "stateAsHeader": true,
+                          "title": "Außentemperatur",
+                          "trendItem": "WP_Aussentemperatur"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "WP_Vorlauftemperatur"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:temperature",
+                          "item": "WP_Vorlauftemperatur",
+                          "stateAsHeader": true,
+                          "subtitle": "\u003d\u0027Soll \u0027 + items.WP_Vorlauf_Soll.displayState",
+                          "title": "Vorlauf",
+                          "trendItem": "WP_Vorlauftemperatur"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "WP_Ruecklauftemperatur"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:temperature",
+                          "item": "WP_Ruecklauftemperatur",
+                          "stateAsHeader": true,
+                          "title": "Rücklauf",
+                          "trendItem": "WP_Ruecklauftemperatur"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "WP_Warmwasser_Ist"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:water",
+                          "item": "WP_Warmwasser_Ist",
+                          "stateAsHeader": true,
+                          "subtitle": "\u003d\u0027Soll \u0027 + items.WP_Warmwasser_Soll.displayState",
+                          "title": "Warmwasser",
+                          "trendItem": "WP_Warmwasser_Ist"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "component": "oh-block",
+            "config": {
+              "title": "Betrieb"
+            },
+            "slots": {
+              "default": [
+                {
+                  "component": "oh-grid-cells",
+                  "config": {},
+                  "slots": {
+                    "default": [
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "options",
+                          "actionItem": "WP_Betriebsart",
+                          "actionOptions": "heating\u003dHeizen,standby\u003dStandby",
+                          "expandable": false,
+                          "icon": "oh:heating",
+                          "item": "WP_Betriebsart",
+                          "stateAsHeader": true,
+                          "title": "Betriebsart Heizkreis"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "options",
+                          "actionItem": "WP_Warmwasser_Modus",
+                          "actionOptions": "efficient\u003dEffizient,efficientWithMinComfort\u003dEffizient mit Mindestkomfort,off\u003dAus",
+                          "expandable": false,
+                          "icon": "oh:water",
+                          "item": "WP_Warmwasser_Modus",
+                          "stateAsHeader": true,
+                          "title": "Warmwasser Betriebsart"
+                        }
+                      },
+                      {
+                        "component": "oh-cell",
+                        "config": {
+                          "action": "toggle",
+                          "actionCommand": "ON",
+                          "actionCommandAlt": "OFF",
+                          "actionItem": "WP_Warmwasser_Einmalladung",
+                          "color": "blue",
+                          "icon": "oh:water",
+                          "on": "\u003ditems.WP_Warmwasser_Einmalladung.state \u003d\u003d\u003d \u0027ON\u0027",
+                          "header": "\u003ditems.WP_Warmwasser_Einmalladung.state \u003d\u003d\u003d \u0027ON\u0027 ? \u0027läuft\u0027 : \u0027aus\u0027",
+                          "title": "Warmwasser Einmalladung"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "WP_Leistung_Elektrisch"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:energy",
+                          "item": "WP_Leistung_Elektrisch",
+                          "stateAsHeader": true,
+                          "subtitle": "\u003ditems.WP_Verdichter_Aktiv.state \u003d\u003d\u003d \u0027ON\u0027 ? \u0027Verdichter läuft, \u0027 + items.WP_Verdichter_Drehzahl.displayState : \u0027Verdichter aus\u0027",
+                          "title": "Elektrische Leistung",
+                          "trendItem": "WP_Leistung_Elektrisch"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "WP_Verdichter_Starts"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:fan",
+                          "item": "WP_Verdichter_Starts",
+                          "stateAsHeader": true,
+                          "subtitle": "\u003ditems.WP_Verdichter_Stunden.displayState + \u0027 Laufzeit\u0027",
+                          "title": "Verdichter Starts",
+                          "trendItem": "WP_Verdichter_Starts"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "WP_Anlagendruck"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:pressure",
+                          "item": "WP_Anlagendruck",
+                          "stateAsHeader": true,
+                          "title": "Anlagendruck",
+                          "trendItem": "WP_Anlagendruck"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "WP_Fehler_Aktiv"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:error",
+                          "item": "WP_Fehler_Aktiv",
+                          "stateAsHeader": true,
+                          "subtitle": "\u003ditems.WP_Letzte_Fehlermeldung.state",
+                          "title": "Störung",
+                          "trendItem": "WP_Fehler_Aktiv"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "WP_API_Aufrufe_Heute"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:network",
+                          "item": "WP_API_Aufrufe_Heute",
+                          "stateAsHeader": true,
+                          "subtitle": "Limit 1450 pro Tag",
+                          "title": "API-Aufrufe heute",
+                          "trendItem": "WP_API_Aufrufe_Heute"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "component": "oh-block",
+            "config": {
+              "title": "Energie"
+            },
+            "slots": {
+              "default": [
+                {
+                  "component": "oh-grid-cells",
+                  "config": {},
+                  "slots": {
+                    "default": [
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "WP_Strom_Heizen_Heute",
+                            "WP_Strom_Warmwasser_Heute"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:energy",
+                          "item": "WP_Strom_Heute",
+                          "stateAsHeader": true,
+                          "subtitle": "\u003d\u0027Heizen \u0027 + items.WP_Strom_Heizen_Heute.displayState + \u0027, WW \u0027 + items.WP_Strom_Warmwasser_Heute.displayState",
+                          "title": "Strom heute",
+                          "trendItem": "WP_Strom_Heute"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "WP_Waerme_Heizen_Heute",
+                            "WP_Waerme_Warmwasser_Heute"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:heating",
+                          "item": "WP_Waerme_Heute",
+                          "stateAsHeader": true,
+                          "subtitle": "\u003d\u0027Heizen \u0027 + items.WP_Waerme_Heizen_Heute.displayState + \u0027, WW \u0027 + items.WP_Waerme_Warmwasser_Heute.displayState",
+                          "title": "Wärme heute",
+                          "trendItem": "WP_Waerme_Heute"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "WP_COP_Heute"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:line",
+                          "item": "WP_COP_Heute",
+                          "stateAsHeader": true,
+                          "title": "Arbeitszahl heute",
+                          "trendItem": "WP_COP_Heute"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "WP_JAZ"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:line",
+                          "item": "WP_JAZ",
+                          "stateAsHeader": true,
+                          "title": "Jahresarbeitszahl",
+                          "trendItem": "WP_JAZ"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "WP_Strom_Heizen_Jahr",
+                            "WP_Strom_Warmwasser_Jahr"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:energy",
+                          "item": "WP_Strom_Heizen_Jahr",
+                          "stateAsHeader": true,
+                          "subtitle": "\u003d\u0027Warmwasser \u0027 + items.WP_Strom_Warmwasser_Jahr.displayState",
+                          "title": "Strom Heizen dieses Jahr",
+                          "trendItem": "WP_Strom_Heizen_Jahr"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "WP_Waerme_Heizen_Jahr",
+                            "WP_Waerme_Warmwasser_Jahr"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:heating",
+                          "item": "WP_Waerme_Heizen_Jahr",
+                          "stateAsHeader": true,
+                          "subtitle": "\u003d\u0027Warmwasser \u0027 + items.WP_Waerme_Warmwasser_Jahr.displayState",
+                          "title": "Wärme Heizen dieses Jahr",
+                          "trendItem": "WP_Waerme_Heizen_Jahr"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "component": "oh-block",
+            "config": {
+              "title": "Sollwerte"
+            },
+            "slots": {
+              "default": [
+                {
+                  "component": "oh-grid-row",
+                  "config": {},
+                  "slots": {
+                    "default": [
+                      {
+                        "component": "oh-grid-col",
+                        "config": {
+                          "width": "100",
+                          "medium": "50"
+                        },
+                        "slots": {
+                          "default": [
+                            {
+                              "component": "oh-stepper-card",
+                              "config": {
+                                "item": "WP_Warmwasser_Soll",
+                                "title": "Warmwasser Soll",
+                                "min": 10,
+                                "max": 60,
+                                "step": 1,
+                                "autorepeat": false
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "component": "oh-grid-col",
+                        "config": {
+                          "width": "100",
+                          "medium": "50"
+                        },
+                        "slots": {
+                          "default": [
+                            {
+                              "component": "oh-stepper-card",
+                              "config": {
+                                "item": "WP_Raum_Soll_Normal",
+                                "title": "Raumtemperatur Soll (Normal)",
+                                "min": 3,
+                                "max": 37,
+                                "step": 1,
+                                "autorepeat": false
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
   "waermezaehler": {
     "class": "org.openhab.core.ui.components.RootUIComponent",
     "value": {

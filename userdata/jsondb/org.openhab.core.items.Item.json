@@ -235,6 +235,488 @@
       "category": "energy"
     }
   },
+  "WP_API_Aufrufe_Heute": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Point"
+      ],
+      "label": "Viessmann-API-Aufrufe heute",
+      "category": "network"
+    }
+  },
+  "WP_Abtauung": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Switch",
+      "tags": [
+        "Point"
+      ],
+      "label": "Abtauung aktiv",
+      "category": "snow"
+    }
+  },
+  "WP_Anlagendruck": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Number:Pressure",
+      "tags": [
+        "Point"
+      ],
+      "label": "Anlagendruck",
+      "category": "pressure"
+    }
+  },
+  "WP_Aussentemperatur": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Number:Temperature",
+      "tags": [
+        "Point"
+      ],
+      "label": "Außentemperatur",
+      "category": "temperature"
+    }
+  },
+  "WP_Betriebsart": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "String",
+      "tags": [
+        "Point"
+      ],
+      "label": "Betriebsart Heizkreis",
+      "category": "heating"
+    }
+  },
+  "WP_COP_Heute": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Point"
+      ],
+      "label": "Arbeitszahl heute",
+      "category": "line"
+    }
+  },
+  "WP_Fehler_Aktiv": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Switch",
+      "tags": [
+        "Point"
+      ],
+      "label": "Störung aktiv",
+      "category": "error"
+    }
+  },
+  "WP_JAZ": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Point"
+      ],
+      "label": "Jahresarbeitszahl (SCOP gesamt)",
+      "category": "line"
+    }
+  },
+  "WP_Leistung_Elektrisch": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Number:Power",
+      "tags": [
+        "Point"
+      ],
+      "label": "Elektrische Leistung (Inverter)",
+      "category": "energy"
+    }
+  },
+  "WP_Letzte_Fehlermeldung": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "String",
+      "tags": [
+        "Point"
+      ],
+      "label": "Letzte Fehlermeldung",
+      "category": "error"
+    }
+  },
+  "WP_Programm": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "String",
+      "tags": [
+        "Point"
+      ],
+      "label": "Aktives Programm",
+      "category": "heating"
+    }
+  },
+  "WP_Raum_Soll_Normal": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Number:Temperature",
+      "tags": [
+        "Point"
+      ],
+      "label": "Raumtemperatur Soll (Normal)",
+      "category": "temperature"
+    }
+  },
+  "WP_Ruecklauftemperatur": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Number:Temperature",
+      "tags": [
+        "Point"
+      ],
+      "label": "Rücklauftemperatur",
+      "category": "temperature"
+    }
+  },
+  "WP_Strom_Heizen_Heute": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe",
+        "WP_Strom_Heute"
+      ],
+      "itemType": "Number:Energy",
+      "tags": [
+        "Point"
+      ],
+      "label": "Strom Heizen heute",
+      "category": "energy"
+    }
+  },
+  "WP_Strom_Heizen_Jahr": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Number:Energy",
+      "tags": [
+        "Point"
+      ],
+      "label": "Strom Heizen dieses Jahr",
+      "category": "energy"
+    }
+  },
+  "WP_Strom_Heute": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Group",
+      "tags": [],
+      "label": "Strom heute (Heizen + Warmwasser)",
+      "category": "energy",
+      "baseItemType": "Number:Energy",
+      "functionName": "SUM",
+      "functionParams": []
+    }
+  },
+  "WP_Strom_Warmwasser_Heute": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe",
+        "WP_Strom_Heute"
+      ],
+      "itemType": "Number:Energy",
+      "tags": [
+        "Point"
+      ],
+      "label": "Strom Warmwasser heute",
+      "category": "energy"
+    }
+  },
+  "WP_Strom_Warmwasser_Jahr": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Number:Energy",
+      "tags": [
+        "Point"
+      ],
+      "label": "Strom Warmwasser dieses Jahr",
+      "category": "energy"
+    }
+  },
+  "WP_Verdichter_Aktiv": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Switch",
+      "tags": [
+        "Point"
+      ],
+      "label": "Verdichter läuft",
+      "category": "fan"
+    }
+  },
+  "WP_Verdichter_Drehzahl": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Number:Frequency",
+      "tags": [
+        "Point"
+      ],
+      "label": "Verdichter Drehzahl",
+      "category": "fan"
+    }
+  },
+  "WP_Verdichter_Phase": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "String",
+      "tags": [
+        "Point"
+      ],
+      "label": "Verdichter Phase",
+      "category": "fan"
+    }
+  },
+  "WP_Verdichter_Starts": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Point"
+      ],
+      "label": "Verdichter Starts",
+      "category": "fan"
+    }
+  },
+  "WP_Verdichter_Stunden": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Number:Time",
+      "tags": [
+        "Point"
+      ],
+      "label": "Verdichter Betriebsstunden",
+      "category": "time"
+    }
+  },
+  "WP_Vorlauf_Soll": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Number:Temperature",
+      "tags": [
+        "Point"
+      ],
+      "label": "Vorlauf Soll",
+      "category": "temperature"
+    }
+  },
+  "WP_Vorlauftemperatur": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Number:Temperature",
+      "tags": [
+        "Point"
+      ],
+      "label": "Vorlauftemperatur",
+      "category": "temperature"
+    }
+  },
+  "WP_Waerme_Heizen_Heute": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe",
+        "WP_Waerme_Heute"
+      ],
+      "itemType": "Number:Energy",
+      "tags": [
+        "Point"
+      ],
+      "label": "Wärme Heizen heute",
+      "category": "heating"
+    }
+  },
+  "WP_Waerme_Heizen_Jahr": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Number:Energy",
+      "tags": [
+        "Point"
+      ],
+      "label": "Wärme Heizen dieses Jahr",
+      "category": "heating"
+    }
+  },
+  "WP_Waerme_Heute": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Group",
+      "tags": [],
+      "label": "Wärme heute (Heizen + Warmwasser)",
+      "category": "heating",
+      "baseItemType": "Number:Energy",
+      "functionName": "SUM",
+      "functionParams": []
+    }
+  },
+  "WP_Waerme_Warmwasser_Heute": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe",
+        "WP_Waerme_Heute"
+      ],
+      "itemType": "Number:Energy",
+      "tags": [
+        "Point"
+      ],
+      "label": "Wärme Warmwasser heute",
+      "category": "heating"
+    }
+  },
+  "WP_Waerme_Warmwasser_Jahr": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Number:Energy",
+      "tags": [
+        "Point"
+      ],
+      "label": "Wärme Warmwasser dieses Jahr",
+      "category": "heating"
+    }
+  },
+  "WP_Warmwasser_Einmalladung": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Switch",
+      "tags": [
+        "Switch"
+      ],
+      "label": "Warmwasser Einmalladung",
+      "category": "water"
+    }
+  },
+  "WP_Warmwasser_Ist": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Number:Temperature",
+      "tags": [
+        "Point"
+      ],
+      "label": "Warmwasser Ist",
+      "category": "water"
+    }
+  },
+  "WP_Warmwasser_Modus": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "String",
+      "tags": [
+        "Point"
+      ],
+      "label": "Warmwasser Betriebsart",
+      "category": "water"
+    }
+  },
+  "WP_Warmwasser_Soll": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Number:Temperature",
+      "tags": [
+        "Point"
+      ],
+      "label": "Warmwasser Soll",
+      "category": "water"
+    }
+  },
   "Waerme_EG_DG_Fussbodenheizung": {
     "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
     "value": {
@@ -274,6 +756,18 @@
         "Point"
       ],
       "label": "Keller_Fussbodenheizung",
+      "category": "heating"
+    }
+  },
+  "Waermepumpe": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Group",
+      "tags": [
+        "Equipment"
+      ],
+      "label": "Wärmepumpe Vitocal 250-A",
       "category": "heating"
     }
   },

@@ -48,3 +48,5 @@ addons/tmp/
 userdata/jsondb/users.json
 userdata/jsondb/backup/
 
+# ViCare-Zugangsdaten (Vorlage: viessmann-secrets.example.json)
+viessmann-secrets.json

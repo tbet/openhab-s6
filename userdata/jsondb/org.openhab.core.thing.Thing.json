@@ -2172,5 +2172,122 @@
       "UID": "modbus:tcp:MulticalKellerFbh",
       "thingTypeUID": "modbus:tcp"
     }
+  },
+  "viessmann:account:vicare": {
+    "class": "org.openhab.core.thing.internal.ThingStorageEntity",
+    "value": {
+      "isBridge": true,
+      "channels": [
+        {
+          "uid": "viessmann:account:vicare:count-api-calls",
+          "id": "count-api-calls",
+          "channelTypeUID": "viessmann:number",
+          "itemType": "Number",
+          "kind": "STATE",
+          "label": "Count API Calls",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        }
+      ],
+      "label": "Viessmann Account",
+      "configuration": {
+        "apiKey": "",
+        "user": "",
+        "password": "",
+        "apiCallLimit": 1450,
+        "bufferApiCommands": 450,
+        "pollingInterval": 0,
+        "pollingIntervalErrors": 60,
+        "disablePolling": false
+      },
+      "properties": {
+        "thingTypeVersion": "4"
+      },
+      "UID": "viessmann:account:vicare",
+      "thingTypeUID": "viessmann:account"
+    }
+  },
+  "viessmann:device:vicare:gateway:vitocal": {
+    "class": "org.openhab.core.thing.internal.ThingStorageEntity",
+    "value": {
+      "isBridge": false,
+      "channels": [],
+      "label": "Vitocal 250-A",
+      "bridgeUID": "viessmann:gateway:vicare:gateway",
+      "configuration": {
+        "deviceId": "0"
+      },
+      "properties": {
+        "thingTypeVersion": "5"
+      },
+      "UID": "viessmann:device:vicare:gateway:vitocal",
+      "thingTypeUID": "viessmann:device"
+    }
+  },
+  "viessmann:gateway:vicare:gateway": {
+    "class": "org.openhab.core.thing.internal.ThingStorageEntity",
+    "value": {
+      "isBridge": true,
+      "channels": [
+        {
+          "uid": "viessmann:gateway:vicare:gateway:error-is-active",
+          "id": "error-is-active",
+          "channelTypeUID": "viessmann:error-is-active",
+          "itemType": "Switch",
+          "kind": "STATE",
+          "label": "Error Is Active",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "viessmann:gateway:vicare:gateway:last-error-message",
+          "id": "last-error-message",
+          "channelTypeUID": "viessmann:last-error-message",
+          "itemType": "String",
+          "kind": "STATE",
+          "label": "Last Error Message",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "viessmann:gateway:vicare:gateway:run-query-once",
+          "id": "run-query-once",
+          "channelTypeUID": "viessmann:run-query-once",
+          "itemType": "Switch",
+          "kind": "STATE",
+          "label": "Run Device Query",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        },
+        {
+          "uid": "viessmann:gateway:vicare:gateway:run-error-query-once",
+          "id": "run-error-query-once",
+          "channelTypeUID": "viessmann:run-error-query-once",
+          "itemType": "Switch",
+          "kind": "STATE",
+          "label": "Run Error Query",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {}
+        }
+      ],
+      "label": "Viessmann Gateway (Vitoconnect)",
+      "bridgeUID": "viessmann:account:vicare",
+      "configuration": {
+        "installationId": "",
+        "gatewaySerial": "",
+        "pollingIntervalErrors": 60,
+        "disablePolling": false
+      },
+      "properties": {
+        "thingTypeVersion": "4"
+      },
+      "UID": "viessmann:gateway:vicare:gateway",
+      "thingTypeUID": "viessmann:gateway"
+    }
   }
 }

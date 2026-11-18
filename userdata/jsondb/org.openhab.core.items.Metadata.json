@@ -249,6 +249,406 @@
       }
     }
   },
+  "stateDescription:WP_API_Aufrufe_Heute": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_API_Aufrufe_Heute"
+        ],
+        "uid": "stateDescription:WP_API_Aufrufe_Heute"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.0f"
+      }
+    }
+  },
+  "stateDescription:WP_Anlagendruck": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_Anlagendruck"
+        ],
+        "uid": "stateDescription:WP_Anlagendruck"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.1f bar"
+      }
+    }
+  },
+  "stateDescription:WP_Aussentemperatur": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_Aussentemperatur"
+        ],
+        "uid": "stateDescription:WP_Aussentemperatur"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.1f °C"
+      }
+    }
+  },
+  "stateDescription:WP_COP_Heute": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_COP_Heute"
+        ],
+        "uid": "stateDescription:WP_COP_Heute"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.2f"
+      }
+    }
+  },
+  "stateDescription:WP_JAZ": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_JAZ"
+        ],
+        "uid": "stateDescription:WP_JAZ"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.1f"
+      }
+    }
+  },
+  "stateDescription:WP_Leistung_Elektrisch": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_Leistung_Elektrisch"
+        ],
+        "uid": "stateDescription:WP_Leistung_Elektrisch"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.0f W"
+      }
+    }
+  },
+  "stateDescription:WP_Raum_Soll_Normal": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_Raum_Soll_Normal"
+        ],
+        "uid": "stateDescription:WP_Raum_Soll_Normal"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.0f °C"
+      }
+    }
+  },
+  "stateDescription:WP_Ruecklauftemperatur": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_Ruecklauftemperatur"
+        ],
+        "uid": "stateDescription:WP_Ruecklauftemperatur"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.1f °C"
+      }
+    }
+  },
+  "stateDescription:WP_Strom_Heizen_Heute": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_Strom_Heizen_Heute"
+        ],
+        "uid": "stateDescription:WP_Strom_Heizen_Heute"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.1f kWh"
+      }
+    }
+  },
+  "stateDescription:WP_Strom_Heizen_Jahr": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_Strom_Heizen_Jahr"
+        ],
+        "uid": "stateDescription:WP_Strom_Heizen_Jahr"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.0f kWh"
+      }
+    }
+  },
+  "stateDescription:WP_Strom_Heute": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_Strom_Heute"
+        ],
+        "uid": "stateDescription:WP_Strom_Heute"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.1f kWh"
+      }
+    }
+  },
+  "stateDescription:WP_Strom_Warmwasser_Heute": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_Strom_Warmwasser_Heute"
+        ],
+        "uid": "stateDescription:WP_Strom_Warmwasser_Heute"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.1f kWh"
+      }
+    }
+  },
+  "stateDescription:WP_Strom_Warmwasser_Jahr": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_Strom_Warmwasser_Jahr"
+        ],
+        "uid": "stateDescription:WP_Strom_Warmwasser_Jahr"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.0f kWh"
+      }
+    }
+  },
+  "stateDescription:WP_Verdichter_Drehzahl": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_Verdichter_Drehzahl"
+        ],
+        "uid": "stateDescription:WP_Verdichter_Drehzahl"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.0f Hz"
+      }
+    }
+  },
+  "stateDescription:WP_Verdichter_Starts": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_Verdichter_Starts"
+        ],
+        "uid": "stateDescription:WP_Verdichter_Starts"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.0f"
+      }
+    }
+  },
+  "stateDescription:WP_Verdichter_Stunden": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_Verdichter_Stunden"
+        ],
+        "uid": "stateDescription:WP_Verdichter_Stunden"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.0f h"
+      }
+    }
+  },
+  "stateDescription:WP_Vorlauf_Soll": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_Vorlauf_Soll"
+        ],
+        "uid": "stateDescription:WP_Vorlauf_Soll"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.1f °C"
+      }
+    }
+  },
+  "stateDescription:WP_Vorlauftemperatur": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_Vorlauftemperatur"
+        ],
+        "uid": "stateDescription:WP_Vorlauftemperatur"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.1f °C"
+      }
+    }
+  },
+  "stateDescription:WP_Waerme_Heizen_Heute": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_Waerme_Heizen_Heute"
+        ],
+        "uid": "stateDescription:WP_Waerme_Heizen_Heute"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.1f kWh"
+      }
+    }
+  },
+  "stateDescription:WP_Waerme_Heizen_Jahr": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_Waerme_Heizen_Jahr"
+        ],
+        "uid": "stateDescription:WP_Waerme_Heizen_Jahr"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.0f kWh"
+      }
+    }
+  },
+  "stateDescription:WP_Waerme_Heute": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_Waerme_Heute"
+        ],
+        "uid": "stateDescription:WP_Waerme_Heute"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.1f kWh"
+      }
+    }
+  },
+  "stateDescription:WP_Waerme_Warmwasser_Heute": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_Waerme_Warmwasser_Heute"
+        ],
+        "uid": "stateDescription:WP_Waerme_Warmwasser_Heute"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.1f kWh"
+      }
+    }
+  },
+  "stateDescription:WP_Waerme_Warmwasser_Jahr": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_Waerme_Warmwasser_Jahr"
+        ],
+        "uid": "stateDescription:WP_Waerme_Warmwasser_Jahr"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.0f kWh"
+      }
+    }
+  },
+  "stateDescription:WP_Warmwasser_Ist": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_Warmwasser_Ist"
+        ],
+        "uid": "stateDescription:WP_Warmwasser_Ist"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.1f °C"
+      }
+    }
+  },
+  "stateDescription:WP_Warmwasser_Soll": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_Warmwasser_Soll"
+        ],
+        "uid": "stateDescription:WP_Warmwasser_Soll"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.0f °C"
+      }
+    }
+  },
   "stateDescription:Waerme_EG_DG_Fussbodenheizung": {
     "class": "org.openhab.core.items.Metadata",
     "value": {
@@ -295,6 +695,300 @@
       "configuration": {
         "pattern": "%.3f MWh"
       }
+    }
+  },
+  "unit:WP_Anlagendruck": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_Anlagendruck"
+        ],
+        "uid": "unit:WP_Anlagendruck"
+      },
+      "value": "bar",
+      "configuration": {}
+    }
+  },
+  "unit:WP_Aussentemperatur": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_Aussentemperatur"
+        ],
+        "uid": "unit:WP_Aussentemperatur"
+      },
+      "value": "°C",
+      "configuration": {}
+    }
+  },
+  "unit:WP_Leistung_Elektrisch": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_Leistung_Elektrisch"
+        ],
+        "uid": "unit:WP_Leistung_Elektrisch"
+      },
+      "value": "W",
+      "configuration": {}
+    }
+  },
+  "unit:WP_Raum_Soll_Normal": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_Raum_Soll_Normal"
+        ],
+        "uid": "unit:WP_Raum_Soll_Normal"
+      },
+      "value": "°C",
+      "configuration": {}
+    }
+  },
+  "unit:WP_Ruecklauftemperatur": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_Ruecklauftemperatur"
+        ],
+        "uid": "unit:WP_Ruecklauftemperatur"
+      },
+      "value": "°C",
+      "configuration": {}
+    }
+  },
+  "unit:WP_Strom_Heizen_Heute": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_Strom_Heizen_Heute"
+        ],
+        "uid": "unit:WP_Strom_Heizen_Heute"
+      },
+      "value": "kWh",
+      "configuration": {}
+    }
+  },
+  "unit:WP_Strom_Heizen_Jahr": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_Strom_Heizen_Jahr"
+        ],
+        "uid": "unit:WP_Strom_Heizen_Jahr"
+      },
+      "value": "kWh",
+      "configuration": {}
+    }
+  },
+  "unit:WP_Strom_Heute": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_Strom_Heute"
+        ],
+        "uid": "unit:WP_Strom_Heute"
+      },
+      "value": "kWh",
+      "configuration": {}
+    }
+  },
+  "unit:WP_Strom_Warmwasser_Heute": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_Strom_Warmwasser_Heute"
+        ],
+        "uid": "unit:WP_Strom_Warmwasser_Heute"
+      },
+      "value": "kWh",
+      "configuration": {}
+    }
+  },
+  "unit:WP_Strom_Warmwasser_Jahr": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_Strom_Warmwasser_Jahr"
+        ],
+        "uid": "unit:WP_Strom_Warmwasser_Jahr"
+      },
+      "value": "kWh",
+      "configuration": {}
+    }
+  },
+  "unit:WP_Verdichter_Drehzahl": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_Verdichter_Drehzahl"
+        ],
+        "uid": "unit:WP_Verdichter_Drehzahl"
+      },
+      "value": "Hz",
+      "configuration": {}
+    }
+  },
+  "unit:WP_Verdichter_Stunden": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_Verdichter_Stunden"
+        ],
+        "uid": "unit:WP_Verdichter_Stunden"
+      },
+      "value": "h",
+      "configuration": {}
+    }
+  },
+  "unit:WP_Vorlauf_Soll": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_Vorlauf_Soll"
+        ],
+        "uid": "unit:WP_Vorlauf_Soll"
+      },
+      "value": "°C",
+      "configuration": {}
+    }
+  },
+  "unit:WP_Vorlauftemperatur": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_Vorlauftemperatur"
+        ],
+        "uid": "unit:WP_Vorlauftemperatur"
+      },
+      "value": "°C",
+      "configuration": {}
+    }
+  },
+  "unit:WP_Waerme_Heizen_Heute": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_Waerme_Heizen_Heute"
+        ],
+        "uid": "unit:WP_Waerme_Heizen_Heute"
+      },
+      "value": "kWh",
+      "configuration": {}
+    }
+  },
+  "unit:WP_Waerme_Heizen_Jahr": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_Waerme_Heizen_Jahr"
+        ],
+        "uid": "unit:WP_Waerme_Heizen_Jahr"
+      },
+      "value": "kWh",
+      "configuration": {}
+    }
+  },
+  "unit:WP_Waerme_Heute": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_Waerme_Heute"
+        ],
+        "uid": "unit:WP_Waerme_Heute"
+      },
+      "value": "kWh",
+      "configuration": {}
+    }
+  },
+  "unit:WP_Waerme_Warmwasser_Heute": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_Waerme_Warmwasser_Heute"
+        ],
+        "uid": "unit:WP_Waerme_Warmwasser_Heute"
+      },
+      "value": "kWh",
+      "configuration": {}
+    }
+  },
+  "unit:WP_Waerme_Warmwasser_Jahr": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_Waerme_Warmwasser_Jahr"
+        ],
+        "uid": "unit:WP_Waerme_Warmwasser_Jahr"
+      },
+      "value": "kWh",
+      "configuration": {}
+    }
+  },
+  "unit:WP_Warmwasser_Ist": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_Warmwasser_Ist"
+        ],
+        "uid": "unit:WP_Warmwasser_Ist"
+      },
+      "value": "°C",
+      "configuration": {}
+    }
+  },
+  "unit:WP_Warmwasser_Soll": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_Warmwasser_Soll"
+        ],
+        "uid": "unit:WP_Warmwasser_Soll"
+      },
+      "value": "°C",
+      "configuration": {}
     }
   }
 }
