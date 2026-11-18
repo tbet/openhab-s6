@@ -37,6 +37,25 @@
       "itemName": "Akkustand"
     }
   },
+  "Goodwe_Batt_Entladung_Raw -\u003e modbus:data:GoodwePollLivedata:GoodweBattDischargeTotal:number": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "modbus",
+          "data",
+          "GoodwePollLivedata",
+          "GoodweBattDischargeTotal",
+          "number"
+        ],
+        "uid": "modbus:data:GoodwePollLivedata:GoodweBattDischargeTotal:number"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Goodwe_Batt_Entladung_Raw"
+    }
+  },
   "Goodwe_EMS_Mode -\u003e modbus:data:GoodwePollEms:EmsMode:number": {
     "class": "org.openhab.core.thing.link.ItemChannelLink",
     "value": {

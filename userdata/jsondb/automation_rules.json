@@ -1,4 +1,37 @@
 {
+  "akku_ladezyklen": {
+    "class": "org.openhab.core.automation.dto.RuleDTO",
+    "value": {
+      "triggers": [
+        {
+          "id": "1",
+          "configuration": {
+            "itemName": "Goodwe_Batt_Entladung_Raw"
+          },
+          "type": "core.ItemStateChangeTrigger"
+        }
+      ],
+      "conditions": [],
+      "actions": [
+        {
+          "inputs": {},
+          "id": "2",
+          "configuration": {
+            "type": "application/vnd.openhab.dsl.rule",
+            "script": "// Berechnet die Ladezyklen (Vollzyklen) des Akkus.\n// Grundlage: Register 35209 \u003d vom Wechselrichter gezaehlte Gesamtentladung\n// seit Installation, in 0,1 kWh (nicht vom BMS).\n// Vollzyklen \u003d Gesamtentladung (kWh) / nutzbare Kapazitaet (kWh)\n//\n// Nutzbare Kapazitaet: Pylontech Force H1 mit 6 Modulen \u003d 20,24 kWh\n// (Datenblatt: 6M nominal 21,31 kWh, nutzbar 20,24 kWh).\n// Bei Erweiterung um Module diesen Wert anpassen.\nval kapazitaetKWh \u003d 20.24\n\nif (Goodwe_Batt_Entladung_Raw.state instanceof Number) {\n    val entladungKWh \u003d (Goodwe_Batt_Entladung_Raw.state as Number).doubleValue / 10.0\n    Akku_Entladung_Gesamt.postUpdate(entladungKWh)\n    Akku_Ladezyklen.postUpdate(entladungKWh / kapazitaetKWh)\n}\n"
+          },
+          "type": "script.ScriptAction"
+        }
+      ],
+      "configuration": {},
+      "configDescriptions": [],
+      "uid": "akku_ladezyklen",
+      "name": "Akku Ladezyklen berechnen",
+      "tags": [],
+      "visibility": "VISIBLE",
+      "description": "Berechnet Vollzyklen aus Gesamtentladung (35209) und nutzbarer Kapazitaet"
+    }
+  },
   "netzladen_schalten": {
     "class": "org.openhab.core.automation.dto.RuleDTO",
     "value": {

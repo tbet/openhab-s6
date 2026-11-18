@@ -118,6 +118,22 @@
                         "config": {
                           "action": "analyzer",
                           "actionAnalyzerItems": [
+                            "Akku_Ladezyklen"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:battery",
+                          "item": "Akku_Ladezyklen",
+                          "stateAsHeader": true,
+                          "subtitle": "\u003ditems.Akku_Entladung_Gesamt.displayState + \u0027 entladen\u0027",
+                          "title": "Akku Ladezyklen",
+                          "trendItem": "Akku_Ladezyklen"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
                             "Goodwe_PV1_Power"
                           ],
                           "expandable": false,

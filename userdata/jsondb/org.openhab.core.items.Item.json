@@ -1,4 +1,32 @@
 {
+  "Akku_Entladung_Gesamt": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Goodwe"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Point"
+      ],
+      "label": "Akku Entladung gesamt",
+      "category": "battery"
+    }
+  },
+  "Akku_Ladezyklen": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Goodwe"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Point"
+      ],
+      "label": "Akku Ladezyklen",
+      "category": "battery"
+    }
+  },
   "Akku_SOH": {
     "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
     "value": {
@@ -37,6 +65,20 @@
       ],
       "label": "Goodwe",
       "category": "solarplant"
+    }
+  },
+  "Goodwe_Batt_Entladung_Raw": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Goodwe"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Point"
+      ],
+      "label": "Akku Entladung gesamt (Rohwert 0,1 kWh)",
+      "category": "battery"
     }
   },
   "Goodwe_EMS_Mode": {

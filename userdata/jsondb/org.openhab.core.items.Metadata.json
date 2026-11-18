@@ -41,6 +41,38 @@
       "configuration": {}
     }
   },
+  "stateDescription:Akku_Entladung_Gesamt": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "Akku_Entladung_Gesamt"
+        ],
+        "uid": "stateDescription:Akku_Entladung_Gesamt"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.1f kWh"
+      }
+    }
+  },
+  "stateDescription:Akku_Ladezyklen": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "Akku_Ladezyklen"
+        ],
+        "uid": "stateDescription:Akku_Ladezyklen"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.1f"
+      }
+    }
+  },
   "stateDescription:Akku_SOH": {
     "class": "org.openhab.core.items.Metadata",
     "value": {
