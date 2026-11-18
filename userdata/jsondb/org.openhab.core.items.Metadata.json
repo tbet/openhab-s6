@@ -537,6 +537,22 @@
       }
     }
   },
+  "stateDescription:WP_Volumenstrom": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_Volumenstrom"
+        ],
+        "uid": "stateDescription:WP_Volumenstrom"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.0f l/h"
+      }
+    }
+  },
   "stateDescription:WP_Vorlauftemperatur": {
     "class": "org.openhab.core.items.Metadata",
     "value": {
@@ -922,6 +938,20 @@
         "uid": "unit:WP_Verdichter_Stunden"
       },
       "value": "h",
+      "configuration": {}
+    }
+  },
+  "unit:WP_Volumenstrom": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_Volumenstrom"
+        ],
+        "uid": "unit:WP_Volumenstrom"
+      },
+      "value": "l/h",
       "configuration": {}
     }
   },

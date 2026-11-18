@@ -630,6 +630,20 @@
       "category": "time"
     }
   },
+  "WP_Volumenstrom": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Number:VolumetricFlowRate",
+      "tags": [
+        "Point"
+      ],
+      "label": "Volumenstrom",
+      "category": "water"
+    }
+  },
   "WP_Vorlauftemperatur": {
     "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
     "value": {

@@ -106,6 +106,7 @@ lässt das Binding weg. Beispiele: `heating.dhw.sensors.temperature.hotWaterStor
 | `WP_Verdichter_Stunden` | `heating.compressors.0.statistics` (`hours`) | h | |
 | `WP_Leistung_Elektrisch` | `heating.inverters.0.sensors.power.output` | W | |
 | `WP_Abtauung` | `heating.outdoor.defrosting` (`active`) | Schalter | |
+| `WP_Volumenstrom` | `heating.sensors.volumetricFlow.allengra` | l/h (Binding liefert l/min, openHAB rechnet um) | |
 | `WP_Anlagendruck` | `heating.sensors.pressure.supply` | bar | |
 | `WP_Strom_Heizen_Heute` / `_Jahr` | `heating.power.consumption.summary.heating` (`currentDay` / `currentYear`) | kWh | |
 | `WP_Strom_Warmwasser_Heute` / `_Jahr` | `heating.power.consumption.summary.dhw` (`currentDay` / `currentYear`) | kWh | |
@@ -126,8 +127,8 @@ Hinweise:
 - Die Anlage hat zwei Heizkreise: Heizkreis 1 (`circuits.0`) = Heizkörper, Heizkreis 2 (`circuits.1`) = Fußboden.
   Ob ein Heizkreis gerade heizt, zeigt der Status seiner Heizkreispumpe (wie in der ViCare-App).
 - Den Vorlauf-Sollwert `heating.circuits.N.temperature` meldet die Anlage mit 0 °C. Er ist deshalb nicht eingebunden.
-- Den Volumenstrom (`heating.sensors.volumetricFlow.allengra`) rechnet das Binding von l/h in l/min um.
-  Der Kanal ist vorhanden, aber nicht verknüpft.
+- Den Volumenstrom (`heating.sensors.volumetricFlow.allengra`) meldet die API in l/h, das Binding rechnet ihn in l/min um.
+  Das Item `WP_Volumenstrom` hat die Einheit `l/h`, openHAB rechnet zurück.
 - Nach einem Befehl (Sollwert, Betriebsart) zeigt die Oberfläche den neuen Wert sofort an. Den von der
   Wärmepumpe bestätigten Wert gibt es erst mit der nächsten Abfrage.
 - Grenze im kostenlosen API-Paket: 120 Aufrufe in 10 Minuten und 1450 in 24 Stunden, sonst 24 Stunden Sperre.
@@ -206,7 +207,7 @@ Eigene Seite in der Seitenleiste mit vier Blöcken:
 | Block | Kacheln |
 |---|---|
 | Temperaturen | Außentemperatur, Vorlauf Heizkörper, Vorlauf Fußboden, Wärmepumpe Vorlauf, Wärmepumpe Rücklauf, Warmwasser (Untertitel: Soll) |
-| Betrieb | Verdichter-Starts (Untertitel: Laufzeit und Status mit Drehzahl), Anlagendruck, Störung (Untertitel: letzte Meldung), API-Aufrufe heute |
+| Betrieb | Verdichter-Starts (Untertitel: Laufzeit und Status mit Drehzahl), Volumenstrom, Anlagendruck, Störung (Untertitel: letzte Meldung), API-Aufrufe heute |
 | Energie | Elektrische Leistung, Strom heute, Wärme heute (jeweils Heizen/WW im Untertitel), Arbeitszahl heute, Jahresarbeitszahl, Strom und Wärme Heizen dieses Jahr (Untertitel: Warmwasser) |
 | Sollwerte | Stepper für Warmwasser Soll, Raumtemperatur Soll Heizkörper und Raumtemperatur Soll Fußboden (Fußzeile: Status der Heizkreispumpe) |
 

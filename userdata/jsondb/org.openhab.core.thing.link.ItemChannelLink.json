@@ -749,6 +749,26 @@
       "itemName": "WP_Verdichter_Stunden"
     }
   },
+  "WP_Volumenstrom -\u003e viessmann:device:vicare:gateway:vitocal:heating-sensors-volumetric-flow-allengra": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-sensors-volumetric-flow-allengra"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-sensors-volumetric-flow-allengra"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Volumenstrom"
+    }
+  },
   "WP_Vorlauftemperatur -\u003e viessmann:device:vicare:gateway:vitocal:heating-circuits-0-sensors-temperature-supply": {
     "class": "org.openhab.core.thing.link.ItemChannelLink",
     "value": {

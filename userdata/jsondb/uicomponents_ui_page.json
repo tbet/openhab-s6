@@ -373,6 +373,21 @@
                         "config": {
                           "action": "analyzer",
                           "actionAnalyzerItems": [
+                            "WP_Volumenstrom"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:water",
+                          "item": "WP_Volumenstrom",
+                          "stateAsHeader": true,
+                          "title": "Volumenstrom",
+                          "trendItem": "WP_Volumenstrom"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
                             "WP_Anlagendruck"
                           ],
                           "expandable": false,
