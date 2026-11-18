@@ -121,6 +121,22 @@
       }
     }
   },
+  "stateDescription:Goodwe_Live_Data_Value_as_Number": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "Goodwe_Live_Data_Value_as_Number"
+        ],
+        "uid": "stateDescription:Goodwe_Live_Data_Value_as_Number"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.0f W"
+      }
+    }
+  },
   "stateDescription:Goodwe_PV1_Power": {
     "class": "org.openhab.core.items.Metadata",
     "value": {
@@ -166,6 +182,38 @@
       "value": "",
       "configuration": {
         "pattern": "%.0f W"
+      }
+    }
+  },
+  "stateDescription:HauptstromzaehlerEinspeisung": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "HauptstromzaehlerEinspeisung"
+        ],
+        "uid": "stateDescription:HauptstromzaehlerEinspeisung"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.2f kWh"
+      }
+    }
+  },
+  "stateDescription:HauptstromzaehlerVerbrauch": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "HauptstromzaehlerVerbrauch"
+        ],
+        "uid": "stateDescription:HauptstromzaehlerVerbrauch"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.2f kWh"
       }
     }
   },
