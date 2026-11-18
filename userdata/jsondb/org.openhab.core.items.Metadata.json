@@ -201,6 +201,22 @@
       }
     }
   },
+  "stateDescription:HauptstromzaehlerPower": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "HauptstromzaehlerPower"
+        ],
+        "uid": "stateDescription:HauptstromzaehlerPower"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.0f W"
+      }
+    }
+  },
   "stateDescription:HauptstromzaehlerVerbrauch": {
     "class": "org.openhab.core.items.Metadata",
     "value": {
