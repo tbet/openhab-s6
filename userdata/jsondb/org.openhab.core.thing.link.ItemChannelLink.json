@@ -213,5 +213,24 @@
       },
       "itemName": "HauptstromzaehlerVerbrauch"
     }
+  },
+  "Hausverbrauch -\u003e modbus:data:GoodwePollLivedata:GoodweLoadTotal:number": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "modbus",
+          "data",
+          "GoodwePollLivedata",
+          "GoodweLoadTotal",
+          "number"
+        ],
+        "uid": "modbus:data:GoodwePollLivedata:GoodweLoadTotal:number"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Hausverbrauch"
+    }
   }
 }

@@ -220,5 +220,19 @@
       "label": "Hauptstromzähler Verbrauch",
       "category": "cellar"
     }
+  },
+  "Hausverbrauch": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Goodwe"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Point"
+      ],
+      "label": "Hausverbrauch",
+      "category": "energy"
+    }
   }
 }

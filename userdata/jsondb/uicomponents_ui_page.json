@@ -86,6 +86,21 @@
                         "config": {
                           "action": "analyzer",
                           "actionAnalyzerItems": [
+                            "Hausverbrauch"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:house",
+                          "item": "Hausverbrauch",
+                          "stateAsHeader": true,
+                          "title": "Hausverbrauch",
+                          "trendItem": "Hausverbrauch"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
                             "Akkustand"
                           ],
                           "expandable": false,

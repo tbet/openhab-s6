@@ -168,5 +168,21 @@
         "pattern": "%.0f W"
       }
     }
+  },
+  "stateDescription:Hausverbrauch": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "Hausverbrauch"
+        ],
+        "uid": "stateDescription:Hausverbrauch"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.0f W"
+      }
+    }
   }
 }
