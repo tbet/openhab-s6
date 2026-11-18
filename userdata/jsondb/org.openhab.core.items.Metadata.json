@@ -313,19 +313,19 @@
       }
     }
   },
-  "stateDescription:WP_HK2_Vorlauf_Soll": {
+  "stateDescription:WP_HK2_Raum_Soll_Normal": {
     "class": "org.openhab.core.items.Metadata",
     "value": {
       "key": {
         "segments": [
           "stateDescription",
-          "WP_HK2_Vorlauf_Soll"
+          "WP_HK2_Raum_Soll_Normal"
         ],
-        "uid": "stateDescription:WP_HK2_Vorlauf_Soll"
+        "uid": "stateDescription:WP_HK2_Raum_Soll_Normal"
       },
       "value": "",
       "configuration": {
-        "pattern": "%.1f °C"
+        "pattern": "%.0f °C"
       }
     }
   },
@@ -537,22 +537,6 @@
       }
     }
   },
-  "stateDescription:WP_Vorlauf_Soll": {
-    "class": "org.openhab.core.items.Metadata",
-    "value": {
-      "key": {
-        "segments": [
-          "stateDescription",
-          "WP_Vorlauf_Soll"
-        ],
-        "uid": "stateDescription:WP_Vorlauf_Soll"
-      },
-      "value": "",
-      "configuration": {
-        "pattern": "%.1f °C"
-      }
-    }
-  },
   "stateDescription:WP_Vorlauftemperatur": {
     "class": "org.openhab.core.items.Metadata",
     "value": {
@@ -757,15 +741,15 @@
       "configuration": {}
     }
   },
-  "unit:WP_HK2_Vorlauf_Soll": {
+  "unit:WP_HK2_Raum_Soll_Normal": {
     "class": "org.openhab.core.items.Metadata",
     "value": {
       "key": {
         "segments": [
           "unit",
-          "WP_HK2_Vorlauf_Soll"
+          "WP_HK2_Raum_Soll_Normal"
         ],
-        "uid": "unit:WP_HK2_Vorlauf_Soll"
+        "uid": "unit:WP_HK2_Raum_Soll_Normal"
       },
       "value": "°C",
       "configuration": {}
@@ -922,20 +906,6 @@
         "uid": "unit:WP_Verdichter_Stunden"
       },
       "value": "h",
-      "configuration": {}
-    }
-  },
-  "unit:WP_Vorlauf_Soll": {
-    "class": "org.openhab.core.items.Metadata",
-    "value": {
-      "key": {
-        "segments": [
-          "unit",
-          "WP_Vorlauf_Soll"
-        ],
-        "uid": "unit:WP_Vorlauf_Soll"
-      },
-      "value": "°C",
       "configuration": {}
     }
   },

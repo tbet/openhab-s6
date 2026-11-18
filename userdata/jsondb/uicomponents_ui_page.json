@@ -269,8 +269,7 @@
                           "icon": "oh:temperature",
                           "item": "WP_Vorlauftemperatur",
                           "stateAsHeader": true,
-                          "subtitle": "\u003d\u0027Soll \u0027 + items.WP_Vorlauf_Soll.displayState",
-                          "title": "Vorlauf Heizkreis 1",
+                          "title": "Vorlauf Heizkörper",
                           "trendItem": "WP_Vorlauftemperatur"
                         }
                       },
@@ -285,8 +284,7 @@
                           "icon": "oh:temperature",
                           "item": "WP_HK2_Vorlauftemperatur",
                           "stateAsHeader": true,
-                          "subtitle": "\u003d\u0027Soll \u0027 + items.WP_HK2_Vorlauf_Soll.displayState",
-                          "title": "Vorlauf Heizkreis 2",
+                          "title": "Vorlauf Fußboden",
                           "trendItem": "WP_HK2_Vorlauftemperatur"
                         }
                       },
@@ -316,7 +314,7 @@
                           "icon": "oh:water",
                           "item": "WP_Warmwasser_Ist",
                           "stateAsHeader": true,
-                          "subtitle": "\u003d\u0027Soll \u0027 + items.WP_Warmwasser_Soll.displayState",
+                          "subtitle": "\u003d\u0027Soll \u0027 + (items.WP_Warmwasser_Soll.displayState || items.WP_Warmwasser_Soll.state)",
                           "title": "Warmwasser",
                           "trendItem": "WP_Warmwasser_Ist"
                         }
@@ -349,7 +347,7 @@
                           "icon": "oh:heating",
                           "item": "WP_Betriebsart",
                           "stateAsHeader": true,
-                          "title": "Betriebsart Heizkreis 1"
+                          "title": "Betriebsart Heizkörper"
                         }
                       },
                       {
@@ -362,7 +360,7 @@
                           "icon": "oh:heating",
                           "item": "WP_HK2_Betriebsart",
                           "stateAsHeader": true,
-                          "title": "Betriebsart Heizkreis 2"
+                          "title": "Betriebsart Fußboden"
                         }
                       },
                       {
@@ -403,7 +401,7 @@
                           "icon": "oh:energy",
                           "item": "WP_Leistung_Elektrisch",
                           "stateAsHeader": true,
-                          "subtitle": "\u003ditems.WP_Verdichter_Aktiv.state \u003d\u003d\u003d \u0027ON\u0027 ? \u0027Verdichter läuft, \u0027 + items.WP_Verdichter_Drehzahl.displayState : \u0027Verdichter aus\u0027",
+                          "subtitle": "\u003ditems.WP_Verdichter_Aktiv.state \u003d\u003d\u003d \u0027ON\u0027 ? \u0027Verdichter läuft, \u0027 + (items.WP_Verdichter_Drehzahl.displayState || items.WP_Verdichter_Drehzahl.state) : \u0027Verdichter aus\u0027",
                           "title": "Elektrische Leistung",
                           "trendItem": "WP_Leistung_Elektrisch"
                         }
@@ -419,7 +417,7 @@
                           "icon": "oh:fan",
                           "item": "WP_Verdichter_Starts",
                           "stateAsHeader": true,
-                          "subtitle": "\u003ditems.WP_Verdichter_Stunden.displayState + \u0027 Laufzeit\u0027",
+                          "subtitle": "\u003d(items.WP_Verdichter_Stunden.displayState || items.WP_Verdichter_Stunden.state) + \u0027 Laufzeit\u0027",
                           "title": "Verdichter Starts",
                           "trendItem": "WP_Verdichter_Starts"
                         }
@@ -501,7 +499,7 @@
                           "icon": "oh:energy",
                           "item": "WP_Strom_Heute",
                           "stateAsHeader": true,
-                          "subtitle": "\u003d\u0027Heizen \u0027 + items.WP_Strom_Heizen_Heute.displayState + \u0027, WW \u0027 + items.WP_Strom_Warmwasser_Heute.displayState",
+                          "subtitle": "\u003d\u0027Heizen \u0027 + (items.WP_Strom_Heizen_Heute.displayState || items.WP_Strom_Heizen_Heute.state) + \u0027, WW \u0027 + (items.WP_Strom_Warmwasser_Heute.displayState || items.WP_Strom_Warmwasser_Heute.state)",
                           "title": "Strom heute",
                           "trendItem": "WP_Strom_Heute"
                         }
@@ -518,7 +516,7 @@
                           "icon": "oh:heating",
                           "item": "WP_Waerme_Heute",
                           "stateAsHeader": true,
-                          "subtitle": "\u003d\u0027Heizen \u0027 + items.WP_Waerme_Heizen_Heute.displayState + \u0027, WW \u0027 + items.WP_Waerme_Warmwasser_Heute.displayState",
+                          "subtitle": "\u003d\u0027Heizen \u0027 + (items.WP_Waerme_Heizen_Heute.displayState || items.WP_Waerme_Heizen_Heute.state) + \u0027, WW \u0027 + (items.WP_Waerme_Warmwasser_Heute.displayState || items.WP_Waerme_Warmwasser_Heute.state)",
                           "title": "Wärme heute",
                           "trendItem": "WP_Waerme_Heute"
                         }
@@ -565,7 +563,7 @@
                           "icon": "oh:energy",
                           "item": "WP_Strom_Heizen_Jahr",
                           "stateAsHeader": true,
-                          "subtitle": "\u003d\u0027Warmwasser \u0027 + items.WP_Strom_Warmwasser_Jahr.displayState",
+                          "subtitle": "\u003d\u0027Warmwasser \u0027 + (items.WP_Strom_Warmwasser_Jahr.displayState || items.WP_Strom_Warmwasser_Jahr.state)",
                           "title": "Strom Heizen dieses Jahr",
                           "trendItem": "WP_Strom_Heizen_Jahr"
                         }
@@ -582,7 +580,7 @@
                           "icon": "oh:heating",
                           "item": "WP_Waerme_Heizen_Jahr",
                           "stateAsHeader": true,
-                          "subtitle": "\u003d\u0027Warmwasser \u0027 + items.WP_Waerme_Warmwasser_Jahr.displayState",
+                          "subtitle": "\u003d\u0027Warmwasser \u0027 + (items.WP_Waerme_Warmwasser_Jahr.displayState || items.WP_Waerme_Warmwasser_Jahr.state)",
                           "title": "Wärme Heizen dieses Jahr",
                           "trendItem": "WP_Waerme_Heizen_Jahr"
                         }
@@ -609,7 +607,7 @@
                         "component": "oh-grid-col",
                         "config": {
                           "width": "100",
-                          "medium": "50"
+                          "medium": "33"
                         },
                         "slots": {
                           "default": [
@@ -617,7 +615,7 @@
                               "component": "oh-stepper-card",
                               "config": {
                                 "item": "WP_Warmwasser_Soll",
-                                "title": "Warmwasser Soll",
+                                "title": "Warmwasser Soll °C",
                                 "min": 10,
                                 "max": 60,
                                 "step": 1,
@@ -631,7 +629,7 @@
                         "component": "oh-grid-col",
                         "config": {
                           "width": "100",
-                          "medium": "50"
+                          "medium": "33"
                         },
                         "slots": {
                           "default": [
@@ -639,11 +637,35 @@
                               "component": "oh-stepper-card",
                               "config": {
                                 "item": "WP_Raum_Soll_Normal",
-                                "title": "Raumtemperatur Soll (Normal) Heizkreis 1",
+                                "title": "Raumtemperatur Soll Heizkörper °C",
                                 "min": 3,
                                 "max": 37,
                                 "step": 1,
-                                "autorepeat": false
+                                "autorepeat": false,
+                                "footer": "\u003d\u0027Heizkreispumpe: \u0027 + (items.WP_HK1_Pumpe.state \u003d\u003d\u003d \u0027ON\u0027 ? \u0027an\u0027 : \u0027aus\u0027)"
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "component": "oh-grid-col",
+                        "config": {
+                          "width": "100",
+                          "medium": "33"
+                        },
+                        "slots": {
+                          "default": [
+                            {
+                              "component": "oh-stepper-card",
+                              "config": {
+                                "item": "WP_HK2_Raum_Soll_Normal",
+                                "title": "Raumtemperatur Soll Fußboden °C",
+                                "min": 3,
+                                "max": 37,
+                                "step": 1,
+                                "autorepeat": false,
+                                "footer": "\u003d\u0027Heizkreispumpe: \u0027 + (items.WP_HK2_Pumpe.state \u003d\u003d\u003d \u0027ON\u0027 ? \u0027an\u0027 : \u0027aus\u0027)"
                               }
                             }
                           ]

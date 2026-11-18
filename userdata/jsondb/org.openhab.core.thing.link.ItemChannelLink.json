@@ -350,6 +350,26 @@
       "itemName": "WP_Fehler_Aktiv"
     }
   },
+  "WP_HK1_Pumpe -\u003e viessmann:device:vicare:gateway:vitocal:heating-circuits-0-circulation-pump#status": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-circuits-0-circulation-pump#status"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-circuits-0-circulation-pump#status"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_HK1_Pumpe"
+    }
+  },
   "WP_HK2_Betriebsart -\u003e viessmann:device:vicare:gateway:vitocal:heating-circuits-1-operating-modes-active": {
     "class": "org.openhab.core.thing.link.ItemChannelLink",
     "value": {
@@ -370,7 +390,7 @@
       "itemName": "WP_HK2_Betriebsart"
     }
   },
-  "WP_HK2_Vorlauf_Soll -\u003e viessmann:device:vicare:gateway:vitocal:heating-circuits-1-temperature": {
+  "WP_HK2_Pumpe -\u003e viessmann:device:vicare:gateway:vitocal:heating-circuits-1-circulation-pump#status": {
     "class": "org.openhab.core.thing.link.ItemChannelLink",
     "value": {
       "channelUID": {
@@ -380,14 +400,34 @@
           "vicare",
           "gateway",
           "vitocal",
-          "heating-circuits-1-temperature"
+          "heating-circuits-1-circulation-pump#status"
         ],
-        "uid": "viessmann:device:vicare:gateway:vitocal:heating-circuits-1-temperature"
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-circuits-1-circulation-pump#status"
       },
       "configuration": {
         "properties": {}
       },
-      "itemName": "WP_HK2_Vorlauf_Soll"
+      "itemName": "WP_HK2_Pumpe"
+    }
+  },
+  "WP_HK2_Raum_Soll_Normal -\u003e viessmann:device:vicare:gateway:vitocal:heating-circuits-1-operating-programs-normal-heating#temperature": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-circuits-1-operating-programs-normal-heating#temperature"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-circuits-1-operating-programs-normal-heating#temperature"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_HK2_Raum_Soll_Normal"
     }
   },
   "WP_HK2_Vorlauftemperatur -\u003e viessmann:device:vicare:gateway:vitocal:heating-circuits-1-sensors-temperature-supply": {
@@ -707,26 +747,6 @@
         "properties": {}
       },
       "itemName": "WP_Verdichter_Stunden"
-    }
-  },
-  "WP_Vorlauf_Soll -\u003e viessmann:device:vicare:gateway:vitocal:heating-circuits-0-temperature": {
-    "class": "org.openhab.core.thing.link.ItemChannelLink",
-    "value": {
-      "channelUID": {
-        "segments": [
-          "viessmann",
-          "device",
-          "vicare",
-          "gateway",
-          "vitocal",
-          "heating-circuits-0-temperature"
-        ],
-        "uid": "viessmann:device:vicare:gateway:vitocal:heating-circuits-0-temperature"
-      },
-      "configuration": {
-        "properties": {}
-      },
-      "itemName": "WP_Vorlauf_Soll"
     }
   },
   "WP_Vorlauftemperatur -\u003e viessmann:device:vicare:gateway:vitocal:heating-circuits-0-sensors-temperature-supply": {

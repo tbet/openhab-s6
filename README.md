@@ -84,16 +84,17 @@ lässt das Binding weg. Beispiele: `heating.dhw.sensors.temperature.hotWaterStor
 | Item | Feature (Eigenschaft) | Einheit | schreibbar |
 |---|---|---|---|
 | `WP_Aussentemperatur` | `heating.sensors.temperature.outside` | °C | |
-| `WP_Vorlauftemperatur` | `heating.circuits.0.sensors.temperature.supply` (Heizkreis 1) | °C | |
-| `WP_Vorlauf_Soll` | `heating.circuits.0.temperature` (Heizkreis 1) | °C | |
-| `WP_HK2_Vorlauftemperatur` | `heating.circuits.1.sensors.temperature.supply` (Heizkreis 2) | °C | |
-| `WP_HK2_Vorlauf_Soll` | `heating.circuits.1.temperature` (Heizkreis 2) | °C | |
+| `WP_Vorlauftemperatur` | `heating.circuits.0.sensors.temperature.supply` (Heizkreis 1, Heizkörper) | °C | |
+| `WP_HK2_Vorlauftemperatur` | `heating.circuits.1.sensors.temperature.supply` (Heizkreis 2, Fußboden) | °C | |
 | `WP_Ruecklauftemperatur` | `heating.sensors.temperature.return` | °C | |
 | `WP_Warmwasser_Ist` | `heating.dhw.sensors.temperature.hotWaterStorage` | °C | |
 | `WP_Warmwasser_Soll` | `heating.dhw.temperature.main` | °C | ja, 10–60 °C |
-| `WP_Raum_Soll_Normal` | `heating.circuits.0.operating.programs.normalHeating` (`temperature`, Heizkreis 1) | °C | ja, 3–37 °C |
-| `WP_Betriebsart` | `heating.circuits.0.operating.modes.active` (Heizkreis 1) | `heating` / `standby` | ja |
-| `WP_HK2_Betriebsart` | `heating.circuits.1.operating.modes.active` (Heizkreis 2) | `heating` / `standby` | ja |
+| `WP_Raum_Soll_Normal` | `heating.circuits.0.operating.programs.normalHeating` (`temperature`, Heizkörper) | °C | ja, 3–37 °C |
+| `WP_HK2_Raum_Soll_Normal` | `heating.circuits.1.operating.programs.normalHeating` (`temperature`, Fußboden) | °C | ja, 3–37 °C |
+| `WP_Betriebsart` | `heating.circuits.0.operating.modes.active` (Heizkörper) | `heating` / `standby` | ja |
+| `WP_HK2_Betriebsart` | `heating.circuits.1.operating.modes.active` (Fußboden) | `heating` / `standby` | ja |
+| `WP_HK1_Pumpe` | `heating.circuits.0.circulation.pump` (`status`, Heizkörper) | Schalter | |
+| `WP_HK2_Pumpe` | `heating.circuits.1.circulation.pump` (`status`, Fußboden) | Schalter | |
 | `WP_Programm` | `heating.circuits.0.operating.programs.active` | Text | |
 | `WP_Warmwasser_Modus` | `heating.dhw.operating.modes.active` | `efficient` / `efficientWithMinComfort` / `off` | ja |
 | `WP_Warmwasser_Einmalladung` | `heating.dhw.oneTimeCharge` (`active`) | Schalter | ja |
@@ -119,7 +120,11 @@ Hinweise:
 
 - Die API liefert nur, was die Anlage meldet. Fehlt bei deiner Anlage ein Feature (z. B. ohne Warmwasserspeicher),
   bleibt das Item `NULL`. Alle tatsächlich vorhandenen Kanäle zeigt das Gerät-Thing im Tab „Channels“.
-- Werte mit der Einheit `liter/hour` (Volumenstrom) kennt das Binding nicht und legt dafür keinen Kanal an.
+- Die Anlage hat zwei Heizkreise: Heizkreis 1 (`circuits.0`) = Heizkörper, Heizkreis 2 (`circuits.1`) = Fußboden.
+  Ob ein Heizkreis gerade heizt, zeigt der Status seiner Heizkreispumpe (wie in der ViCare-App).
+- Den Vorlauf-Sollwert `heating.circuits.N.temperature` meldet die Anlage mit 0 °C. Er ist deshalb nicht eingebunden.
+- Den Volumenstrom (`heating.sensors.volumetricFlow.allengra`) rechnet das Binding von l/h in l/min um.
+  Der Kanal ist vorhanden, aber nicht verknüpft.
 - Nach einem Befehl (Sollwert, Betriebsart) zeigt die Oberfläche den neuen Wert sofort an. Den von der
   Wärmepumpe bestätigten Wert gibt es erst mit der nächsten Abfrage.
 - Grenze im kostenlosen API-Paket: 120 Aufrufe in 10 Minuten und 1450 in 24 Stunden, sonst 24 Stunden Sperre.
@@ -197,10 +202,10 @@ Eigene Seite in der Seitenleiste mit vier Blöcken:
 
 | Block | Kacheln |
 |---|---|
-| Temperaturen | Außentemperatur, Vorlauf Heizkreis 1 und 2 (Untertitel: Soll), Rücklauf, Warmwasser (Untertitel: Soll) |
-| Betrieb | Betriebsart Heizkreis 1 und 2 sowie Warmwasser-Betriebsart (Klick öffnet Auswahl), Warmwasser-Einmalladung (Schalter), elektrische Leistung (Untertitel: Verdichter an/aus, Drehzahl), Verdichter-Starts (Untertitel: Laufzeit), Anlagendruck, Störung (Untertitel: letzte Meldung), API-Aufrufe heute |
+| Temperaturen | Außentemperatur, Vorlauf Heizkörper, Vorlauf Fußboden, Rücklauf, Warmwasser (Untertitel: Soll) |
+| Betrieb | Betriebsart Heizkörper und Fußboden sowie Warmwasser-Betriebsart (Klick öffnet Auswahl), Warmwasser-Einmalladung (Schalter), elektrische Leistung (Untertitel: Verdichter an/aus, Drehzahl), Verdichter-Starts (Untertitel: Laufzeit), Anlagendruck, Störung (Untertitel: letzte Meldung), API-Aufrufe heute |
 | Energie | Strom heute, Wärme heute (jeweils Heizen/WW im Untertitel), Arbeitszahl heute, Jahresarbeitszahl, Strom und Wärme Heizen dieses Jahr (Untertitel: Warmwasser) |
-| Sollwerte | Stepper für Warmwasser Soll und Raumtemperatur Soll (Normal) Heizkreis 1 |
+| Sollwerte | Stepper für Warmwasser Soll, Raumtemperatur Soll Heizkörper und Raumtemperatur Soll Fußboden (Fußzeile: Status der Heizkreispumpe) |
 
 ---
 

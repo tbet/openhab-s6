@@ -301,7 +301,7 @@
       "tags": [
         "Point"
       ],
-      "label": "Betriebsart Heizkreis 1",
+      "label": "Betriebsart Heizkörper",
       "category": "heating"
     }
   },
@@ -333,6 +333,20 @@
       "category": "error"
     }
   },
+  "WP_HK1_Pumpe": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Switch",
+      "tags": [
+        "Point"
+      ],
+      "label": "Heizkreispumpe Heizkörper",
+      "category": "pump"
+    }
+  },
   "WP_HK2_Betriebsart": {
     "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
     "value": {
@@ -343,11 +357,25 @@
       "tags": [
         "Point"
       ],
-      "label": "Betriebsart Heizkreis 2",
+      "label": "Betriebsart Fußboden",
       "category": "heating"
     }
   },
-  "WP_HK2_Vorlauf_Soll": {
+  "WP_HK2_Pumpe": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Switch",
+      "tags": [
+        "Point"
+      ],
+      "label": "Heizkreispumpe Fußboden",
+      "category": "pump"
+    }
+  },
+  "WP_HK2_Raum_Soll_Normal": {
     "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
     "value": {
       "groupNames": [
@@ -357,7 +385,7 @@
       "tags": [
         "Point"
       ],
-      "label": "Vorlauf Soll Heizkreis 2",
+      "label": "Raumtemperatur Soll Fußboden",
       "category": "temperature"
     }
   },
@@ -371,7 +399,7 @@
       "tags": [
         "Point"
       ],
-      "label": "Vorlauftemperatur Heizkreis 2",
+      "label": "Vorlauftemperatur Fußboden",
       "category": "temperature"
     }
   },
@@ -441,7 +469,7 @@
       "tags": [
         "Point"
       ],
-      "label": "Raumtemperatur Soll (Normal) Heizkreis 1",
+      "label": "Raumtemperatur Soll Heizkörper",
       "category": "temperature"
     }
   },
@@ -602,20 +630,6 @@
       "category": "time"
     }
   },
-  "WP_Vorlauf_Soll": {
-    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
-    "value": {
-      "groupNames": [
-        "Waermepumpe"
-      ],
-      "itemType": "Number:Temperature",
-      "tags": [
-        "Point"
-      ],
-      "label": "Vorlauf Soll Heizkreis 1",
-      "category": "temperature"
-    }
-  },
   "WP_Vorlauftemperatur": {
     "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
     "value": {
@@ -626,7 +640,7 @@
       "tags": [
         "Point"
       ],
-      "label": "Vorlauftemperatur Heizkreis 1",
+      "label": "Vorlauftemperatur Heizkörper",
       "category": "temperature"
     }
   },
