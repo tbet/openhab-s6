@@ -373,6 +373,24 @@
                         "config": {
                           "action": "analyzer",
                           "actionAnalyzerItems": [
+                            "WP_Zusatzheizung",
+                            "WP_Heizstab_Heute"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:energy",
+                          "item": "WP_Zusatzheizung",
+                          "label": "\u003ditems.WP_Zusatzheizung.state \u003d\u003d\u003d \u0027ON\u0027 ? \u0027an\u0027 : \u0027aus\u0027",
+                          "stateAsHeader": true,
+                          "subtitle": "\u003d\u0027heute \u0027 + (items.WP_Heizstab_Heute.displayState || items.WP_Heizstab_Heute.state)",
+                          "title": "el. Zusatzheizung",
+                          "trendItem": "WP_Zusatzheizung"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
                             "WP_Volumenstrom"
                           ],
                           "expandable": false,

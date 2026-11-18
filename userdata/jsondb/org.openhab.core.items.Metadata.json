@@ -345,6 +345,70 @@
       }
     }
   },
+  "stateDescription:WP_Heizstab_Heizen_Heute": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_Heizstab_Heizen_Heute"
+        ],
+        "uid": "stateDescription:WP_Heizstab_Heizen_Heute"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.1f kWh"
+      }
+    }
+  },
+  "stateDescription:WP_Heizstab_Heute": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_Heizstab_Heute"
+        ],
+        "uid": "stateDescription:WP_Heizstab_Heute"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.1f kWh"
+      }
+    }
+  },
+  "stateDescription:WP_Heizstab_Starts": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_Heizstab_Starts"
+        ],
+        "uid": "stateDescription:WP_Heizstab_Starts"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.0f"
+      }
+    }
+  },
+  "stateDescription:WP_Heizstab_Warmwasser_Heute": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_Heizstab_Warmwasser_Heute"
+        ],
+        "uid": "stateDescription:WP_Heizstab_Warmwasser_Heute"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.1f kWh"
+      }
+    }
+  },
   "stateDescription:WP_JAZ": {
     "class": "org.openhab.core.items.Metadata",
     "value": {
@@ -798,6 +862,48 @@
         "uid": "unit:WP_HK2_Vorlauftemperatur"
       },
       "value": "°C",
+      "configuration": {}
+    }
+  },
+  "unit:WP_Heizstab_Heizen_Heute": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_Heizstab_Heizen_Heute"
+        ],
+        "uid": "unit:WP_Heizstab_Heizen_Heute"
+      },
+      "value": "kWh",
+      "configuration": {}
+    }
+  },
+  "unit:WP_Heizstab_Heute": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_Heizstab_Heute"
+        ],
+        "uid": "unit:WP_Heizstab_Heute"
+      },
+      "value": "kWh",
+      "configuration": {}
+    }
+  },
+  "unit:WP_Heizstab_Warmwasser_Heute": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_Heizstab_Warmwasser_Heute"
+        ],
+        "uid": "unit:WP_Heizstab_Warmwasser_Heute"
+      },
+      "value": "kWh",
       "configuration": {}
     }
   },

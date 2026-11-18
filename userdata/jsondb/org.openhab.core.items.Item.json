@@ -403,6 +403,65 @@
       "category": "temperature"
     }
   },
+  "WP_Heizstab_Heizen_Heute": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe",
+        "WP_Heizstab_Heute"
+      ],
+      "itemType": "Number:Energy",
+      "tags": [
+        "Point"
+      ],
+      "label": "Zusatzheizung Strom Heizen heute",
+      "category": "energy"
+    }
+  },
+  "WP_Heizstab_Heute": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Group",
+      "tags": [],
+      "label": "Zusatzheizung Strom heute (Heizen + Warmwasser)",
+      "category": "heating",
+      "baseItemType": "Number:Energy",
+      "functionName": "SUM",
+      "functionParams": []
+    }
+  },
+  "WP_Heizstab_Starts": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Point"
+      ],
+      "label": "Zusatzheizung Starts",
+      "category": "energy"
+    }
+  },
+  "WP_Heizstab_Warmwasser_Heute": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe",
+        "WP_Heizstab_Heute"
+      ],
+      "itemType": "Number:Energy",
+      "tags": [
+        "Point"
+      ],
+      "label": "Zusatzheizung Strom Warmwasser heute",
+      "category": "energy"
+    }
+  },
   "WP_JAZ": {
     "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
     "value": {
@@ -427,7 +486,7 @@
       "tags": [
         "Point"
       ],
-      "label": "Elektrische Leistung (Inverter)",
+      "label": "Elektrische Leistung",
       "category": "energy"
     }
   },
@@ -799,6 +858,20 @@
       ],
       "label": "Warmwasser Soll",
       "category": "water"
+    }
+  },
+  "WP_Zusatzheizung": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Switch",
+      "tags": [
+        "Point"
+      ],
+      "label": "el. Zusatzheizung heizt",
+      "category": "energy"
     }
   },
   "Waerme_EG_DG_Fussbodenheizung": {

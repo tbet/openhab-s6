@@ -450,6 +450,66 @@
       "itemName": "WP_HK2_Vorlauftemperatur"
     }
   },
+  "WP_Heizstab_Heizen_Heute -\u003e viessmann:device:vicare:gateway:vitocal:heating-heating-rod-power-consumption-summary-heating#current-day": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-heating-rod-power-consumption-summary-heating#current-day"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-heating-rod-power-consumption-summary-heating#current-day"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Heizstab_Heizen_Heute"
+    }
+  },
+  "WP_Heizstab_Starts -\u003e viessmann:device:vicare:gateway:vitocal:heating-heating-rod-statistics#starts": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-heating-rod-statistics#starts"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-heating-rod-statistics#starts"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Heizstab_Starts"
+    }
+  },
+  "WP_Heizstab_Warmwasser_Heute -\u003e viessmann:device:vicare:gateway:vitocal:heating-heating-rod-power-consumption-summary-dhw#current-day": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-heating-rod-power-consumption-summary-dhw#current-day"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-heating-rod-power-consumption-summary-dhw#current-day"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Heizstab_Warmwasser_Heute"
+    }
+  },
   "WP_JAZ -\u003e viessmann:device:vicare:gateway:vitocal:heating-scop-total": {
     "class": "org.openhab.core.thing.link.ItemChannelLink",
     "value": {
@@ -470,7 +530,7 @@
       "itemName": "WP_JAZ"
     }
   },
-  "WP_Leistung_Elektrisch -\u003e viessmann:device:vicare:gateway:vitocal:heating-inverters-0-sensors-power-output": {
+  "WP_Leistung_Elektrisch -\u003e viessmann:device:vicare:gateway:vitocal:heating-power-consumption-current": {
     "class": "org.openhab.core.thing.link.ItemChannelLink",
     "value": {
       "channelUID": {
@@ -480,9 +540,9 @@
           "vicare",
           "gateway",
           "vitocal",
-          "heating-inverters-0-sensors-power-output"
+          "heating-power-consumption-current"
         ],
-        "uid": "viessmann:device:vicare:gateway:vitocal:heating-inverters-0-sensors-power-output"
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-power-consumption-current"
       },
       "configuration": {
         "properties": {}

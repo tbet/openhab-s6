@@ -104,7 +104,11 @@ lässt das Binding weg. Beispiele: `heating.dhw.sensors.temperature.hotWaterStor
 | `WP_Verdichter_Drehzahl` | `heating.compressors.0.speed.current` | Hz (= U/s) | |
 | `WP_Verdichter_Starts` | `heating.compressors.0.statistics` (`starts`) | Anzahl | |
 | `WP_Verdichter_Stunden` | `heating.compressors.0.statistics` (`hours`) | h | |
-| `WP_Leistung_Elektrisch` | `heating.inverters.0.sensors.power.output` | W | |
+| `WP_Leistung_Elektrisch` | `heating.power.consumption.current` (Leistungsaufnahme der ganzen Wärmepumpe) | W | |
+| `WP_Heizstab_Heizen_Heute` / `_Warmwasser_Heute` | `heating.heatingRod.power.consumption.summary.heating` / `.dhw` (`currentDay`) | kWh | |
+| `WP_Heizstab_Heute` | Gruppe mit SUM aus Heizen + Warmwasser | kWh | |
+| `WP_Heizstab_Starts` | `heating.heatingRod.statistics` (`starts`) | Anzahl | |
+| `WP_Zusatzheizung` | berechnet (Regel): heizt die elektrische Zusatzheizung gerade? | Schalter | |
 | `WP_Abtauung` | `heating.outdoor.defrosting` (`active`) | Schalter | |
 | `WP_Volumenstrom` | `heating.sensors.volumetricFlow.allengra` | l/h (Binding liefert l/min, openHAB rechnet um) | |
 | `WP_Anlagendruck` | `heating.sensors.pressure.supply` | bar | |
@@ -124,6 +128,11 @@ Hinweise:
   bleibt das Item `NULL`. Alle tatsächlich vorhandenen Kanäle zeigt das Gerät-Thing im Tab „Channels“.
 - Vorlauf (`secondaryCircuit`) und Rücklauf der Wärmepumpe liegen auf der Heizwasserseite. `primaryCircuit` ist bei
   der Luft/Wasser-Wärmepumpe die Quellenseite (Luft am Verdampfer, nahe der Außentemperatur) und nicht eingebunden.
+- `WP_Leistung_Elektrisch` war anfangs mit `heating.inverters.0.sensors.power.output` verknüpft. Das ist nur die Leistung
+  des Inverters für den Verdichter, ohne Ventilator und Elektronik. `heating.power.consumption.current` enthält alles.
+- `heating.heatingRod` (`active`) meldet nur, ob die Zusatzheizung freigegeben ist, nicht ob sie heizt. In den
+  Vitocal-Antworten steht dort `true` auch bei stehender Anlage. Den Status leitet deshalb eine Regel aus den Zählern ab.
+  Die Anzeige reagiert so schnell, wie die API die Tageszähler aktualisiert, und geht 15 min nach dem letzten Anstieg auf AUS.
 - Die Anlage hat zwei Heizkreise: Heizkreis 1 (`circuits.0`) = Heizkörper, Heizkreis 2 (`circuits.1`) = Fußboden.
   Ob ein Heizkreis gerade heizt, zeigt der Status seiner Heizkreispumpe (wie in der ViCare-App).
 - Den Vorlauf-Sollwert `heating.circuits.N.temperature` meldet die Anlage mit 0 °C. Er ist deshalb nicht eingebunden.
@@ -207,7 +216,7 @@ Eigene Seite in der Seitenleiste mit vier Blöcken:
 | Block | Kacheln |
 |---|---|
 | Temperaturen | Außentemperatur, Vorlauf Heizkörper, Vorlauf Fußboden, Wärmepumpe Vorlauf, Wärmepumpe Rücklauf, Warmwasser (Untertitel: Soll) |
-| Betrieb | Verdichter-Starts (Untertitel: Laufzeit und Status mit Drehzahl), Volumenstrom, Anlagendruck, Störung (Untertitel: letzte Meldung), API-Aufrufe heute |
+| Betrieb | Verdichter-Starts (Untertitel: Laufzeit und Status mit Drehzahl), el. Zusatzheizung (an/aus, Untertitel: Verbrauch heute), Volumenstrom, Anlagendruck, Störung (Untertitel: letzte Meldung), API-Aufrufe heute |
 | Energie | Elektrische Leistung, Strom heute, Wärme heute (jeweils Heizen/WW im Untertitel), Arbeitszahl heute, Jahresarbeitszahl, Strom und Wärme Heizen dieses Jahr (Untertitel: Warmwasser) |
 | Sollwerte | Stepper für Warmwasser Soll, Raumtemperatur Soll Heizkörper und Raumtemperatur Soll Fußboden (Fußzeile: Status der Heizkreispumpe) |
 
@@ -220,6 +229,8 @@ Eigene Seite in der Seitenleiste mit vier Blöcken:
 | Netzladen schalten | Befehl an `Goodwe_Netzladen` | EIN: 47512 = 3000 W, dann 47511 = 2. AUS: 47511 = 1, dann 47512 = 0. |
 | Netzladen Status | Update von `Goodwe_EMS_Mode` | Setzt den Schalter auf den tatsächlich gelesenen Zustand: 47511 = 2 heißt AN, alles andere AUS. |
 | Akku Ladezyklen berechnen | Änderung von `Goodwe_Batt_Entladung_Raw` | Gesamtentladung in kWh = Rohwert ÷ 10. Ladezyklen = Gesamtentladung ÷ 20,24 kWh. |
+| Wärmepumpe Zusatzheizung Status | Änderung von `WP_Heizstab_Heizen_Heute`, `WP_Heizstab_Warmwasser_Heute` oder `WP_Heizstab_Starts` | Steigt einer der Werte, wird `WP_Zusatzheizung` AN. Nach 15 min ohne Anstieg wird es AUS (Timer im `privateCache`). Das Zurücksetzen der Tageszähler um Mitternacht wird ignoriert. |
+| Wärmepumpe Zusatzheizung Status beim Start | Startlevel 100 | Setzt `WP_Zusatzheizung` auf AUS, weil nach einem Neustart kein Abschalt-Timer läuft. |
 | Wärmepumpe Arbeitszahl heute berechnen | Änderung eines der vier Tageszähler `WP_Strom_*_Heute` / `WP_Waerme_*_Heute` | `WP_COP_Heute` = Wärme heute ÷ Strom heute (Heizen + Warmwasser). Unter 0,1 kWh Strom bleibt der Wert leer. |
 
 Hinweise:

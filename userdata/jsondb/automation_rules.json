@@ -151,5 +151,85 @@
       "visibility": "VISIBLE",
       "description": "Tages-COP \u003d Wärme heute / Strom heute (Heizen + Warmwasser) aus den Viessmann-Tageszählern"
     }
+  },
+  "wp_zusatzheizung": {
+    "class": "org.openhab.core.automation.dto.RuleDTO",
+    "value": {
+      "triggers": [
+        {
+          "id": "1",
+          "configuration": {
+            "itemName": "WP_Heizstab_Heizen_Heute"
+          },
+          "type": "core.ItemStateChangeTrigger"
+        },
+        {
+          "id": "2",
+          "configuration": {
+            "itemName": "WP_Heizstab_Warmwasser_Heute"
+          },
+          "type": "core.ItemStateChangeTrigger"
+        },
+        {
+          "id": "3",
+          "configuration": {
+            "itemName": "WP_Heizstab_Starts"
+          },
+          "type": "core.ItemStateChangeTrigger"
+        }
+      ],
+      "conditions": [],
+      "actions": [
+        {
+          "inputs": {},
+          "id": "4",
+          "configuration": {
+            "type": "application/vnd.openhab.dsl.rule",
+            "script": "// Status der elektrischen Zusatzheizung (Heizstab) der Vitocal 250-A.\n// Das API-Feld heating.heatingRod \"active\" meldet nur, ob der Heizstab freigegeben ist,\n// nicht ob er gerade heizt. Der Status wird deshalb aus den Zaehlern abgeleitet:\n// Steigt der Tagesverbrauch des Heizstabs (Heizen oder Warmwasser) oder seine Startzahl,\n// heizt er -\u003e AN. Kommt 15 Minuten lang kein Anstieg mehr -\u003e AUS.\n// Um Mitternacht fallen die Tageszaehler auf 0, das wird ignoriert.\nif (!(previousState instanceof Number) || !(newState instanceof Number)) return;\nif ((newState as Number).doubleValue \u003c\u003d (previousState as Number).doubleValue) return;\n\nWP_Zusatzheizung.postUpdate(ON)\nval alterTimer \u003d privateCache.get(\"ausTimer\") as Timer\nalterTimer?.cancel()\nprivateCache.put(\"ausTimer\", createTimer(now.plusMinutes(15), [ |\n    WP_Zusatzheizung.postUpdate(OFF)\n]))\n"
+          },
+          "type": "script.ScriptAction"
+        }
+      ],
+      "configuration": {},
+      "configDescriptions": [],
+      "uid": "wp_zusatzheizung",
+      "name": "Wärmepumpe Zusatzheizung Status",
+      "tags": [],
+      "visibility": "VISIBLE",
+      "description": "AN, wenn Verbrauch oder Starts des Heizstabs steigen; AUS nach 15 min ohne Anstieg"
+    }
+  },
+  "wp_zusatzheizung_start": {
+    "class": "org.openhab.core.automation.dto.RuleDTO",
+    "value": {
+      "triggers": [
+        {
+          "id": "1",
+          "configuration": {
+            "startlevel": 100
+          },
+          "type": "core.SystemStartlevelTrigger"
+        }
+      ],
+      "conditions": [],
+      "actions": [
+        {
+          "inputs": {},
+          "id": "2",
+          "configuration": {
+            "type": "application/vnd.openhab.dsl.rule",
+            "script": "// Nach einem Neustart laeuft kein Abschalt-Timer. Damit ein wiederhergestellter\n// Zustand AN nicht haengen bleibt, beginnt die Anzeige mit AUS.\nWP_Zusatzheizung.postUpdate(OFF)\n"
+          },
+          "type": "script.ScriptAction"
+        }
+      ],
+      "configuration": {},
+      "configDescriptions": [],
+      "uid": "wp_zusatzheizung_start",
+      "name": "Wärmepumpe Zusatzheizung Status beim Start",
+      "tags": [],
+      "visibility": "VISIBLE",
+      "description": "Setzt WP_Zusatzheizung nach dem Start auf AUS"
+    }
   }
 }
