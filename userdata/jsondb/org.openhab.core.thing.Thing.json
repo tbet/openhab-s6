@@ -1,4 +1,49 @@
 {
+  "astro:sun:frankfurt": {
+    "class": "org.openhab.core.thing.internal.ThingStorageEntity",
+    "value": {
+      "isBridge": false,
+      "channels": [
+        {
+          "uid": "astro:sun:frankfurt:set#start",
+          "id": "set#start",
+          "channelTypeUID": "astro:start",
+          "itemType": "DateTime",
+          "kind": "STATE",
+          "label": "Sonnenuntergang Beginn",
+          "description": "Beginn des Sonnenuntergangs",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {
+            "offset": 0.0
+          }
+        },
+        {
+          "uid": "astro:sun:frankfurt:set#end",
+          "id": "set#end",
+          "channelTypeUID": "astro:end",
+          "itemType": "DateTime",
+          "kind": "STATE",
+          "label": "Sonnenuntergang Ende",
+          "description": "Ende des Sonnenuntergangs",
+          "defaultTags": [],
+          "properties": {},
+          "configuration": {
+            "offset": 0.0
+          }
+        }
+      ],
+      "label": "Sonne Frankfurt",
+      "configuration": {
+        "geolocation": "50.1109,8.6821",
+        "interval": 300.0,
+        "useMeteorologicalSeason": false
+      },
+      "properties": {},
+      "UID": "astro:sun:frankfurt",
+      "thingTypeUID": "astro:sun"
+    }
+  },
   "http:url:69363a4913": {
     "class": "org.openhab.core.thing.internal.ThingStorageEntity",
     "value": {

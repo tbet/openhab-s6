@@ -249,6 +249,23 @@
       }
     }
   },
+  "stateDescription:Sonnenuntergang": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "Sonnenuntergang"
+        ],
+        "uid": "stateDescription:Sonnenuntergang"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%1$tH:%1$tM",
+        "readOnly": true
+      }
+    }
+  },
   "stateDescription:WP_API_Aufrufe_Heute": {
     "class": "org.openhab.core.items.Metadata",
     "value": {
@@ -438,6 +455,56 @@
       "value": "",
       "configuration": {
         "pattern": "%.0f W"
+      }
+    }
+  },
+  "stateDescription:WP_PV_Boost": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_PV_Boost"
+        ],
+        "uid": "stateDescription:WP_PV_Boost"
+      },
+      "value": "",
+      "configuration": {
+        "readOnly": true
+      }
+    }
+  },
+  "stateDescription:WP_PV_Boost_Ende": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_PV_Boost_Ende"
+        ],
+        "uid": "stateDescription:WP_PV_Boost_Ende"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%1$tH:%1$tM",
+        "readOnly": true
+      }
+    }
+  },
+  "stateDescription:WP_PV_Boost_Soll_Vorher": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "WP_PV_Boost_Soll_Vorher"
+        ],
+        "uid": "stateDescription:WP_PV_Boost_Soll_Vorher"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.0f °C",
+        "readOnly": true
       }
     }
   },
@@ -918,6 +985,20 @@
         "uid": "unit:WP_Leistung_Elektrisch"
       },
       "value": "W",
+      "configuration": {}
+    }
+  },
+  "unit:WP_PV_Boost_Soll_Vorher": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "unit",
+          "WP_PV_Boost_Soll_Vorher"
+        ],
+        "uid": "unit:WP_PV_Boost_Soll_Vorher"
+      },
+      "value": "°C",
       "configuration": {}
     }
   },

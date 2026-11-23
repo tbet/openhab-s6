@@ -233,6 +233,24 @@
       "itemName": "Hausverbrauch"
     }
   },
+  "Sonnenuntergang -\u003e astro:sun:frankfurt:set#start": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "frankfurt",
+          "set#start"
+        ],
+        "uid": "astro:sun:frankfurt:set#start"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Sonnenuntergang"
+    }
+  },
   "WP_API_Aufrufe_Heute -\u003e viessmann:account:vicare:count-api-calls": {
     "class": "org.openhab.core.thing.link.ItemChannelLink",
     "value": {

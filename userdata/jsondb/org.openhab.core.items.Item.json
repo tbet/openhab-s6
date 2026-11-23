@@ -235,6 +235,18 @@
       "category": "energy"
     }
   },
+  "Sonnenuntergang": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "DateTime",
+      "tags": [
+        "Point"
+      ],
+      "label": "Sonnenuntergang",
+      "category": "sun"
+    }
+  },
   "WP_API_Aufrufe_Heute": {
     "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
     "value": {
@@ -502,6 +514,62 @@
       ],
       "label": "Letzte Fehlermeldung",
       "category": "error"
+    }
+  },
+  "WP_PV_Boost": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Switch",
+      "tags": [
+        "Point"
+      ],
+      "label": "PV-Warmwasser Erhöhung aktiv",
+      "category": "solarplant"
+    }
+  },
+  "WP_PV_Boost_Ende": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "DateTime",
+      "tags": [
+        "Point"
+      ],
+      "label": "PV-Warmwasser Erhöhung bis",
+      "category": "time"
+    }
+  },
+  "WP_PV_Boost_Freigabe": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Switch",
+      "tags": [
+        "Point"
+      ],
+      "label": "PV-Warmwasser Automatik",
+      "category": "switch"
+    }
+  },
+  "WP_PV_Boost_Soll_Vorher": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "Number:Temperature",
+      "tags": [
+        "Point"
+      ],
+      "label": "Warmwasser Soll vor PV-Erhöhung",
+      "category": "water"
     }
   },
   "WP_Programm": {

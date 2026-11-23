@@ -670,6 +670,52 @@
                 }
               ]
             }
+          },
+          {
+            "component": "oh-block",
+            "config": {
+              "title": "PV-Überschuss → Warmwasser"
+            },
+            "slots": {
+              "default": [
+                {
+                  "component": "oh-grid-cells",
+                  "config": {},
+                  "slots": {
+                    "default": [
+                      {
+                        "component": "oh-toggle-cell",
+                        "config": {
+                          "item": "WP_PV_Boost_Freigabe",
+                          "icon": "oh:solarplant",
+                          "title": "PV-Warmwasser Automatik",
+                          "subtitle": "\u003ditems.WP_PV_Boost_Freigabe.state \u003d\u003d\u003d \u0027ON\u0027 ? \u0027an\u0027 : \u0027aus\u0027"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "WP_PV_Boost",
+                            "WP_Warmwasser_Soll",
+                            "WP_Warmwasser_Ist"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:water",
+                          "item": "WP_PV_Boost",
+                          "label": "\u003ditems.WP_PV_Boost.state \u003d\u003d\u003d \u0027ON\u0027 ? \u0027aktiv\u0027 : \u0027aus\u0027",
+                          "stateAsHeader": true,
+                          "subtitle": "\u003ditems.WP_PV_Boost.state \u003d\u003d\u003d \u0027ON\u0027 ? \u0027bis \u0027 + (items.WP_PV_Boost_Ende.displayState || items.WP_PV_Boost_Ende.state) + \u0027, danach \u0027 + (items.WP_PV_Boost_Soll_Vorher.displayState || items.WP_PV_Boost_Soll_Vorher.state) : \u0027Sonnenuntergang \u0027 + (items.Sonnenuntergang.displayState || items.Sonnenuntergang.state)",
+                          "title": "Warmwasser auf 59 °C",
+                          "trendItem": "WP_PV_Boost"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
           }
         ]
       }

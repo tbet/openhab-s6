@@ -152,6 +152,72 @@
       "description": "Tages-COP \u003d Wärme heute / Strom heute (Heizen + Warmwasser) aus den Viessmann-Tageszählern"
     }
   },
+  "wp_pv_warmwasser": {
+    "class": "org.openhab.core.automation.dto.RuleDTO",
+    "value": {
+      "triggers": [
+        {
+          "id": "1",
+          "configuration": {
+            "cronExpression": "0 * * * * ?"
+          },
+          "type": "timer.GenericCronTrigger"
+        }
+      ],
+      "conditions": [],
+      "actions": [
+        {
+          "inputs": {},
+          "id": "2",
+          "configuration": {
+            "type": "application/vnd.openhab.dsl.rule",
+            "script": "// PV-Ueberschuss in den Warmwasserspeicher (und damit in den Puffer) schieben.\n// Laeuft jede Minute. Die Erhoehung startet, wenn ALLE Bedingungen erfuellt sind:\n//   - Freigabe WP_PV_Boost_Freigabe ist AN\n//   - Heizkreispumpe Fussboden (WP_HK2_Pumpe) ist AN\n//   - Akkustand \u003e 95 %\n//   - jetzt ist mehr als 2 Stunden vor Sonnenuntergang (Astro-Thing Frankfurt)\n//   - PV-Leistung (Strang 1 + 2) im Mittel der letzten 5 Minuten \u003e 1000 W\n//   - heute gab es noch keine Erhoehung, Warmwasser Soll liegt unter 59 °C\n// Dann: Warmwasser Soll fuer 60 Minuten auf 59 °C, danach zurueck auf den alten Wert.\n// Hat jemand den Sollwert in der Zwischenzeit von Hand geaendert, bleibt dieser Wert stehen.\nval zielTemp \u003d 59\nval akkuMin \u003d 95.0\nval pvMin \u003d 1000.0\nval pvMinuten \u003d 5\nval dauerMinuten \u003d 60\nval stundenVorSonnenuntergang \u003d 2\n\n// 1) Laufende Erhoehung: nach Ablauf den alten Sollwert wiederherstellen.\n//    Ist das Ende unbekannt (z. B. nach einem Neustart), wird sofort zurueckgesetzt.\nif (WP_PV_Boost.state \u003d\u003d ON) {\n    if (WP_PV_Boost_Ende.state instanceof DateTimeType\n        \u0026\u0026 now.toInstant.isBefore((WP_PV_Boost_Ende.state as DateTimeType).instant)) return;\n\n    val vorher \u003d WP_PV_Boost_Soll_Vorher.state\n    val aktuell \u003d WP_Warmwasser_Soll.state\n    if (vorher instanceof Number \u0026\u0026 aktuell instanceof Number\n        \u0026\u0026 Math.abs((aktuell as Number).doubleValue - zielTemp) \u003c 0.5) {\n        WP_Warmwasser_Soll.sendCommand(vorher.toString)\n        logInfo(\"PV-Warmwasser\", \"Erhoehung beendet, Warmwasser Soll zurueck auf \" + vorher)\n    } else {\n        logInfo(\"PV-Warmwasser\", \"Erhoehung beendet, Warmwasser Soll (\" + aktuell + \") wurde zwischenzeitlich geaendert und bleibt\")\n    }\n    WP_PV_Boost.postUpdate(OFF)\n    return;\n}\n\n// 2) Bedingungen fuer den Start pruefen (guenstige Pruefungen zuerst, Persistence zuletzt)\nif (WP_PV_Boost_Freigabe.state !\u003d ON) return;\nif (WP_HK2_Pumpe.state !\u003d ON) return;\nif (!(Akkustand.state instanceof Number) || (Akkustand.state as Number).doubleValue \u003c\u003d akkuMin) return;\n\nif (!(Sonnenuntergang.state instanceof DateTimeType)) return;\nval spaetestens \u003d (Sonnenuntergang.state as DateTimeType).instant.minusSeconds(stundenVorSonnenuntergang * 3600)\nif (!now.toInstant.isBefore(spaetestens)) return;\n\nval heuteBeginn \u003d now.toLocalDate.atStartOfDay(now.zone).toInstant\nif (WP_PV_Boost_Ende.state instanceof DateTimeType\n    \u0026\u0026 (WP_PV_Boost_Ende.state as DateTimeType).instant.isAfter(heuteBeginn)) return;\n\nval sollAlt \u003d WP_Warmwasser_Soll.state\nif (!(sollAlt instanceof Number) || (sollAlt as Number).doubleValue \u003e\u003d zielTemp) return;\n\nval seit \u003d now.minusMinutes(pvMinuten)\nval pv1 \u003d Goodwe_PV1_Power.averageSince(seit)\nval pv2 \u003d Goodwe_PV2_Power.averageSince(seit)\nif (!(pv1 instanceof Number) || !(pv2 instanceof Number)) return;\nval pvMittel \u003d (pv1 as Number).doubleValue + (pv2 as Number).doubleValue\nif (pvMittel \u003c\u003d pvMin) return;\n\n// 3) Erhoehung starten\nWP_PV_Boost_Soll_Vorher.postUpdate(sollAlt)\nWP_PV_Boost_Ende.postUpdate(new DateTimeType(now.plusMinutes(dauerMinuten)))\nWP_PV_Boost.postUpdate(ON)\nWP_Warmwasser_Soll.sendCommand(zielTemp + \" °C\")\nlogInfo(\"PV-Warmwasser\", \"Erhoehung gestartet: Warmwasser Soll \" + sollAlt + \" -\u003e \" + zielTemp\n    + \" °C fuer \" + dauerMinuten + \" min (Akku \" + Akkustand.state + \" %, PV-Mittel \"\n    + Math.round(pvMittel) + \" W)\")\n"
+          },
+          "type": "script.ScriptAction"
+        }
+      ],
+      "configuration": {},
+      "configDescriptions": [],
+      "uid": "wp_pv_warmwasser",
+      "name": "Wärmepumpe PV-Warmwasser",
+      "tags": [],
+      "visibility": "VISIBLE",
+      "description": "Warmwasser Soll 60 min auf 59 °C bei vollem Akku, PV \u003e 1000 W (5-min-Mittel), FBH-Pumpe an, \u003e 2 h vor Sonnenuntergang"
+    }
+  },
+  "wp_pv_warmwasser_start": {
+    "class": "org.openhab.core.automation.dto.RuleDTO",
+    "value": {
+      "triggers": [
+        {
+          "id": "1",
+          "configuration": {
+            "startlevel": 100
+          },
+          "type": "core.SystemStartlevelTrigger"
+        }
+      ],
+      "conditions": [],
+      "actions": [
+        {
+          "inputs": {},
+          "id": "2",
+          "configuration": {
+            "type": "application/vnd.openhab.dsl.rule",
+            "script": "// Ohne gespeicherten Zustand (erste Inbetriebnahme) ist die PV-Warmwasser-Automatik eingeschaltet.\n// Eine laufende Erhoehung beendet die Regel \"Waermepumpe PV-Warmwasser\" beim naechsten Durchlauf\n// selbst, wenn das Ende nach dem Neustart nicht mehr bekannt ist.\nif (WP_PV_Boost_Freigabe.state \u003d\u003d NULL || WP_PV_Boost_Freigabe.state \u003d\u003d UNDEF) {\n    WP_PV_Boost_Freigabe.postUpdate(ON)\n}\nif (WP_PV_Boost.state \u003d\u003d NULL || WP_PV_Boost.state \u003d\u003d UNDEF) {\n    WP_PV_Boost.postUpdate(OFF)\n}\n"
+          },
+          "type": "script.ScriptAction"
+        }
+      ],
+      "configuration": {},
+      "configDescriptions": [],
+      "uid": "wp_pv_warmwasser_start",
+      "name": "Wärmepumpe PV-Warmwasser beim Start",
+      "tags": [],
+      "visibility": "VISIBLE",
+      "description": "Schaltet die Freigabe beim ersten Start ein und setzt einen leeren Status auf AUS"
+    }
+  },
   "wp_zusatzheizung": {
     "class": "org.openhab.core.automation.dto.RuleDTO",
     "value": {

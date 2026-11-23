@@ -21,6 +21,7 @@ Regeln, Seiten). Textdateien unter `conf/` werden nicht verwendet.
 | Kamstrup MULTICAL 603 „EG_DG_Fußbodenheizung“ | Modbus TCP (Modul E1 Modbus/KMP TCP/IP) | `192.168.178.100:502`, Slave-ID 1 | Wärmemenge |
 | Kamstrup MULTICAL 603 „Keller_Fussbodenheizung“ | Modbus TCP (Modul E1 Modbus/KMP TCP/IP) | `192.168.178.102:502`, Slave-ID 1 | Wärmemenge |
 | Viessmann Vitocal 250-A (Luft/Wasser-Wärmepumpe) | Viessmann-Cloud-API über das eingebaute WLAN-Modul | `api.viessmann-climatesolutions.com`, Abfrage automatisch (ca. alle 1–2 min) | Temperaturen, Betrieb, Energie, Sollwerte |
+| Sonnenstand Frankfurt | Astro Binding (wird lokal berechnet) | Thing `astro:sun:frankfurt`, Standort `50.1109,8.6821` | Sonnenuntergang für die PV-Warmwasser-Regel |
 
 ### Hauptstromzähler (HTTP)
 
@@ -121,6 +122,18 @@ lässt das Binding weg. Beispiele: `heating.dhw.sensors.temperature.hotWaterStor
 | `WP_COP_Heute` | berechnet (Regel) | – | |
 | `WP_Fehler_Aktiv`, `WP_Letzte_Fehlermeldung` | Gateway-Kanäle `error-is-active`, `last-error-message` | | |
 | `WP_API_Aufrufe_Heute` | Account-Kanal `count-api-calls` | Anzahl | |
+| `WP_PV_Boost_Freigabe` | Schalter (Regel PV-Warmwasser ein/aus) | Schalter | ja |
+| `WP_PV_Boost` | berechnet (Regel): läuft gerade eine PV-Erhöhung des Warmwasser-Sollwerts? | Schalter | |
+| `WP_PV_Boost_Ende` | berechnet (Regel): Ende der laufenden bzw. letzten Erhöhung | Uhrzeit | |
+| `WP_PV_Boost_Soll_Vorher` | berechnet (Regel): Warmwasser Soll vor der Erhöhung, wird danach wieder eingestellt | °C | |
+
+### Sonnenstand (Astro)
+
+| Item | Kanal | Inhalt |
+|---|---|---|
+| `Sonnenuntergang` | `astro:sun:frankfurt:set#start` | Beginn des Sonnenuntergangs heute (Uhrzeit) |
+
+Der Standort steht im Thing (`geolocation`). Für einen genaueren Wert die Koordinaten des Hauses eintragen.
 
 Hinweise:
 
@@ -219,6 +232,7 @@ Eigene Seite in der Seitenleiste mit vier Blöcken:
 | Betrieb | Verdichter-Starts (Untertitel: Laufzeit und Status mit Drehzahl), el. Zusatzheizung (an/aus, Untertitel: Verbrauch heute), Volumenstrom, Anlagendruck, Störung (Untertitel: letzte Meldung), API-Aufrufe heute |
 | Energie | Elektrische Leistung, Strom heute, Wärme heute (jeweils Heizen/WW im Untertitel), Arbeitszahl heute, Jahresarbeitszahl, Strom und Wärme Heizen dieses Jahr (Untertitel: Warmwasser) |
 | Sollwerte | Stepper für Warmwasser Soll, Raumtemperatur Soll Heizkörper und Raumtemperatur Soll Fußboden (Fußzeile: Status der Heizkreispumpe) |
+| PV-Überschuss → Warmwasser | Schalter PV-Warmwasser Automatik, Status der Erhöhung (Untertitel: Ende und Rückkehrwert bzw. heutiger Sonnenuntergang) |
 
 ---
 
@@ -231,6 +245,8 @@ Eigene Seite in der Seitenleiste mit vier Blöcken:
 | Akku Ladezyklen berechnen | Änderung von `Goodwe_Batt_Entladung_Raw` | Gesamtentladung in kWh = Rohwert ÷ 10. Ladezyklen = Gesamtentladung ÷ 20,24 kWh. |
 | Wärmepumpe Zusatzheizung Status | Änderung von `WP_Heizstab_Heizen_Heute`, `WP_Heizstab_Warmwasser_Heute` oder `WP_Heizstab_Starts` | Steigt einer der Werte, wird `WP_Zusatzheizung` AN. Nach 15 min ohne Anstieg wird es AUS (Timer im `privateCache`). Das Zurücksetzen der Tageszähler um Mitternacht wird ignoriert. |
 | Wärmepumpe Zusatzheizung Status beim Start | Startlevel 100 | Setzt `WP_Zusatzheizung` auf AUS, weil nach einem Neustart kein Abschalt-Timer läuft. |
+| Wärmepumpe PV-Warmwasser | jede Minute (Cron) | Siehe unten. Erhöht `WP_Warmwasser_Soll` bei PV-Überschuss für 60 min auf 59 °C und stellt danach den alten Wert wieder ein. |
+| Wärmepumpe PV-Warmwasser beim Start | Startlevel 100 | Schaltet `WP_PV_Boost_Freigabe` beim ersten Start ein (solange kein Zustand gespeichert ist) und setzt einen leeren `WP_PV_Boost` auf AUS. |
 | Wärmepumpe Arbeitszahl heute berechnen | Änderung eines der vier Tageszähler `WP_Strom_*_Heute` / `WP_Waerme_*_Heute` | `WP_COP_Heute` = Wärme heute ÷ Strom heute (Heizen + Warmwasser). Unter 0,1 kWh Strom bleibt der Wert leer. |
 
 Hinweise:
@@ -238,6 +254,26 @@ Hinweise:
 - `Goodwe_Netzladen`, `Goodwe_EMS_Mode` und `Goodwe_EMS_Power` haben `autoupdate=false`.
   Der Schalter zeigt also immer den Zustand, den der Wechselrichter zurückmeldet. Nach einem Klick springt
   er erst um, wenn der Wechselrichter den neuen Modus bestätigt hat, also nach höchstens etwa 2 s.
+- PV-Warmwasser: Ist der Akku voll, wird PV-Überschuss sonst eingespeist. Die Regel nutzt ihn, um den
+  Warmwasserspeicher und damit den Puffer höher aufzuheizen. Nach Sonnenuntergang muss die Wärmepumpe dann
+  weniger Strom aus dem Akku ziehen. Die Erhöhung startet, wenn **alle** Bedingungen erfüllt sind:
+
+  | Bedingung | Item | Wert (oben in der Regel einstellbar) |
+  |---|---|---|
+  | Automatik freigegeben | `WP_PV_Boost_Freigabe` | AN |
+  | Heizkreispumpe Fußboden läuft | `WP_HK2_Pumpe` | AN |
+  | Akku voll | `Akkustand` | > 95 % (`akkuMin`) |
+  | genug Zeit bis Sonnenuntergang | `Sonnenuntergang` | jetzt < Sonnenuntergang − 2 h (`stundenVorSonnenuntergang`) |
+  | PV-Leistung | `Goodwe_PV1_Power` + `Goodwe_PV2_Power` | Mittelwert der letzten 5 min (`pvMinuten`, aus RRD4j) > 1000 W (`pvMin`) |
+  | noch nicht erhöht | `WP_PV_Boost_Ende`, `WP_Warmwasser_Soll` | heute noch keine Erhöhung, Soll < 59 °C |
+
+  Dann wird der bisherige Sollwert in `WP_PV_Boost_Soll_Vorher` gemerkt und `WP_Warmwasser_Soll` für 60 min
+  (`dauerMinuten`) auf 59 °C (`zielTemp`) gesetzt. Danach stellt die Regel den alten Wert wieder ein. Steht der
+  Sollwert dann nicht mehr auf 59 °C (von Hand geändert), bleibt er unverändert. Die Erhöhung läuft höchstens
+  einmal pro Tag und immer volle 60 min, auch wenn eine Bedingung in dieser Zeit wegfällt.
+  Pro Erhöhung entstehen zwei Befehle an die Viessmann-API.
+- Nach einem Neustart während einer Erhöhung ist das Ende unter Umständen nicht mehr bekannt. Die Regel setzt
+  den Sollwert dann sofort zurück.
 - Die Ladezyklen sind ein Rechenwert aus dem Entladezähler des Wechselrichters und kein Wert aus dem BMS.
   Die nutzbare Kapazität (20,24 kWh) steht in der Regel und muss bei einer Erweiterung des Akkus angepasst werden.
 
@@ -251,9 +287,14 @@ Hinweise:
 | Modbus Binding (`binding-modbus`) | Binding | GoodWe-Wechselrichter und MULTICAL-603-Zähler |
 | JSONPath Transformation (`transformation-jsonpath`) | Transformation | Werte aus der JSON-Antwort des Hauptzählers lesen |
 | Viessmann Binding (`binding-viessmann`) | Binding | Wärmepumpe Vitocal 250-A über die Viessmann-API |
-| RRD4j Persistence (`persistence-rrd4j`) | Persistence | Verlauf aller Items (`*`), Strategie everyChange + everyMinute + restoreOnStartup |
+| Astro Binding (`binding-astro`) | Binding | Sonnenuntergang für die PV-Warmwasser-Regel |
+| RRD4j Persistence (`persistence-rrd4j`) | Persistence | Verlauf aller Items (`*`), Strategie everyChange + everyMinute + restoreOnStartup; Mittelwert der PV-Leistung für die PV-Warmwasser-Regel |
 
 Regeln sind als UI-Regeln mit Rules DSL angelegt. Dafür ist kein zusätzliches Add-on nötig.
+
+Das Astro Binding muss vor dem Übernehmen der Konfiguration installiert sein (Einstellungen → Add-on Store →
+Bindings → Astro). Fehlt es, bleibt das Thing `astro:sun:frankfurt` ohne Handler, `Sonnenuntergang` leer, und die
+PV-Warmwasser-Regel startet nie.
 
 ---
 
