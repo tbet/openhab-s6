@@ -245,7 +245,7 @@ Eigene Seite in der Seitenleiste mit vier Blöcken:
 | Akku Ladezyklen berechnen | Änderung von `Goodwe_Batt_Entladung_Raw` | Gesamtentladung in kWh = Rohwert ÷ 10. Ladezyklen = Gesamtentladung ÷ 20,24 kWh. |
 | Wärmepumpe Zusatzheizung Status | Änderung von `WP_Heizstab_Heizen_Heute`, `WP_Heizstab_Warmwasser_Heute` oder `WP_Heizstab_Starts` | Steigt einer der Werte, wird `WP_Zusatzheizung` AN. Nach 15 min ohne Anstieg wird es AUS (Timer im `privateCache`). Das Zurücksetzen der Tageszähler um Mitternacht wird ignoriert. |
 | Wärmepumpe Zusatzheizung Status beim Start | Startlevel 100 | Setzt `WP_Zusatzheizung` auf AUS, weil nach einem Neustart kein Abschalt-Timer läuft. |
-| Wärmepumpe PV-Warmwasser | jede Minute (Cron) | Siehe unten. Erhöht `WP_Warmwasser_Soll` bei PV-Überschuss für 60 min auf 59 °C und stellt danach den alten Wert wieder ein. |
+| Wärmepumpe PV-Warmwasser | jede Minute (Cron) | Siehe unten. Erhöht `WP_Warmwasser_Soll` bei PV-Überschuss für 60 min auf 59 °C und stellt danach den alten Wert wieder ein. Erneut am selben Tag, wenn das Warmwasser unter 50 °C fällt. |
 | Wärmepumpe PV-Warmwasser beim Start | Startlevel 100 | Schaltet `WP_PV_Boost_Freigabe` beim ersten Start ein (solange kein Zustand gespeichert ist) und setzt einen leeren `WP_PV_Boost` auf AUS. |
 | Wärmepumpe Arbeitszahl heute berechnen | Änderung eines der vier Tageszähler `WP_Strom_*_Heute` / `WP_Waerme_*_Heute` | `WP_COP_Heute` = Wärme heute ÷ Strom heute (Heizen + Warmwasser). Unter 0,1 kWh Strom bleibt der Wert leer. |
 
@@ -265,12 +265,13 @@ Hinweise:
   | Akku voll | `Akkustand` | > 95 % (`akkuMin`) |
   | genug Zeit bis Sonnenuntergang | `Sonnenuntergang` | jetzt < Sonnenuntergang − 2 h (`stundenVorSonnenuntergang`) |
   | PV-Leistung | `Goodwe_PV1_Power` + `Goodwe_PV2_Power` | Mittelwert der letzten 5 min (`pvMinuten`, aus RRD4j) > 1000 W (`pvMin`) |
-  | noch nicht erhöht | `WP_PV_Boost_Ende`, `WP_Warmwasser_Soll` | heute noch keine Erhöhung, Soll < 59 °C |
+  | noch nicht erhöht oder Speicher abgekühlt | `WP_PV_Boost_Ende`, `WP_Warmwasser_Ist`, `WP_Warmwasser_Soll` | heute noch keine Erhöhung oder Warmwasser < 50 °C (`nachladenUnter`); Soll < 59 °C |
 
   Dann wird der bisherige Sollwert in `WP_PV_Boost_Soll_Vorher` gemerkt und `WP_Warmwasser_Soll` für 60 min
   (`dauerMinuten`) auf 59 °C (`zielTemp`) gesetzt. Danach stellt die Regel den alten Wert wieder ein. Steht der
-  Sollwert dann nicht mehr auf 59 °C (von Hand geändert), bleibt er unverändert. Die Erhöhung läuft höchstens
-  einmal pro Tag und immer volle 60 min, auch wenn eine Bedingung in dieser Zeit wegfällt.
+  Sollwert dann nicht mehr auf 59 °C (von Hand geändert), bleibt er unverändert. Die Erhöhung läuft immer volle
+  60 min, auch wenn eine Bedingung in dieser Zeit wegfällt. Am selben Tag startet sie erneut, sobald das Warmwasser
+  unter 50 °C gefallen ist und die übrigen Bedingungen wieder erfüllt sind.
   Pro Erhöhung entstehen zwei Befehle an die Viessmann-API.
 - Nach einem Neustart während einer Erhöhung ist das Ende unter Umständen nicht mehr bekannt. Die Regel setzt
   den Sollwert dann sofort zurück.
