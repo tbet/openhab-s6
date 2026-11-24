@@ -249,6 +249,70 @@
       }
     }
   },
+  "stateDescription:PV_Ertrag_Gesamt": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "PV_Ertrag_Gesamt"
+        ],
+        "uid": "stateDescription:PV_Ertrag_Gesamt"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.0f kWh"
+      }
+    }
+  },
+  "stateDescription:PV_Ertrag_Heute": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "PV_Ertrag_Heute"
+        ],
+        "uid": "stateDescription:PV_Ertrag_Heute"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.1f kWh"
+      }
+    }
+  },
+  "stateDescription:PV_Ertrag_Jahr": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "PV_Ertrag_Jahr"
+        ],
+        "uid": "stateDescription:PV_Ertrag_Jahr"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.0f kWh"
+      }
+    }
+  },
+  "stateDescription:PV_Ertrag_Jahresbeginn": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "PV_Ertrag_Jahresbeginn"
+        ],
+        "uid": "stateDescription:PV_Ertrag_Jahresbeginn"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.1f kWh"
+      }
+    }
+  },
   "stateDescription:Sonnenuntergang": {
     "class": "org.openhab.core.items.Metadata",
     "value": {

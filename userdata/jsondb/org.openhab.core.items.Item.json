@@ -167,6 +167,34 @@
       "category": "solarplant"
     }
   },
+  "Goodwe_PV_Ertrag_Gesamt_Raw": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Goodwe"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Point"
+      ],
+      "label": "PV-Ertrag gesamt (Rohwert 0,1 kWh)",
+      "category": "solarplant"
+    }
+  },
+  "Goodwe_PV_Ertrag_Heute_Raw": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Goodwe"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Point"
+      ],
+      "label": "PV-Ertrag heute (Rohwert 0,1 kWh)",
+      "category": "solarplant"
+    }
+  },
   "Goodwe_PV_Total_Power": {
     "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
     "value": {
@@ -233,6 +261,62 @@
       ],
       "label": "Hausverbrauch",
       "category": "energy"
+    }
+  },
+  "PV_Ertrag_Gesamt": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Goodwe"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Point"
+      ],
+      "label": "PV-Ertrag gesamt seit Installation",
+      "category": "solarplant"
+    }
+  },
+  "PV_Ertrag_Heute": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Goodwe"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Point"
+      ],
+      "label": "PV-Ertrag heute",
+      "category": "solarplant"
+    }
+  },
+  "PV_Ertrag_Jahr": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Goodwe"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Point"
+      ],
+      "label": "PV-Ertrag dieses Jahr",
+      "category": "solarplant"
+    }
+  },
+  "PV_Ertrag_Jahresbeginn": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Goodwe"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Point"
+      ],
+      "label": "PV-Ertrag gesamt am 1. Januar (Zählerstand)",
+      "category": "solarplant"
     }
   },
   "Sonnenuntergang": {

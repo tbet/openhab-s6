@@ -98,6 +98,79 @@
       "description": "Synchronisiert den Schalter mit dem gelesenen EMS Mode (47511)"
     }
   },
+  "pv_ertrag": {
+    "class": "org.openhab.core.automation.dto.RuleDTO",
+    "value": {
+      "triggers": [
+        {
+          "id": "1",
+          "configuration": {
+            "itemName": "Goodwe_PV_Ertrag_Heute_Raw"
+          },
+          "type": "core.ItemStateChangeTrigger"
+        },
+        {
+          "id": "2",
+          "configuration": {
+            "itemName": "Goodwe_PV_Ertrag_Gesamt_Raw"
+          },
+          "type": "core.ItemStateChangeTrigger"
+        }
+      ],
+      "conditions": [],
+      "actions": [
+        {
+          "inputs": {},
+          "id": "3",
+          "configuration": {
+            "type": "application/vnd.openhab.dsl.rule",
+            "script": "// PV-Ertrag des GoodWe GW10K-ET.\n// Register 35193 \u003d PV-Ertrag heute, 35191 \u003d PV-Ertrag gesamt seit Installation,\n// beide in 0,1 kWh. Ein Jahresregister gibt es nicht:\n// PV-Ertrag dieses Jahr \u003d gesamt - Zaehlerstand am 1. Januar (PV_Ertrag_Jahresbeginn,\n// gesetzt von der Regel \"PV Ertrag Jahreswechsel\").\nif (Goodwe_PV_Ertrag_Heute_Raw.state instanceof Number) {\n    PV_Ertrag_Heute.postUpdate((Goodwe_PV_Ertrag_Heute_Raw.state as Number).doubleValue / 10.0)\n}\n\nif (!(Goodwe_PV_Ertrag_Gesamt_Raw.state instanceof Number)) return;\nval gesamt \u003d (Goodwe_PV_Ertrag_Gesamt_Raw.state as Number).doubleValue / 10.0\nif (gesamt \u003c\u003d 0) return;   // 0 \u003d kein gueltiger Wert (z. B. beim Start des Wechselrichters)\nPV_Ertrag_Gesamt.postUpdate(gesamt)\n\nif (PV_Ertrag_Jahresbeginn.state instanceof Number) {\n    PV_Ertrag_Jahr.postUpdate(gesamt - (PV_Ertrag_Jahresbeginn.state as Number).doubleValue)\n} else {\n    // Erster Lauf: Der Zaehlerstand vom 1. Januar ist unbekannt, das Jahr zaehlt ab jetzt.\n    // Korrektur siehe README: PV_Ertrag_Jahresbeginn \u003d gesamt - Jahreswert aus dem SEMS-Portal.\n    PV_Ertrag_Jahresbeginn.postUpdate(gesamt)\n    PV_Ertrag_Jahr.postUpdate(0)\n}\n"
+          },
+          "type": "script.ScriptAction"
+        }
+      ],
+      "configuration": {},
+      "configDescriptions": [],
+      "uid": "pv_ertrag",
+      "name": "PV Ertrag berechnen",
+      "tags": [],
+      "visibility": "VISIBLE",
+      "description": "PV-Ertrag heute/gesamt in kWh, Jahr \u003d gesamt - Zählerstand am 1. Januar"
+    }
+  },
+  "pv_ertrag_jahreswechsel": {
+    "class": "org.openhab.core.automation.dto.RuleDTO",
+    "value": {
+      "triggers": [
+        {
+          "id": "1",
+          "configuration": {
+            "cronExpression": "0 0 0 1 1 ? *"
+          },
+          "type": "timer.GenericCronTrigger"
+        }
+      ],
+      "conditions": [],
+      "actions": [
+        {
+          "inputs": {},
+          "id": "2",
+          "configuration": {
+            "type": "application/vnd.openhab.dsl.rule",
+            "script": "// Am 1. Januar um 0:00 Uhr den Zaehlerstand \"PV-Ertrag gesamt\" als Startwert merken.\n// PV_Ertrag_Jahresbeginn wird ueber die Persistence (restoreOnStartup) nach Neustarts wiederhergestellt.\nif (Goodwe_PV_Ertrag_Gesamt_Raw.state instanceof Number) {\n    val gesamt \u003d (Goodwe_PV_Ertrag_Gesamt_Raw.state as Number).doubleValue / 10.0\n    if (gesamt \u003e 0) {\n        PV_Ertrag_Jahresbeginn.postUpdate(gesamt)\n        PV_Ertrag_Jahr.postUpdate(0)\n    }\n}\n"
+          },
+          "type": "script.ScriptAction"
+        }
+      ],
+      "configuration": {},
+      "configDescriptions": [],
+      "uid": "pv_ertrag_jahreswechsel",
+      "name": "PV Ertrag Jahreswechsel",
+      "tags": [],
+      "visibility": "VISIBLE",
+      "description": "Merkt sich am 1. Januar um 0:00 den Zählerstand PV-Ertrag gesamt"
+    }
+  },
   "wp_cop_heute": {
     "class": "org.openhab.core.automation.dto.RuleDTO",
     "value": {

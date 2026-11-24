@@ -44,34 +44,6 @@
                         "config": {
                           "action": "analyzer",
                           "actionAnalyzerItems": [
-                            "HauptstromzaehlerEinspeisung"
-                          ],
-                          "expandable": false,
-                          "item": "HauptstromzaehlerEinspeisung",
-                          "stateAsHeader": true,
-                          "title": "Hauptstromzähler Einspeisung",
-                          "trendItem": "HauptstromzaehlerEinspeisung"
-                        }
-                      },
-                      {
-                        "component": "oh-label-cell",
-                        "config": {
-                          "action": "analyzer",
-                          "actionAnalyzerItems": [
-                            "HauptstromzaehlerVerbrauch"
-                          ],
-                          "expandable": false,
-                          "item": "HauptstromzaehlerVerbrauch",
-                          "stateAsHeader": true,
-                          "title": "Hauptstromzähler Verbrauch",
-                          "trendItem": "HauptstromzaehlerVerbrauch"
-                        }
-                      },
-                      {
-                        "component": "oh-label-cell",
-                        "config": {
-                          "action": "analyzer",
-                          "actionAnalyzerItems": [
                             "Goodwe_Live_Data_Value_as_Number"
                           ],
                           "expandable": false,
@@ -110,38 +82,6 @@
                           "stateAsHeader": true,
                           "title": "Akkustand",
                           "trendItem": "Akkustand"
-                        }
-                      },
-                      {
-                        "component": "oh-label-cell",
-                        "config": {
-                          "action": "analyzer",
-                          "actionAnalyzerItems": [
-                            "Akku_SOH"
-                          ],
-                          "expandable": false,
-                          "icon": "oh:batterylevel",
-                          "item": "Akku_SOH",
-                          "label": "\u003dMath.round(Number.parseFloat(items.Akku_SOH.state)) + \u0027 %\u0027",
-                          "stateAsHeader": true,
-                          "title": "Akku Gesundheit (SOH)",
-                          "trendItem": "Akku_SOH"
-                        }
-                      },
-                      {
-                        "component": "oh-label-cell",
-                        "config": {
-                          "action": "analyzer",
-                          "actionAnalyzerItems": [
-                            "Akku_Ladezyklen"
-                          ],
-                          "expandable": false,
-                          "icon": "oh:battery",
-                          "item": "Akku_Ladezyklen",
-                          "stateAsHeader": true,
-                          "subtitle": "\u003ditems.Akku_Entladung_Gesamt.displayState + \u0027 entladen\u0027",
-                          "title": "Akku Ladezyklen",
-                          "trendItem": "Akku_Ladezyklen"
                         }
                       },
                       {
@@ -201,6 +141,97 @@
                           "on": "\u003ditems.Goodwe_Netzladen.state \u003d\u003d\u003d \u0027ON\u0027",
                           "subtitle": "\u003ditems.Goodwe_Netzladen.state \u003d\u003d\u003d \u0027ON\u0027 ? \u0027Lädt aus dem Netz\u0027 : \u0027Automatik\u0027",
                           "title": "Akku aus Netz laden"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "PV_Ertrag_Heute"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:solarplant",
+                          "item": "PV_Ertrag_Heute",
+                          "stateAsHeader": true,
+                          "title": "PV Leistung/Tag",
+                          "trendItem": "PV_Ertrag_Heute"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "PV_Ertrag_Jahr"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:solarplant",
+                          "item": "PV_Ertrag_Jahr",
+                          "stateAsHeader": true,
+                          "subtitle": "\u003d(items.PV_Ertrag_Gesamt.displayState || items.PV_Ertrag_Gesamt.state) + \u0027 gesamt\u0027",
+                          "title": "PV Leistung/Jahr",
+                          "trendItem": "PV_Ertrag_Jahr"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "HauptstromzaehlerEinspeisung"
+                          ],
+                          "expandable": false,
+                          "item": "HauptstromzaehlerEinspeisung",
+                          "stateAsHeader": true,
+                          "title": "Hauptstromzähler Einspeisung",
+                          "trendItem": "HauptstromzaehlerEinspeisung"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "HauptstromzaehlerVerbrauch"
+                          ],
+                          "expandable": false,
+                          "item": "HauptstromzaehlerVerbrauch",
+                          "stateAsHeader": true,
+                          "title": "Hauptstromzähler Verbrauch",
+                          "trendItem": "HauptstromzaehlerVerbrauch"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "Akku_SOH"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:batterylevel",
+                          "item": "Akku_SOH",
+                          "label": "\u003dMath.round(Number.parseFloat(items.Akku_SOH.state)) + \u0027 %\u0027",
+                          "stateAsHeader": true,
+                          "title": "Akku Gesundheit (SOH)",
+                          "trendItem": "Akku_SOH"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "Akku_Ladezyklen"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:battery",
+                          "item": "Akku_Ladezyklen",
+                          "stateAsHeader": true,
+                          "subtitle": "\u003ditems.Akku_Entladung_Gesamt.displayState + \u0027 entladen\u0027",
+                          "title": "Akku Ladezyklen",
+                          "trendItem": "Akku_Ladezyklen"
                         }
                       }
                     ]

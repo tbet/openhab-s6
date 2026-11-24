@@ -43,6 +43,8 @@ Bridge `modbus:tcp:Goodwe`. Alle Register sind Holding-Register mit 0-basierter 
 | | 35109 | uint32 | `Goodwe_PV2_Power` | PV-Strang 2 (MPPT2), W |
 | | 35138 | int16 | `Goodwe_Live_Data_Value_as_Number` | PV & Stromspeicher, W |
 | | 35172 | int16 | `Hausverbrauch` | Gesamte Lastleistung (Load), W |
+| | 35191 | uint32 | `Goodwe_PV_Ertrag_Gesamt_Raw` | PV-Ertrag gesamt seit Installation, 0,1 kWh |
+| | 35193 | uint32 | `Goodwe_PV_Ertrag_Heute_Raw` | PV-Ertrag heute, 0,1 kWh |
 | | 35209 | uint32 | `Goodwe_Batt_Entladung_Raw` | Akku-Entladung gesamt seit Installation, 0,1 kWh |
 | 37000 (Länge 10, 5 s) | 37007 | uint16 | `Akkustand` | Ladezustand (SOC), % |
 | | 37008 | uint16 | `Akku_SOH` | Gesundheitszustand (SOH), % |
@@ -205,19 +207,32 @@ chmod +x .git/hooks/pre-commit
 | Kachel | Item | Anzeige | Quelle |
 |---|---|---|---|
 | Netzbezug | `HauptstromzaehlerPower` | W | Hauptzähler |
-| Hauptstromzähler Einspeisung | `HauptstromzaehlerEinspeisung` | kWh | Hauptzähler |
-| Hauptstromzähler Verbrauch | `HauptstromzaehlerVerbrauch` | kWh | Hauptzähler |
 | PV&Stromspeicher | `Goodwe_Live_Data_Value_as_Number` | W | GoodWe 35138 |
 | Hausverbrauch | `Hausverbrauch` | W | GoodWe 35172 |
 | Akkustand | `Akkustand` | % | GoodWe 37007 |
-| Akku Gesundheit (SOH) | `Akku_SOH` | % | GoodWe 37008 |
-| Akku Ladezyklen | `Akku_Ladezyklen` | Zyklen, Untertitel: Gesamtentladung in kWh | berechnet aus GoodWe 35209 |
 | PV Strang 1 | `Goodwe_PV1_Power` | W | GoodWe 35105 |
 | PV Strang 2 | `Goodwe_PV2_Power` | W | GoodWe 35109 |
 | PV Gesamtleistung | `Goodwe_PV_Total_Power` | W | Summe PV1 + PV2 (Gruppe mit SUM) |
 | Akku aus Netz laden | `Goodwe_Netzladen` | Schalter | GoodWe 47511/47512 |
+| PV Leistung/Tag | `PV_Ertrag_Heute` | kWh | GoodWe 35193 ÷ 10 |
+| PV Leistung/Jahr | `PV_Ertrag_Jahr` | kWh, Untertitel: PV-Ertrag gesamt | berechnet: GoodWe 35191 ÷ 10 − Zählerstand am 1. Januar |
+| Hauptstromzähler Einspeisung | `HauptstromzaehlerEinspeisung` | kWh | Hauptzähler |
+| Hauptstromzähler Verbrauch | `HauptstromzaehlerVerbrauch` | kWh | Hauptzähler |
+| Akku Gesundheit (SOH) | `Akku_SOH` | % | GoodWe 37008 |
+| Akku Ladezyklen | `Akku_Ladezyklen` | Zyklen, Untertitel: Gesamtentladung in kWh | berechnet aus GoodWe 35209 |
 
 Ein Klick auf eine Wert-Kachel öffnet den Verlauf (Analyzer).
+
+PV Leistung/Jahr: Der GoodWe hat kein Jahresregister. Die Regel „PV Ertrag Jahreswechsel“ merkt sich am 1. Januar
+um 0:00 den Zählerstand 35191 in `PV_Ertrag_Jahresbeginn`. Die Persistence stellt ihn nach Neustarts wieder her.
+Beim allerersten Lauf ist der Stand vom 1. Januar unbekannt, das Jahr zählt dann ab diesem Zeitpunkt. Einmalig
+korrigieren mit dem Jahreswert aus dem SEMS-Portal (Beispiel: gesamt 41.250,3 kWh, SEMS-Jahreswert 9.120,0 kWh):
+
+```bash
+docker-compose exec openhab /openhab/runtime/bin/client -p habopen "openhab:update PV_Ertrag_Jahresbeginn 32130.3"
+```
+
+Der richtige Wert ist `PV_Ertrag_Gesamt` minus Jahreswert. Ab der nächsten Änderung des Zählers stimmt PV Leistung/Jahr.
 
 ### Wärmezähler
 
@@ -249,6 +264,8 @@ Eigene Seite in der Seitenleiste mit vier Blöcken:
 |---|---|---|
 | Netzladen schalten | Befehl an `Goodwe_Netzladen` | EIN: 47512 = 3000 W, dann 47511 = 2. AUS: 47511 = 1, dann 47512 = 0. |
 | Netzladen Status | Update von `Goodwe_EMS_Mode` | Setzt den Schalter auf den tatsächlich gelesenen Zustand: 47511 = 2 heißt AN, alles andere AUS. |
+| PV Ertrag berechnen | Änderung von `Goodwe_PV_Ertrag_Heute_Raw` oder `Goodwe_PV_Ertrag_Gesamt_Raw` | `PV_Ertrag_Heute` = 35193 ÷ 10, `PV_Ertrag_Gesamt` = 35191 ÷ 10, `PV_Ertrag_Jahr` = gesamt − `PV_Ertrag_Jahresbeginn`. Ohne Startwert wird der aktuelle Stand übernommen. Ein Rohwert 0 wird ignoriert. |
+| PV Ertrag Jahreswechsel | 1. Januar 0:00 (`0 0 0 1 1 ? *`) | `PV_Ertrag_Jahresbeginn` = aktueller Gesamtzähler, `PV_Ertrag_Jahr` = 0 |
 | Akku Ladezyklen berechnen | Änderung von `Goodwe_Batt_Entladung_Raw` | Gesamtentladung in kWh = Rohwert ÷ 10. Ladezyklen = Gesamtentladung ÷ 20,24 kWh. |
 | Wärmepumpe Zusatzheizung Status | Änderung von `WP_Heizstab_Heizen_Heute`, `WP_Heizstab_Warmwasser_Heute` oder `WP_Heizstab_Starts` | Steigt einer der Werte, wird `WP_Zusatzheizung` AN. Nach 15 min ohne Anstieg wird es AUS (Timer im `privateCache`). Das Zurücksetzen der Tageszähler um Mitternacht wird ignoriert. |
 | Wärmepumpe Zusatzheizung Status beim Start | Startlevel 100 | Setzt `WP_Zusatzheizung` auf AUS, weil nach einem Neustart kein Abschalt-Timer läuft. |

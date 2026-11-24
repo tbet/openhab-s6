@@ -151,6 +151,44 @@
       "itemName": "Goodwe_PV2_Power"
     }
   },
+  "Goodwe_PV_Ertrag_Gesamt_Raw -\u003e modbus:data:GoodwePollLivedata:GoodwePvEnergyTotal:number": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "modbus",
+          "data",
+          "GoodwePollLivedata",
+          "GoodwePvEnergyTotal",
+          "number"
+        ],
+        "uid": "modbus:data:GoodwePollLivedata:GoodwePvEnergyTotal:number"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Goodwe_PV_Ertrag_Gesamt_Raw"
+    }
+  },
+  "Goodwe_PV_Ertrag_Heute_Raw -\u003e modbus:data:GoodwePollLivedata:GoodwePvEnergyToday:number": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "modbus",
+          "data",
+          "GoodwePollLivedata",
+          "GoodwePvEnergyToday",
+          "number"
+        ],
+        "uid": "modbus:data:GoodwePollLivedata:GoodwePvEnergyToday:number"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Goodwe_PV_Ertrag_Heute_Raw"
+    }
+  },
   "HauptstromzaehlerEinspeisung -\u003e http:url:69363a4913:HauptstromzaehlerEinspeisung": {
     "class": "org.openhab.core.thing.link.ItemChannelLink",
     "value": {
