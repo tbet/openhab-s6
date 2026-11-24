@@ -658,6 +658,20 @@
       "functionParams": []
     }
   },
+  "WP_Strom_Stand": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Waermepumpe"
+      ],
+      "itemType": "String",
+      "tags": [
+        "Point"
+      ],
+      "label": "Stromverbrauch eingelesen am (Viessmann)",
+      "category": "time"
+    }
+  },
   "WP_Strom_Warmwasser_Heute": {
     "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
     "value": {

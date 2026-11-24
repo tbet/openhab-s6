@@ -113,8 +113,9 @@ lässt das Binding weg. Beispiele: `heating.dhw.sensors.temperature.hotWaterStor
 | `WP_Abtauung` | `heating.outdoor.defrosting` (`active`) | Schalter | |
 | `WP_Volumenstrom` | `heating.sensors.volumetricFlow.allengra` | l/h (Binding liefert l/min, openHAB rechnet um) | |
 | `WP_Anlagendruck` | `heating.sensors.pressure.supply` | bar | |
-| `WP_Strom_Heizen_Heute` / `_Jahr` | `heating.power.consumption.summary.heating` (`currentDay` / `currentYear`) | kWh | |
-| `WP_Strom_Warmwasser_Heute` / `_Jahr` | `heating.power.consumption.summary.dhw` (`currentDay` / `currentYear`) | kWh | |
+| `WP_Strom_Heizen_Heute` / `_Jahr` | `heating.power.consumption.heating` (`today` / `thisYear`, erster Wert der Zeitreihe `day` / `year`) | kWh | |
+| `WP_Strom_Warmwasser_Heute` / `_Jahr` | `heating.power.consumption.dhw` (`today` / `thisYear`) | kWh | |
+| `WP_Strom_Stand` | `heating.power.consumption.heating` (`dayValueReadAt`): wann Viessmann die Tageswerte zuletzt eingelesen hat | Text (UTC) | |
 | `WP_Waerme_Heizen_Heute` / `_Jahr` | `heating.heat.production.summary.heating` (`currentDay` / `currentYear`) | kWh | |
 | `WP_Waerme_Warmwasser_Heute` / `_Jahr` | `heating.heat.production.summary.dhw` (`currentDay` / `currentYear`) | kWh | |
 | `WP_JAZ` | `heating.scop.total` | – | |
@@ -153,6 +154,12 @@ Hinweise:
   Das Item `WP_Volumenstrom` hat die Einheit `l/h`, openHAB rechnet zurück.
 - Nach einem Befehl (Sollwert, Betriebsart) zeigt die Oberfläche den neuen Wert sofort an. Den von der
   Wärmepumpe bestätigten Wert gibt es erst mit der nächsten Abfrage.
+- Stromverbrauch: Die Tageszähler `heating.power.consumption.summary.*` (`currentDay`) blieben bei der Vitocal 250-A
+  ab dem 21.11.2026 stehen (Heizen 1 kWh, Warmwasser 0 kWh). Das Problem liegt bei Viessmann und wird in der
+  Viessmann-Community auch von anderen gemeldet. Strom heute und dieses Jahr kommen deshalb aus den Zeitreihen
+  `heating.power.consumption.heating` / `.dhw`. Hängen auch diese, zeigt der Untertitel von „Strom heute“ ein altes
+  „Stand“-Datum. Wärme (`heat.production.summary`) und Heizstab (`heatingRod.power.consumption.summary`) gibt es
+  nur als `summary`, dort hilft nur das Warten auf Viessmann.
 - Grenze im kostenlosen API-Paket: 120 Aufrufe in 10 Minuten und 1450 in 24 Stunden, sonst 24 Stunden Sperre.
   Die ViCare-App zählt mit, wenn sie dasselbe Konto nutzt. Das Binding plant 450 Aufrufe als Puffer für Befehle und
   die App ein (`bufferApiCommands`). Den Verbrauch zeigt `WP_API_Aufrufe_Heute`.

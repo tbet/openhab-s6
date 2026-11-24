@@ -647,7 +647,7 @@
       "itemName": "WP_Ruecklauftemperatur"
     }
   },
-  "WP_Strom_Heizen_Heute -\u003e viessmann:device:vicare:gateway:vitocal:heating-power-consumption-summary-heating#current-day": {
+  "WP_Strom_Heizen_Heute -\u003e viessmann:device:vicare:gateway:vitocal:heating-power-consumption-heating#today": {
     "class": "org.openhab.core.thing.link.ItemChannelLink",
     "value": {
       "channelUID": {
@@ -657,9 +657,9 @@
           "vicare",
           "gateway",
           "vitocal",
-          "heating-power-consumption-summary-heating#current-day"
+          "heating-power-consumption-heating#today"
         ],
-        "uid": "viessmann:device:vicare:gateway:vitocal:heating-power-consumption-summary-heating#current-day"
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-power-consumption-heating#today"
       },
       "configuration": {
         "properties": {}
@@ -667,7 +667,7 @@
       "itemName": "WP_Strom_Heizen_Heute"
     }
   },
-  "WP_Strom_Heizen_Jahr -\u003e viessmann:device:vicare:gateway:vitocal:heating-power-consumption-summary-heating#current-year": {
+  "WP_Strom_Heizen_Jahr -\u003e viessmann:device:vicare:gateway:vitocal:heating-power-consumption-heating#this-year": {
     "class": "org.openhab.core.thing.link.ItemChannelLink",
     "value": {
       "channelUID": {
@@ -677,9 +677,9 @@
           "vicare",
           "gateway",
           "vitocal",
-          "heating-power-consumption-summary-heating#current-year"
+          "heating-power-consumption-heating#this-year"
         ],
-        "uid": "viessmann:device:vicare:gateway:vitocal:heating-power-consumption-summary-heating#current-year"
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-power-consumption-heating#this-year"
       },
       "configuration": {
         "properties": {}
@@ -687,7 +687,7 @@
       "itemName": "WP_Strom_Heizen_Jahr"
     }
   },
-  "WP_Strom_Warmwasser_Heute -\u003e viessmann:device:vicare:gateway:vitocal:heating-power-consumption-summary-dhw#current-day": {
+  "WP_Strom_Stand -\u003e viessmann:device:vicare:gateway:vitocal:heating-power-consumption-heating#day-value-read-at": {
     "class": "org.openhab.core.thing.link.ItemChannelLink",
     "value": {
       "channelUID": {
@@ -697,9 +697,29 @@
           "vicare",
           "gateway",
           "vitocal",
-          "heating-power-consumption-summary-dhw#current-day"
+          "heating-power-consumption-heating#day-value-read-at"
         ],
-        "uid": "viessmann:device:vicare:gateway:vitocal:heating-power-consumption-summary-dhw#current-day"
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-power-consumption-heating#day-value-read-at"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "WP_Strom_Stand"
+    }
+  },
+  "WP_Strom_Warmwasser_Heute -\u003e viessmann:device:vicare:gateway:vitocal:heating-power-consumption-dhw#today": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "viessmann",
+          "device",
+          "vicare",
+          "gateway",
+          "vitocal",
+          "heating-power-consumption-dhw#today"
+        ],
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-power-consumption-dhw#today"
       },
       "configuration": {
         "properties": {}
@@ -707,7 +727,7 @@
       "itemName": "WP_Strom_Warmwasser_Heute"
     }
   },
-  "WP_Strom_Warmwasser_Jahr -\u003e viessmann:device:vicare:gateway:vitocal:heating-power-consumption-summary-dhw#current-year": {
+  "WP_Strom_Warmwasser_Jahr -\u003e viessmann:device:vicare:gateway:vitocal:heating-power-consumption-dhw#this-year": {
     "class": "org.openhab.core.thing.link.ItemChannelLink",
     "value": {
       "channelUID": {
@@ -717,9 +737,9 @@
           "vicare",
           "gateway",
           "vitocal",
-          "heating-power-consumption-summary-dhw#current-year"
+          "heating-power-consumption-dhw#this-year"
         ],
-        "uid": "viessmann:device:vicare:gateway:vitocal:heating-power-consumption-summary-dhw#current-year"
+        "uid": "viessmann:device:vicare:gateway:vitocal:heating-power-consumption-dhw#this-year"
       },
       "configuration": {
         "properties": {}

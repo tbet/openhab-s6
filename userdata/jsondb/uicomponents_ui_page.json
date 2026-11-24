@@ -493,7 +493,7 @@
                           "icon": "oh:energy",
                           "item": "WP_Strom_Heute",
                           "stateAsHeader": true,
-                          "subtitle": "\u003d\u0027Heizen \u0027 + (items.WP_Strom_Heizen_Heute.displayState || items.WP_Strom_Heizen_Heute.state) + \u0027, WW \u0027 + (items.WP_Strom_Warmwasser_Heute.displayState || items.WP_Strom_Warmwasser_Heute.state)",
+                          "subtitle": "\u003d\u0027Heizen \u0027 + (items.WP_Strom_Heizen_Heute.displayState || items.WP_Strom_Heizen_Heute.state) + \u0027, WW \u0027 + (items.WP_Strom_Warmwasser_Heute.displayState || items.WP_Strom_Warmwasser_Heute.state) + (String(items.WP_Strom_Stand.state).includes(\u0027T\u0027) ? \u0027, Stand \u0027 + dayjs(items.WP_Strom_Stand.state).format(\u0027DD.MM. HH:mm\u0027) : \u0027\u0027)",
                           "title": "Strom heute",
                           "trendItem": "WP_Strom_Heute"
                         }
