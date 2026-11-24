@@ -55,6 +55,19 @@
       "category": ""
     }
   },
+  "Gesamt_Heute": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [
+        "Energy",
+        "Measurement"
+      ],
+      "label": "Gesamt heute (Netzbezug + PV-Ertrag)",
+      "category": "energy"
+    }
+  },
   "Goodwe": {
     "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
     "value": {
@@ -261,6 +274,42 @@
       ],
       "label": "Hausverbrauch",
       "category": "energy"
+    }
+  },
+  "Netzbezug_Heute": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [
+        "Energy",
+        "Measurement"
+      ],
+      "label": "Netzbezug heute",
+      "category": "energy"
+    }
+  },
+  "Netzbezug_Tagesbeginn": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [
+        "Energy",
+        "Measurement"
+      ],
+      "label": "Zählerstand Verbrauch um Mitternacht",
+      "category": "cellar"
+    }
+  },
+  "Netzbezug_Tagesbeginn_Datum": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "String",
+      "tags": [],
+      "label": "Datum des Zählerstands um Mitternacht",
+      "category": "time"
     }
   },
   "PV_Ertrag_Gesamt": {

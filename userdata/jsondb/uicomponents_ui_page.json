@@ -163,6 +163,39 @@
                         "config": {
                           "action": "analyzer",
                           "actionAnalyzerItems": [
+                            "Netzbezug_Heute"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:energy",
+                          "item": "Netzbezug_Heute",
+                          "stateAsHeader": true,
+                          "title": "Netzbezug/Tag",
+                          "trendItem": "Netzbezug_Heute"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
+                            "Gesamt_Heute",
+                            "Netzbezug_Heute",
+                            "PV_Ertrag_Heute"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:energy",
+                          "item": "Gesamt_Heute",
+                          "stateAsHeader": true,
+                          "subtitle": "Netzbezug + PV",
+                          "title": "Gesamtleistung/Tag",
+                          "trendItem": "Gesamt_Heute"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
                             "PV_Ertrag_Jahr"
                           ],
                           "expandable": false,

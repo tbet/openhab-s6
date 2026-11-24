@@ -105,6 +105,22 @@
       }
     }
   },
+  "stateDescription:Gesamt_Heute": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "Gesamt_Heute"
+        ],
+        "uid": "stateDescription:Gesamt_Heute"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.1f kWh"
+      }
+    }
+  },
   "stateDescription:Goodwe_EMS_Power": {
     "class": "org.openhab.core.items.Metadata",
     "value": {
@@ -246,6 +262,38 @@
       "value": "",
       "configuration": {
         "pattern": "%.0f W"
+      }
+    }
+  },
+  "stateDescription:Netzbezug_Heute": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "Netzbezug_Heute"
+        ],
+        "uid": "stateDescription:Netzbezug_Heute"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.1f kWh"
+      }
+    }
+  },
+  "stateDescription:Netzbezug_Tagesbeginn": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "Netzbezug_Tagesbeginn"
+        ],
+        "uid": "stateDescription:Netzbezug_Tagesbeginn"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.2f kWh"
       }
     }
   },

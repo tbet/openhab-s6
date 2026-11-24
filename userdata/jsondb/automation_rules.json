@@ -32,6 +32,53 @@
       "description": "Berechnet Vollzyklen aus Gesamtentladung (35209) und nutzbarer Kapazitaet"
     }
   },
+  "netzbezug_heute": {
+    "class": "org.openhab.core.automation.dto.RuleDTO",
+    "value": {
+      "triggers": [
+        {
+          "id": "1",
+          "configuration": {
+            "itemName": "HauptstromzaehlerVerbrauch"
+          },
+          "type": "core.ItemStateChangeTrigger"
+        },
+        {
+          "id": "2",
+          "configuration": {
+            "itemName": "PV_Ertrag_Heute"
+          },
+          "type": "core.ItemStateChangeTrigger"
+        },
+        {
+          "id": "3",
+          "configuration": {
+            "cronExpression": "0 0 0 * * ? *"
+          },
+          "type": "timer.GenericCronTrigger"
+        }
+      ],
+      "conditions": [],
+      "actions": [
+        {
+          "inputs": {},
+          "id": "4",
+          "configuration": {
+            "type": "application/vnd.openhab.dsl.rule",
+            "script": "// Netzbezug heute und Gesamt heute.\n// Netzbezug heute \u003d Zaehlerstand Bezug (HauptstromzaehlerVerbrauch, OBIS 1.8.0)\n//                   - Zaehlerstand zu Tagesbeginn (Netzbezug_Tagesbeginn).\n// Gesamt heute    \u003d Netzbezug heute + PV-Ertrag heute (PV_Ertrag_Heute, GoodWe 35193).\n// Der Tagesbeginn wird mit Datum gemerkt. Passt das Datum nicht zu heute (Mitternacht,\n// oder openHAB war um 0:00 aus), beginnt der Tag mit dem aktuellen Zaehlerstand neu.\nval heute \u003d now.toLocalDate.toString\nvar Number bezug \u003d null\n\nif (HauptstromzaehlerVerbrauch.state instanceof Number) {\n    val stand \u003d (HauptstromzaehlerVerbrauch.state as Number).doubleValue\n    if (stand \u003e 0) {\n        if (!(Netzbezug_Tagesbeginn.state instanceof Number) || Netzbezug_Tagesbeginn_Datum.state.toString !\u003d heute) {\n            Netzbezug_Tagesbeginn.postUpdate(stand)\n            Netzbezug_Tagesbeginn_Datum.postUpdate(heute)\n            bezug \u003d 0.0\n        } else {\n            val diff \u003d stand - (Netzbezug_Tagesbeginn.state as Number).doubleValue\n            if (diff \u003e\u003d 0) bezug \u003d diff\n        }\n    }\n}\nif (bezug \u003d\u003d\u003d null \u0026\u0026 Netzbezug_Heute.state instanceof Number) {\n    bezug \u003d Netzbezug_Heute.state as Number\n}\nif (bezug \u003d\u003d\u003d null) return;\nNetzbezug_Heute.postUpdate(bezug)\n\nif (PV_Ertrag_Heute.state instanceof Number) {\n    Gesamt_Heute.postUpdate(bezug.doubleValue + (PV_Ertrag_Heute.state as Number).doubleValue)\n}\n"
+          },
+          "type": "script.ScriptAction"
+        }
+      ],
+      "configuration": {},
+      "configDescriptions": [],
+      "uid": "netzbezug_heute",
+      "name": "Netzbezug und Gesamt heute berechnen",
+      "tags": [],
+      "visibility": "VISIBLE",
+      "description": "Netzbezug heute \u003d Zählerstand Bezug - Stand zu Tagesbeginn; Gesamt heute \u003d Netzbezug heute + PV-Ertrag heute"
+    }
+  },
   "netzladen_schalten": {
     "class": "org.openhab.core.automation.dto.RuleDTO",
     "value": {
