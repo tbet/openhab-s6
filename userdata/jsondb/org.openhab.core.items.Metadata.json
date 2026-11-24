@@ -105,6 +105,38 @@
       }
     }
   },
+  "stateDescription:Einspeisung_Heute": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "Einspeisung_Heute"
+        ],
+        "uid": "stateDescription:Einspeisung_Heute"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.1f kWh"
+      }
+    }
+  },
+  "stateDescription:Einspeisung_Tagesbeginn": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "Einspeisung_Tagesbeginn"
+        ],
+        "uid": "stateDescription:Einspeisung_Tagesbeginn"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.2f kWh"
+      }
+    }
+  },
   "stateDescription:Gesamt_Heute": {
     "class": "org.openhab.core.items.Metadata",
     "value": {
@@ -262,6 +294,22 @@
       "value": "",
       "configuration": {
         "pattern": "%.0f W"
+      }
+    }
+  },
+  "stateDescription:Hausverbrauch_Heute": {
+    "class": "org.openhab.core.items.Metadata",
+    "value": {
+      "key": {
+        "segments": [
+          "stateDescription",
+          "Hausverbrauch_Heute"
+        ],
+        "uid": "stateDescription:Hausverbrauch_Heute"
+      },
+      "value": "",
+      "configuration": {
+        "pattern": "%.1f kWh"
       }
     }
   },

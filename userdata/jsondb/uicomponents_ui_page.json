@@ -196,6 +196,24 @@
                         "config": {
                           "action": "analyzer",
                           "actionAnalyzerItems": [
+                            "Hausverbrauch_Heute",
+                            "Gesamt_Heute",
+                            "Einspeisung_Heute"
+                          ],
+                          "expandable": false,
+                          "icon": "oh:energy",
+                          "item": "Hausverbrauch_Heute",
+                          "stateAsHeader": true,
+                          "subtitle": "\u003d\u0027Einspeisung \u0027 + (items.Einspeisung_Heute.displayState || items.Einspeisung_Heute.state) + \u0027 abgezogen\u0027",
+                          "title": "Hausverbrauch/Tag",
+                          "trendItem": "Hausverbrauch_Heute"
+                        }
+                      },
+                      {
+                        "component": "oh-label-cell",
+                        "config": {
+                          "action": "analyzer",
+                          "actionAnalyzerItems": [
                             "PV_Ertrag_Jahr"
                           ],
                           "expandable": false,

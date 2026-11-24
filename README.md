@@ -217,6 +217,7 @@ chmod +x .git/hooks/pre-commit
 | PV Leistung/Tag | `PV_Ertrag_Heute` | kWh | GoodWe 35193 ÷ 10 |
 | Netzbezug/Tag | `Netzbezug_Heute` | kWh | berechnet: Hauptzähler Bezug (1.8.0) − Zählerstand zu Tagesbeginn |
 | Gesamtleistung/Tag | `Gesamt_Heute` | kWh, Untertitel: „Netzbezug + PV“ | berechnet: Netzbezug/Tag + PV Leistung/Tag |
+| Hausverbrauch/Tag | `Hausverbrauch_Heute` | kWh, Untertitel: abgezogene Einspeisung | berechnet: Gesamtleistung/Tag − Einspeisung des Tages (Hauptzähler 2.8.0 − Stand zu Tagesbeginn) |
 | PV Leistung/Jahr | `PV_Ertrag_Jahr` | kWh, Untertitel: PV-Ertrag gesamt | berechnet: GoodWe 35191 ÷ 10 − Zählerstand am 1. Januar |
 | Hauptstromzähler Einspeisung | `HauptstromzaehlerEinspeisung` | kWh | Hauptzähler |
 | Hauptstromzähler Verbrauch | `HauptstromzaehlerVerbrauch` | kWh | Hauptzähler |
@@ -238,8 +239,9 @@ Der richtige Wert ist `PV_Ertrag_Gesamt` minus Jahreswert. Ab der nächsten Änd
 
 Netzbezug/Tag: Am ersten Tag nach dem Einspielen ist der Zählerstand von Mitternacht unbekannt. Netzbezug/Tag zählt
 dann ab diesem Zeitpunkt und stimmt ab dem nächsten Tag. Gesamtleistung/Tag ist die Summe aus Netzbezug und
-PV-Ertrag. Darin steckt auch der eingespeiste PV-Strom. Der Hausverbrauch des Tages wäre Gesamtleistung/Tag minus Einspeisung
-des Tages (Akku-Speicher gleicht sich über den Tag weitgehend aus).
+PV-Ertrag. Darin steckt auch der eingespeiste PV-Strom. Hausverbrauch/Tag zieht die Einspeisung des Tages ab.
+Was der Akku über den Tag netto speichert oder abgibt, und seine Lade- und Wandlungsverluste, sind darin nicht
+getrennt ausgewiesen. Über einen ganzen Tag gleicht sich das weitgehend aus.
 
 ### Wärmezähler
 
@@ -273,7 +275,7 @@ Eigene Seite in der Seitenleiste mit vier Blöcken:
 | Netzladen Status | Update von `Goodwe_EMS_Mode` | Setzt den Schalter auf den tatsächlich gelesenen Zustand: 47511 = 2 heißt AN, alles andere AUS. |
 | PV Ertrag berechnen | Änderung von `Goodwe_PV_Ertrag_Heute_Raw` oder `Goodwe_PV_Ertrag_Gesamt_Raw` | `PV_Ertrag_Heute` = 35193 ÷ 10, `PV_Ertrag_Gesamt` = 35191 ÷ 10, `PV_Ertrag_Jahr` = gesamt − `PV_Ertrag_Jahresbeginn`. Ohne Startwert wird der aktuelle Stand übernommen. Ein Rohwert 0 wird ignoriert. |
 | PV Ertrag Jahreswechsel | 1. Januar 0:00 (`0 0 0 1 1 ? *`) | `PV_Ertrag_Jahresbeginn` = aktueller Gesamtzähler, `PV_Ertrag_Jahr` = 0 |
-| Netzbezug und Gesamt heute berechnen | Änderung von `HauptstromzaehlerVerbrauch` oder `PV_Ertrag_Heute`, täglich 0:00 | `Netzbezug_Heute` = Zählerstand − `Netzbezug_Tagesbeginn`. `Gesamt_Heute` = Netzbezug heute + PV-Ertrag heute. Passt `Netzbezug_Tagesbeginn_Datum` nicht zu heute, wird der aktuelle Zählerstand der neue Tagesbeginn. Damit funktioniert der Tageswechsel auch, wenn openHAB um 0:00 aus war. |
+| Netzbezug, Einspeisung, Gesamt und Hausverbrauch heute berechnen | Änderung von `HauptstromzaehlerVerbrauch`, `HauptstromzaehlerEinspeisung` oder `PV_Ertrag_Heute`, täglich 0:00 | `Netzbezug_Heute` / `Einspeisung_Heute` = Zählerstand − Stand zu Tagesbeginn (`Netzbezug_Tagesbeginn` / `Einspeisung_Tagesbeginn`). `Gesamt_Heute` = Netzbezug heute + PV-Ertrag heute. `Hausverbrauch_Heute` = Gesamt heute − Einspeisung heute. Passt `Netzbezug_Tagesbeginn_Datum` nicht zu heute, werden die aktuellen Zählerstände der neue Tagesbeginn. Das Datum wird erst gesetzt, wenn der Bezugszähler lesbar war. Damit funktioniert der Tageswechsel auch, wenn openHAB um 0:00 aus war. |
 | Akku Ladezyklen berechnen | Änderung von `Goodwe_Batt_Entladung_Raw` | Gesamtentladung in kWh = Rohwert ÷ 10. Ladezyklen = Gesamtentladung ÷ 20,24 kWh. |
 | Wärmepumpe Zusatzheizung Status | Änderung von `WP_Heizstab_Heizen_Heute`, `WP_Heizstab_Warmwasser_Heute` oder `WP_Heizstab_Starts` | Steigt einer der Werte, wird `WP_Zusatzheizung` AN. Nach 15 min ohne Anstieg wird es AUS (Timer im `privateCache`). Das Zurücksetzen der Tageszähler um Mitternacht wird ignoriert. |
 | Wärmepumpe Zusatzheizung Status beim Start | Startlevel 100 | Setzt `WP_Zusatzheizung` auf AUS, weil nach einem Neustart kein Abschalt-Timer läuft. |

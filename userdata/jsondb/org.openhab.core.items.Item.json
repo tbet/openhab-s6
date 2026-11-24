@@ -55,6 +55,32 @@
       "category": ""
     }
   },
+  "Einspeisung_Heute": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [
+        "Energy",
+        "Measurement"
+      ],
+      "label": "Einspeisung heute",
+      "category": "energy"
+    }
+  },
+  "Einspeisung_Tagesbeginn": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [
+        "Energy",
+        "Measurement"
+      ],
+      "label": "Zählerstand Einspeisung um Mitternacht",
+      "category": "cellar"
+    }
+  },
   "Gesamt_Heute": {
     "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
     "value": {
@@ -276,6 +302,19 @@
       "category": "energy"
     }
   },
+  "Hausverbrauch_Heute": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [
+        "Energy",
+        "Measurement"
+      ],
+      "label": "Hausverbrauch heute (Gesamt - Einspeisung)",
+      "category": "energy"
+    }
+  },
   "Netzbezug_Heute": {
     "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
     "value": {
@@ -308,7 +347,7 @@
       "groupNames": [],
       "itemType": "String",
       "tags": [],
-      "label": "Datum des Zählerstands um Mitternacht",
+      "label": "Datum der Zählerstände um Mitternacht",
       "category": "time"
     }
   },
